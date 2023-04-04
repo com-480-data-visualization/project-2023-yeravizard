@@ -2,7 +2,7 @@
 
 | Student's name | SCIPER |
 | -------------- | ------ |
-| | |
+| Alexander Sternfeld | 351369 |
 | | |
 | | |
 
