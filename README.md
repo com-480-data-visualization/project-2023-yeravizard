@@ -3,8 +3,8 @@
 | Student's name | SCIPER |
 | -------------- | ------ |
 | Alexander Sternfeld | 351369 |
-| | |
-| | |
+| Antoine Bonnet | 351438 |
+| Silvia Romanato | 360412 |
 
 [Milestone 1](#milestone-1) • [Milestone 2](#milestone-2) • [Milestone 3](#milestone-3)
 
