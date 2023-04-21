@@ -1,3 +1,6 @@
+
+[comment]: <> (This is an example of how we would add an additional page. One would need to alter the _config.yml as well to actually display the page)
+
 ---
 layout: page
 title: About me
