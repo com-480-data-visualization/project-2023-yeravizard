@@ -6,14 +6,36 @@ subtitle: Uncovering Patterns in Terrorist Group Beliefs and Attacks
 ---
 <!DOCTYPE html>
 <html>
-<head>
-	<title>Cluster bomb</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-</head>
+<style>
+	/* Here you can add several style "classes" */
+	.graph_container
+  {
+    width: 100%;
+    height: 100%;
+    top: 5px;
+    left: 0px;
+    right: 0px;
+    position: sticky;
+    align-self: flex-start;
+    padding: 5px;
+    margin: 0 0 10 10;
+  }
+</style>
+
 <body>
 	<div>
 		<p>This is a report about group terrorism.</p>
+	</div>
+
+	<div>
+		<h2> A comparison of terrorist groups</h2>
+		<p> In this section, we will dive deeper into what makes a terrorist group. Specifically, we will consider three different groups, with three different ideologies. 
+			By comparing these groups, we will gain a deeper understanding about the key features of a terrorist group.</p>
+	</div>
+	<div class="graph_container">
+		<!-- Add the iframe element where you want the plot to appear -->
+		<iframe src="Plots/Romancegen_plot.html" data-aos="zoom-in " data-aos-offset="120" data-aos-duration="0"
+			data-aos-anchor-placement="top-bottom" display:block; width=100% height="900"></iframe>
 	</div>
 </body>
 </html>
