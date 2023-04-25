@@ -9,6 +9,7 @@ subtitle: Uncovering Patterns in Terrorist Group Beliefs and Attacks
 <script src="https://d3js.org/d3.v4.js"></script>
 <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+<!--<link rel="stylesheet" type="text/css" href="assets/css/blahblah.css" />-->
 
 
 <html>
@@ -39,8 +40,8 @@ subtitle: Uncovering Patterns in Terrorist Group Beliefs and Attacks
 			religious driven, extrene left-wing and extreme right-wing. </p>
 
 	</div>
-	
-	<div id="my_dataviz"></div>
+	<div id = "container">
+	<div id="my_dataviz" width="1200" height="800"></div>
 	<script src = "plots/dataviz_area.js"></script>
 
 	<div>
@@ -52,11 +53,7 @@ subtitle: Uncovering Patterns in Terrorist Group Beliefs and Attacks
 		<!-- Add the iframe element where you want the plot to appear -->
 		<iframe src= "plots/group_target_types.html" data-aos="zoom-in " data-aos-offset="0" data-aos-duration="0" data-aos-mirror="true" data-aos-anchor-placement="top-bottom"></iframe>
 	</div>
-	<div>
-        <svg id="basic_map" width="400" height="300"></svg>
-        <script src="plots/basic_map.js"></script> 
-    </div>
-
+	</div>
 </body>
 
 </html>

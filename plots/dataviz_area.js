@@ -12,41 +12,127 @@ var svg = d3.select("#my_dataviz")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
-//Read the data from the path /Users/silviaromanato/Desktop/EPFL/MA2/data_visualization_course/project-2023-yeravizard/data/ethno_nationalist.csv
-d3.csv("data/ethno_nationalist.csv",
+d3.csv("data/ethno_nationalist.csv", 
+    function(d) {
+        return { year : d.iyear, 
+            ethno_nationalist : d.ethno_nationalist, 
+            religious : d.religious, 
+            extreme_left: d.extreme_left, 
+            extreme_right: d.extreme_right,  
+            other: d.single_issue};
+        },
+  
+    function(data) {
+        
+        var keys = ["ethno nationalists", "religious", "extreme left", "extreme right", "other"]
 
-  // When reading the csv, I must format variables:
-  function(d){
-    return { value : d.ORGNAME, year : d.iyear}
-  },
+        var color = d3.scaleOrdinal()
+            .domain(keys)
+            .range(d3.schemeSet2);
 
-  // Now I can use this dataset:
-  function(data) {
+        // add the options to the button
+        d3.select("#selectButton")
+        .selectAll('myOptions')
+        .data(data)
+        .enter()
+        .append('option')
+        .text(function (d) { return d; }) // text showed in the menu
+        .attr("value", function (d) { return d; }) // corresponding value returned by the button
 
-    // Add X axis --> it is a date format
-    var x = d3.scaleLinear()
-      .domain(d3.extent(data, function(d) { return d.year; }))
-      .range([ 0, width ]);
-    svg.append("g")
-      .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
+        // Add X axis --> it is a date format
+        var x = d3.scaleLinear()
+        .domain(d3.extent(data, function(d) { return d.year; }))
+        .range([ 0, width ]);
+        svg.append("g")
+        .attr("transform", "translate(0," + height + ")")
+        .call(d3.axisBottom(x));
 
-    // Add Y axis
-    var y = d3.scaleLinear()
-      .domain([0, d3.max(data, function(d) { return + d.value; })])
-      .range([ height, 0 ]);
-    svg.append("g")
-      .call(d3.axisLeft(y));
+        // Add Y axis log scale
+        var y = d3.scaleLinear()
+            .domain([0, d3.max(data, function(d) { return + d.religious; })])
+            .range([ height, 0 ]);
+        svg.append("g")
+        .call(d3.axisLeft(y));
 
-    // Add the line
-    svg.append("path")
-      .datum(data)
-      .attr("fill", "none")
-      .attr("stroke", "steelblue")
-      .attr("stroke-width", 1.5)
-      .attr("d", d3.line()
-        .x(function(d) { return x(d.year) })
-        .y(function(d) { return y(d.value) })
-        )
+        // Add the line
+        svg.append("path")
+        .datum(data)
+        .attr("fill", "none")
+        .attr("stroke", function(d){ return color('ethno nationalists')})                                                              
+        .attr("stroke-width", 1.5)
+        .attr("d", d3.line()
+            .x(function(d) { return x(d.year) })
+            .y(function(d) { return y(d.ethno_nationalist) })
+            )
+        // Add the line
+        svg.append("path")
+        .datum(data)
+        .attr("fill", "none")
+        .attr("stroke", function(d){ return color('religious')})
+        .attr("stroke-width", 1.5)
+        .attr("d", d3.line()
+            .x(function(d) { return x(d.year) })
+            .y(function(d) { return y(d.religious) })
+            )
+        // Add the line
+        svg.append("path")
+        .datum(data)
+        .attr("fill", "none")
+        .attr("stroke", function(d){ return color('extreme left')})
+        .attr("stroke-width", 1.5)
+        .attr("d", d3.line()
+            .x(function(d) { return x(d.year) })
+            .y(function(d) { return y(d.extreme_left) })
+            )
+        // Add the line
+        svg.append("path")
+        .datum(data)
+        .attr("fill", "none")
+        .attr("stroke", function(d){ return color('extreme right')})
+        .attr("stroke-width", 1.5)
+        .attr("d", d3.line()
+            .x(function(d) { return x(d.year) })
+            .y(function(d) { return y(d.extreme_right) })
+            )
+        
+        svg.append("path")
+        .datum(data)
+        .attr("fill", "none")
+        .attr("stroke", function(d){ return color('other')})
+        .attr("stroke-width", 1.5)
+        .attr("d", d3.line()
+            .x(function(d) { return x(d.year) })
+            .y(function(d) { return y(d.other) })
+            )
+        // ad a title
+        svg.append("text")
+        .attr("x", (width / 2))
+        .attr("y", 0 - (margin.top / 2))
+        .attr("text-anchor", "middle")
+        .style("font-size", "16px")
+        .style("text-decoration", "underline")
+
+        svg.selectAll("mydots")
+            .data(keys)
+            .enter()
+            .append("circle")
+                .attr("cx", 250)
+                .attr("cy", function(d,i){ return 100 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+                .attr("r", 7)
+                .style("fill", function(d){ return color(d)})
+
+            // Add one dot in the legend for each name.
+        svg.selectAll("mylabels")
+            .data(keys)
+            .enter()
+            .append("text")
+                .attr("x", 270)
+                .attr("y", function(d,i){ return 100 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
+                .style("fill", function(d){ return color(d)})
+                .text(function(d){ return d})
+                .attr("text-anchor", "left")
+                .style("alignment-baseline", "middle")
 
 })
+
+
