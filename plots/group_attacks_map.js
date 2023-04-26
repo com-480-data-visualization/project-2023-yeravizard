@@ -77,5 +77,20 @@ d3.json('data/countries.geojson')
                     .on('mouseout', function (d) {
                         d3.select(this).style('stroke', 'none');
                     });
+
+                // Add a zoom behavior to the map
+                const zoom = d3.zoom()
+                    .scaleExtent([1, 8])
+                    .on('zoom', function () {
+                        svg_group_attacks.selectAll('path')
+                            .attr('transform', d3.event.transform);
+                    }
+                    );
+                
+                svg_group_attacks.call(zoom);
+
+                // 12. Add a legend to the map. The legend shows the three terrorist groups and their corresponding colors.
+                
+
             });
     });
