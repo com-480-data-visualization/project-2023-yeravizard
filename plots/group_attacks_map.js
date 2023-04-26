@@ -39,13 +39,12 @@ d3.json('data/group_attack_coordinates.json').then(data => {
     svg.selectAll('.point')
         .style('fill', d => {
             switch (d.properties.group) {
-                case 'A':
+                case 'Tehrik-i-Taliban Pakistan (TTP)':
                     return 'red';
-                case 'B':
+                case 'Irish Republican Army (IRA)':
                     return 'green';
-                case 'C':
+                case 'Mujahedin-e Khalq (MEK)':
                     return 'blue';
-                // ... more cases
                 default:
                     return 'gray';
             }
