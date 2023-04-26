@@ -9,20 +9,20 @@ const projection = d3.geoMercator()
     .translate([400, 300])
     .scale(100);
 
-// 3. Load your dataset
-d3.json('data/group_attack_coordinates.json', function (error, data) {
-    if (error) throw error;
-    // 4. Convert your coordinates into the format required by the map projection
-    const geoData = data.map(d => ({
-        type: 'Feature',
-        geometry: {
-            type: 'Point',
-            coordinates: [d.lon, d.lat],
-        },
-        properties: {
-            group: d.group,
-        },
-    }));
+// 3. Load your dataset, that is add data/group_attack_coordinates.json'
+d3.json('data/group_attack_coordinates.json')
+    .then(function (data) {
+        // 4. Convert your coordinates into the format required by the map projection
+        const geoData = data.map(d => ({
+            type: 'Feature',
+            geometry: {
+                type: 'Point',
+                coordinates: [d.lon, d.lat],
+            },
+            properties: {
+                group: d.group,
+            },
+        }));
 
     console.log('GeoData:', geoData);
 
