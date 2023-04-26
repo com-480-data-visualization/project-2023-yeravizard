@@ -79,18 +79,47 @@ d3.json('data/countries.geojson')
                     });
 
                 // Add a zoom behavior to the map
-                const zoom = d3.zoom()
-                    .scaleExtent([1, 8])
-                    .on('zoom', function () {
-                        svg_group_attacks.selectAll('path')
-                            .attr('transform', d3.event.transform);
-                    }
-                    );
-                
-                svg_group_attacks.call(zoom);
+                svg_group_attacks.call(d3.zoom().on('zoom', function() {
+                    svg_group_attacks.selectAll('path')
+                        .attr('transform', d3.zoomTransform(this));
+                }
 
-                // 12. Add a legend to the map. The legend shows the three terrorist groups and their corresponding colors.
-                
+                ));
 
+                // 12. Add a legend to the map 
+                const legend = svg_group_attacks.append('g')
+                    .attr('class', 'legend')
+                    .attr('transform', 'translate(20, 20)');
+                // The legend should give the three groups and their colors
+                legend.append('rect')
+                    .attr('x', 0)
+                    .attr('y', 0)
+                    .attr('width', 20)
+                    .attr('height', 20)
+                    .style('fill', 'red');
+                legend.append('text')
+                    .attr('x', 30)
+                    .attr('y', 15)
+                    .text('Tehrik-i-Taliban Pakistan (TTP)');
+                legend.append('rect')
+                    .attr('x', 0)
+                    .attr('y', 30)
+                    .attr('width', 20)
+                    .attr('height', 20)
+                    .style('fill', 'green');
+                legend.append('text')
+                    .attr('x', 30)
+                    .attr('y', 45)
+                    .text('Irish Republican Army (IRA)');
+                legend.append('rect')
+                    .attr('x', 0)
+                    .attr('y', 60)
+                    .attr('width', 20)
+                    .attr('height', 20)
+                    .style('fill', 'blue');
+                legend.append('text')
+                    .attr('x', 30)
+                    .attr('y', 75)
+                    .text('Mujahedin-e Khalq (MEK)');
             });
     });
