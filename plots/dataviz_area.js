@@ -4,7 +4,7 @@ var margin = {top: 10, right: 30, bottom: 30, left: 60},
     height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg = d3.select("#my_dataviz")
+var svg_ideologies = d3.select("#my_dataviz")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -43,7 +43,7 @@ d3.csv("data/ethno_nationalist.csv",
         var x = d3.scaleLinear()
         .domain(d3.extent(data, function(d) { return d.year; }))
         .range([ 0, width ]);
-        svg.append("g")
+        svg_ideologies.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x));
 
@@ -51,11 +51,11 @@ d3.csv("data/ethno_nationalist.csv",
         var y = d3.scaleLinear()
             .domain([0, d3.max(data, function(d) { return + d.religious; })])
             .range([ height, 0 ]);
-        svg.append("g")
+        svg_ideologies.append("g")
         .call(d3.axisLeft(y));
 
         // Add the line
-        svg.append("path")
+        svg_ideologies.append("path")
         .datum(data)
         .attr("fill", "none")
         .attr("stroke", function(d){ return color('ethno nationalists')})                                                              
@@ -65,7 +65,7 @@ d3.csv("data/ethno_nationalist.csv",
             .y(function(d) { return y(d.ethno_nationalist) })
             )
         // Add the line
-        svg.append("path")
+        svg_ideologies.append("path")
         .datum(data)
         .attr("fill", "none")
         .attr("stroke", function(d){ return color('religious')})
@@ -75,7 +75,7 @@ d3.csv("data/ethno_nationalist.csv",
             .y(function(d) { return y(d.religious) })
             )
         // Add the line
-        svg.append("path")
+        svg_ideologies.append("path")
         .datum(data)
         .attr("fill", "none")
         .attr("stroke", function(d){ return color('extreme left')})
@@ -85,7 +85,7 @@ d3.csv("data/ethno_nationalist.csv",
             .y(function(d) { return y(d.extreme_left) })
             )
         // Add the line
-        svg.append("path")
+        svg_ideologies.append("path")
         .datum(data)
         .attr("fill", "none")
         .attr("stroke", function(d){ return color('extreme right')})
@@ -95,7 +95,7 @@ d3.csv("data/ethno_nationalist.csv",
             .y(function(d) { return y(d.extreme_right) })
             )
         
-        svg.append("path")
+        svg_ideologies.append("path")
         .datum(data)
         .attr("fill", "none")
         .attr("stroke", function(d){ return color('other')})
@@ -105,14 +105,14 @@ d3.csv("data/ethno_nationalist.csv",
             .y(function(d) { return y(d.other) })
             )
         // ad a title
-        svg.append("text")
+        svg_ideologies.append("text")
         .attr("x", (width / 2))
         .attr("y", 0 - (margin.top / 2))
         .attr("text-anchor", "middle")
         .style("font-size", "16px")
         .style("text-decoration", "underline")
 
-        svg.selectAll("mydots")
+        svg_ideologies.selectAll("mydots")
             .data(keys)
             .enter()
             .append("circle")
@@ -122,7 +122,7 @@ d3.csv("data/ethno_nationalist.csv",
                 .style("fill", function(d){ return color(d)})
 
             // Add one dot in the legend for each name.
-        svg.selectAll("mylabels")
+        svg_ideologies.selectAll("mylabels")
             .data(keys)
             .enter()
             .append("text")
