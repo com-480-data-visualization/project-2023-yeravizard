@@ -16,7 +16,7 @@ d3.json('data/group_attack_coordinates.json').then(data => {
         type: 'Feature',
         geometry: {
             type: 'Point',
-            coordinates: [d.long, d.lat],
+            coordinates: [d.lon, d.lat],
         },
         properties: {
             group: d.group,
