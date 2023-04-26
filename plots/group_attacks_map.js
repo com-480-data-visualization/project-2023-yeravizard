@@ -9,19 +9,20 @@ const projection = d3.geoMercator()
     .translate([400, 300])
     .scale(100);
 
-// 3. Load the world map data
-d3.json('https://raw.githubusercontent.com/d3/d3-geo/master/test/data/world-110m.json')
-    .then(function (worldData) {
-
-        // 4. Create a path generator for the world map
-        const worldPath = d3.geoPath()
+// 3. Load the world map data, there is a geojson file in the data folder called 'countries.geojson'
+d3.json('data/countries.geojson')
+    .then(function (data) {
+        // 4. Create a path generator that will create the path elements for your map
+        const path = d3.geoPath()
             .projection(projection);
 
-        // 5. Append the world map to the SVG container
-        svg_group_attacks.append('path')
-            .datum(topojson.feature(worldData, worldData.objects.land))
-            .attr('class', 'land')
-            .attr('d', worldPath);
+        // 5. Bind your data to path elements and append them to the SVG container
+        svg_group_attacks.selectAll('.country')
+            .data(data.features)
+            .enter()
+            .append('path')
+            .attr('class', 'country')
+            .attr('d', path);
 
         // 6. Load your dataset, that is add data/group_attack_coordinates.json'
         d3.json('data/group_attack_coordinates.json')
