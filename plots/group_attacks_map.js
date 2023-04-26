@@ -1,5 +1,5 @@
 // 1. Create an SVG container for the map
-const svg = d3.select('#group_map').append('svg')
+const svg_group_attacks = d3.select('#group_map').append('svg')
     .attr('width', 800)
     .attr('height', 600);
 
@@ -22,7 +22,7 @@ d3.json('data/group_attack_coordinates.json').then(data => {
             group: d.group,
         },
     }));
-    
+
     console.log('GeoData:', geoData);
 
     // 5. Create a path generator that will create the path elements for your map
@@ -30,7 +30,7 @@ d3.json('data/group_attack_coordinates.json').then(data => {
         .projection(projection);
 
     // 6. Bind your data to path elements and append them to the SVG container
-    svg.selectAll('.point')
+    svg_group_attacks.selectAll('.point')
         .data(geoData)
         .enter()
         .append('path')
@@ -38,7 +38,7 @@ d3.json('data/group_attack_coordinates.json').then(data => {
         .attr('d', path);
 
     // 7. Style the path elements according to the terrorist group
-    svg.selectAll('.point')
+    svg_group_attacks.selectAll('.point')
         .style('fill', d => {
             switch (d.properties.group) {
                 case 'Tehrik-i-Taliban Pakistan (TTP)':
@@ -54,7 +54,7 @@ d3.json('data/group_attack_coordinates.json').then(data => {
         .style('opacity', 0.5);
 
     // 8. Add interactivity to the map using D3's event listeners
-    svg.selectAll('.point')
+    svg_group_attacks.selectAll('.point')
         .on('mouseover', function (d) {
             d3.select(this).style('stroke', 'black');
         })
