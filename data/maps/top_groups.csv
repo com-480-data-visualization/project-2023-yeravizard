@@ -44,8 +44,8 @@ Lashkar-e-Taiba (LeT),1047.0,Pakistan,30.11618837141088,69.08835090769651
 Jamaat Nusrat al-Islam wal Muslimin (JNIM),1024.0,Mali,17.168146208584837,-4.346399841781153
 Tutsi extremists,932.0,Rwanda,-2.014687460047154,29.91943968176408
 Al-Qaida in the Islamic Maghreb (AQIM),927.0,Algeria,28.350969744889056,2.655846471976913
-Tawhid and Jihad,876.0,Palestine,35.227163,31.947351
-Hamas (Islamic Resistance Movement),868.0,Palestine,35.227163,31.947351
+Tawhid and Jihad,876.0,Palestine,31.947351,35.227163
+Hamas (Islamic Resistance Movement),868.0,Palestine,31.947351,35.227163
 Abu Sayyaf Group (ASG),862.0,Philippines,15.586542251094242,121.82208941416744
 People's Liberation Front (JVP),859.0,Sri Lanka,7.696630939329944,80.66931169770622
 Hay'at Tahrir al-Sham,821.0,Syria,35.09751106058316,38.5117323139514
@@ -70,7 +70,7 @@ Algerian Islamic Extremists,551.0,Algeria,28.350969744889056,2.655846471976913
 Revolutionary United Front (RUF),533.0,Sierra Leone,8.561330384750587,-11.78656695731115
 Janjaweed,526.0,Sudan,15.67060230984256,29.951458283594064
 Popular Liberation Army (EPL),524.0,Colombia,4.187753877352739,-72.6445066243485
-Palestinians,520.0,Palestine,35.227163,31.947351
+Palestinians,520.0,Palestine,31.947351,35.227163
 Democratic Front for the Liberation of Rwanda (FDLR),519.0,Rwanda,-2.014687460047154,29.91943968176408
 Mujahedin-e Khalq (MEK),516.0,Iran,32.906023742890056,54.23707700106544
 National Democratic Front of Bodoland (NDFB),514.0,India,23.58630056774672,81.17300408530181
@@ -93,7 +93,7 @@ Uighur Separatists,389.0,China,38.07325481105728,104.69113855849604
 Murle Tribe,385.0,South Sudan,7.657782041763295,30.3851856901788
 Lashkar-e-Islam (Pakistan),384.0,Pakistan,30.11618837141088,69.08835090769651
 Bodo Militants,376.0,India,23.58630056774672,81.17300408530181
-Ulster Volunteer Force (UVF),367.0,Northern Ireland,-6.693145,54.607577
+Ulster Volunteer Force (UVF),367.0,Northern Ireland,54.607577,-6.693145
 Tigray Peoples Liberation Front (TPLF),361.0,Ethiopia,8.729389557048396,39.91490288654428
 Khmer Rouge,361.0,Cambodia,12.699186865507777,105.039730786807
 Inkatha Freedom Party (IFP),345.0,South Africa,-28.55361930679731,24.75252746489084
@@ -101,20 +101,20 @@ Mayi Mayi,342.0,Congo DRC,-3.338629596207896,23.419827574282188
 United Self Defense Units of Colombia (AUC),341.0,Colombia,4.187753877352739,-72.6445066243485
 Jemaah Islamiya (JI),341.0,Indonesia,0.1559197995903765,113.96538246847302
 Left-Wing Guerrillas,341.0,Iran,32.906023742890056,54.23707700106544
-Palestinian Extremists,329.0,Palestine,35.227163,31.947351
+Palestinian Extremists,329.0,Palestine,31.947351,35.227163
 Peasant Self-Defense Group (ACCU),313.0,Colombia,4.187753877352739,-72.6445066243485
-Palestinian Islamic Jihad (PIJ),308.0,Palestine,35.227163,31.947351
+Palestinian Islamic Jihad (PIJ),308.0,Palestine,31.947351,35.227163
 Union for Peace in Central Africa (UPC),306.0,Central African Republic,6.331390033944319,20.520743419397256
 Muslim Brotherhood,306.0,Egypt,26.60517034450628,30.240135435012338
 Jaysh al-Islam (Syria),305.0,Syria,35.09751106058316,38.5117323139514
 Sanaa Province of the Islamic State,304.0,Yemen,16.001392616307445,47.46815793206386
 Baloch Liberation Front (BLF),298.0,Syria,35.09751106058316,38.5117323139514
-Al-Aqsa Martyrs Brigade,290.0,Palestine,35.227163,31.947351
+Al-Aqsa Martyrs Brigade,290.0,Palestine,31.947351,35.227163
 Movement for the Emancipation of the Niger Delta (MEND),290.0,Nigeria,9.61029352034213,8.147714845256194
 Front for the Liberation of Lebanon from Foreigners,287.0,Lebanon,33.91160170722086,35.89651946324749
 Islamic Front (Syria),287.0,Syria,35.09751106058316,38.5117323139514
 Revolutionary Organization of People in Arms (ORPA),287.0,Guatemala,15.820878515352684,-90.31219349119615
-Abu Nidal Organization (ANO),278.0,Palestine,35.227163,31.947351
+Abu Nidal Organization (ANO),278.0,Palestine,31.947351,35.227163
 Ansar al-Sunna (Mozambique),274.0,Mozambique,-17.525230309488748,35.208577031290176
 Misurasata Indian Organization,270.0,India,23.58630056774672,81.17300408530181
 Party for the Liberation of the Hutu People (PALIPEHUTU),269.0,Tanzania,-6.355794440041147,34.81832206060381
@@ -124,7 +124,7 @@ Jundallah (Pakistan),254.0,Pakistan,30.11618837141088,69.08835090769651
 Luhansk People's Republic,253.0,Russian Federation,59.039434214106194,98.6704990698032
 Kashmiri extremists,249.0,India,23.58630056774672,81.17300408530181
 Gumuz militia,247.0,Ethiopia,8.729389557048396,39.91490288654428
-Palestine Liberation Organization (PLO),246.0,Palestine,35.227163,31.947351
+Palestine Liberation Organization (PLO),246.0,Palestine,31.947351,35.227163
 Popular Front for the Renaissance of the Central African Republic (FPRC),245.0,Central African Republic,6.331390033944319,20.520743419397256
 Ethiopian People's Revolutionary Party,241.0,Ethiopia,8.729389557048396,39.91490288654428
 Jaish-e-Mohammad (JeM),241.0,Pakistan,30.11618837141088,69.08835090769651
@@ -148,7 +148,7 @@ Islamic Salvation Front (FIS),211.0,Algeria,28.350969744889056,2.655846471976913
 Ansar al-Din Front,206.0,Syria,35.09751106058316,38.5117323139514
 Baloch Republican Army (BRA),204.0,Pakistan,30.11618837141088,69.08835090769651
 Revolutionary Armed Forces of Colombia (FARC) dissidents,202.0,Colombia,4.187753877352739,-72.6445066243485
-Ulster Freedom Fighters (UFF),202.0,Northern Ireland,-6.693145,54.607577
+Ulster Freedom Fighters (UFF),202.0,Northern Ireland,54.607577,-6.693145
 National Patriotic Front of Liberia (NPFL),196.0,Liberia,6.52012979398834,-9.258988935497618
 Special Purpose Islamic Regiment (SPIR),184.0,Russian Federation,59.039434214106194,98.6704990698032
 Deccan Mujahideen,184.0,India,23.58630056774672,81.17300408530181
@@ -156,7 +156,7 @@ Serbian extremists,184.0,Serbia,44.02679870131969,20.85677444395745
 M23,183.0,Congo DRC,-3.338629596207896,23.419827574282188
 The Extraditables,181.0,Colombia,4.187753877352739,-72.6445066243485
 Abdullah Azzam Brigades,180.0,Lebanon,33.91160170722086,35.89651946324749
-"Popular Front for the Liberation of Palestine, Gen Cmd (PFLP-GC)",173.0,Palestine,35.227163,31.947351
+"Popular Front for the Liberation of Palestine, Gen Cmd (PFLP-GC)",173.0,Palestine,31.947351,35.227163
 People's Protection Units (YPG),167.0,Syria,35.09751106058316,38.5117323139514
 Al-Naqshabandiya Army,165.0,Iraq,33.105075667527906,43.83252918105688
 Ansar al-Sunna,164.0,Iraq,33.105075667527906,43.83252918105688
@@ -169,7 +169,7 @@ Ogaden National Liberation Front (ONLF),159.0,Ethiopia,8.729389557048396,39.9149
 Rwanda Patriotic Front (RPF),156.0,Rwanda,-2.014687460047154,29.91943968176408
 Tripura National Volunteers (TNV),154.0,India,23.58630056774672,81.17300408530181
 Arakan Rohingya Salvation Army (ARSA),151.0,Myanmar,19.901227931399877,97.08892285397344
-Popular Front for the Liberation of Palestine (PFLP),150.0,Palestine,35.227163,31.947351
+Popular Front for the Liberation of Palestine (PFLP),150.0,Palestine,31.947351,35.227163
 Movement for Oneness and Jihad in West Africa (MUJAO),150.0,Algeria,28.350969744889056,2.655846471976913
 Islamic State in Egypt,150.0,Egypt,26.60517034450628,30.240135435012338
 National Socialist Council of Nagaland,146.0,Myanmar,19.901227931399877,97.08892285397344
