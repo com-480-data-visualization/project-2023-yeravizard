@@ -6,12 +6,13 @@ warnings.simplefilter("ignore")
 
 BASE_DIR = os.path.dirname(os.getcwd())
 DATA_DIR = os.path.join(BASE_DIR, 'data')
+RAW_DATA_DIR = os.path.join(DATA_DIR, 'raw')
 
 def load_GTD(): 
     ''' Load the GTD into a single dataframe. '''
-    GTD_path = os.path.join(DATA_DIR, 'GTD.pkl')
-    GTD1_path = os.path.join(DATA_DIR, 'GTD1.xlsx')
-    GTD2_path = os.path.join(DATA_DIR, 'GTD2.xlsx')
+    GTD_path = os.path.join(RAW_DATA_DIR, 'GTD.pkl')
+    GTD1_path = os.path.join(RAW_DATA_DIR, 'GTD1.xlsx')
+    GTD2_path = os.path.join(RAW_DATA_DIR, 'GTD2.xlsx')
 
     # If the data is already combined, read it
     if os.path.exists(GTD_path):
@@ -38,9 +39,9 @@ def load_GTD():
 def load_PPTUS(): 
     ''' Load the PPTUS dataset into two dataframes. '''
     # Read PPTUS dataset or create it 
-    PPTUS_filepath = os.path.join(DATA_DIR, 'PPT-US_0517dist.xlsx')
-    PPTUS_data_path = os.path.join(DATA_DIR, 'PPT-US_DATA.pkl')
-    PPTUS_sources_path = os.path.join(DATA_DIR, 'PPT-US_SOURCES.pkl')
+    PPTUS_filepath = os.path.join(RAW_DATA_DIR, 'PPT-US_0517dist.xlsx')
+    PPTUS_data_path = os.path.join(RAW_DATA_DIR, 'PPT-US_DATA.pkl')
+    PPTUS_sources_path = os.path.join(RAW_DATA_DIR, 'PPT-US_SOURCES.pkl')
     
     if os.path.exists(PPTUS_data_path) and os.path.exists(PPTUS_sources_path): 
         print('PPTUS pickle files found, loading...')
