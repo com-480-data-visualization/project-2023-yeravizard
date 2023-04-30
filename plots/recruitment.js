@@ -4,7 +4,7 @@ var margin = { top: 10, right: 30, bottom: 30, left: 60 },
     height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg = d3.select("#recruitment_strategies")
+var svg_recruitment = d3.select("#recruitment_strategies")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -26,7 +26,7 @@ d3.csv("data/ideology_recruitment.csv", function (data) {
         .domain(groups)
         .range([0, width])
         .padding([0.2])
-    svg.append("g")
+    svg_recruitment.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x).tickSize(0));
 
@@ -34,7 +34,7 @@ d3.csv("data/ideology_recruitment.csv", function (data) {
     var y = d3.scaleLinear()
         .domain([0, 1])
         .range([height, 0]);
-    svg.append("g")
+    svg_recruitment.append("g")
         .call(d3.axisLeft(y));
 
     // Another scale for subgroup position?
@@ -49,13 +49,13 @@ d3.csv("data/ideology_recruitment.csv", function (data) {
         .range(['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00'])
 
     // Show the bars
-    svg.append("g")
+    svg_recruitment.append("g")
         .selectAll("g")
         // Enter in data = loop group per group
         .data(data)
         .enter()
         .append("g")
-            .attr("transform", function (d) { return "translate(" + x(d.group) + ",0)"; })
+            .attr("transform", function (d) { return "translate(" + x(d.ideology) + ",0)"; })
         .selectAll("rect")
         .data(function (d) { return subgroups.map(function (key) { return { key: key, value: d[key] }; }); })
         .enter().append("rect")
