@@ -4,7 +4,7 @@ var margin = { top: 10, right: 30, bottom: 30, left: 60 },
     height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg_structures = d3.select("#group_structures")
+var svg_recruitment = d3.select("#recruitment_strategies")
     .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -13,7 +13,7 @@ var svg_structures = d3.select("#group_structures")
         "translate(" + margin.left + "," + margin.top + ")");
 
 // Parse the Data
-d3.csv("data/ideology_structure.csv", function (data) {
+d3.csv("data/ideology_recruitment.csv", function (data) {
 
     // List of subgroups = header of the csv files = soil condition here
     var subgroups = data.columns.slice(1)
@@ -26,7 +26,7 @@ d3.csv("data/ideology_structure.csv", function (data) {
         .domain(groups)
         .range([0, width])
         .padding([0.2])
-    svg_structures.append("g")
+    svg_recruitment.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x).tickSize(0));
 
@@ -34,7 +34,7 @@ d3.csv("data/ideology_structure.csv", function (data) {
     var y = d3.scaleLinear()
         .domain([0, 1])
         .range([height, 0]);
-    svg_structures.append("g")
+    svg_recruitment.append("g")
         .call(d3.axisLeft(y));
 
     // Another scale for subgroup position?
@@ -49,7 +49,7 @@ d3.csv("data/ideology_structure.csv", function (data) {
         .range(['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00'])
 
     // Show the bars
-    svg_structures.append("g")
+    svg_recruitment.append("g")
         .selectAll("g")
         // Enter in data = loop group per group
         .data(data)
