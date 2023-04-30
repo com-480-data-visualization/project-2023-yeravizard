@@ -19,7 +19,7 @@ d3.csv("data/ideology_recruitment.csv", function (data) {
     var subgroups = data.columns.slice(1)
 
     // List of groups = value of the first column called group -> I show them on the X axis
-    var groups = d3.map(data, function (d) { return (d.group) }).keys()
+    var groups = d3.map(data, function (d) { return (d.ideology) }).keys()
 
     // Add X axis
     var x = d3.scaleBand()
