@@ -55,14 +55,14 @@ d3.csv("data/ideology_structure.csv", function (data) {
         .data(data)
         .enter()
         .append("g")
-        .attr("transform", function (d) { return "translate(" + x(d.group) + ",0)"; })
+            .attr("transform", function (d) { return "translate(" + x(d.group) + ",0)"; })
         .selectAll("rect")
         .data(function (d) { return subgroups.map(function (key) { return { key: key, value: d[key] }; }); })
         .enter().append("rect")
-        .attr("x", function (d) { return xSubgroup(d.key); })
-        .attr("y", function (d) { return y(d.value); })
-        .attr("width", xSubgroup.bandwidth())
-        .attr("height", function (d) { return height - y(d.value); })
-        .attr("fill", function (d) { return color(d.key); });
+            .attr("x", function (d) { return xSubgroup(d.key); })
+            .attr("y", function (d) { return y(d.value); })
+            .attr("width", xSubgroup.bandwidth())
+            .attr("height", function (d) { return height - y(d.value); })
+            .attr("fill", function (d) { return color(d.key); });
 
 })
