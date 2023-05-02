@@ -75,7 +75,6 @@ d3.csv("data/ideology_structure.csv", function (data) {
     svg_structures.selectAll("text")
         .attr("transform", "rotate(-65)")
         .attr("text-anchor", "end");
-
     
     svg_structures.append("text")
         .attr("class", "y label")
@@ -83,7 +82,7 @@ d3.csv("data/ideology_structure.csv", function (data) {
         .attr("font-size", "10px")
         .attr("text-anchor", "end")
         .attr("y", 6)
-        .attr("dy", ".75em")
+        .attr("dy", "-1.1em")
         .attr("transform", "rotate(-90)")
         .text("Proportion of groups with the indicated structure");
 
