@@ -73,10 +73,33 @@ d3.csv("data/ideology_structure.csv", function (data) {
     
     svg_structures.append("text")
         .attr("class", "y label")
+        // size of text
+        .attr("font-size", "10px")
         .attr("text-anchor", "end")
         .attr("y", 6)
         .attr("dy", ".75em")
         .attr("transform", "rotate(-90)")
         .text("Proportion of groups with the indicated structure");
+
+    var legend = svg_structures.append("g")
+        .attr("class", "legend")
+        .attr("transform", "translate(" + (width + margin.right - 100) + "," + margin.top + ")")
+        .selectAll("g")
+        .data(color.domain().slice().reverse())
+        .enter().append("g")
+        .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+
+    legend.append("rect")
+        .attr("x", 0)
+        .attr("width", 18)
+        .attr("height", 18)
+        .style("fill", color);
+
+    legend.append("text")
+        .attr("x", 25)
+        .attr("y", 9)
+        .attr("dy", ".35em")
+        .style("text-anchor", "start")
+        .text(function (d) { return d; });
 
 })
