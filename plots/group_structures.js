@@ -70,6 +70,12 @@ d3.csv("data/ideology_structure.csv", function (data) {
             .attr("width", xSubgroup.bandwidth())
             .attr("height", function (d) { return height - y(d.value); })
             .attr("fill", function (d) { return color(d.key); });
+
+    // rotate x-axis labels
+    svg_structures.selectAll("text")
+        .attr("transform", "rotate(-65)")
+        .attr("text-anchor", "end");
+
     
     svg_structures.append("text")
         .attr("class", "y label")
