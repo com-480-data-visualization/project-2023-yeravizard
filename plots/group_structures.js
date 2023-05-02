@@ -71,7 +71,7 @@ d3.csv("data/ideology_structure.csv", function (data) {
             .attr("height", function (d) { return height - y(d.value); })
             .attr("fill", function (d) { return color(d.key); });
     
-    svg.append("text")
+    svg_structures.append("text")
         .attr("class", "y label")
         .attr("text-anchor", "end")
         .attr("y", 6)
