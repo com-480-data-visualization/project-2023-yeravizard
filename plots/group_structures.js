@@ -30,6 +30,11 @@ d3.csv("data/ideology_structure.csv", function (data) {
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x).tickSize(0));
 
+    // rotate x axis labels
+    svg_structures.selectAll("text")
+        .attr("transform", "translate(-10,0)rotate(-45)")
+        .style("text-anchor", "end");
+
     // Add Y axis
     var y = d3.scaleLog()
         .domain([-5, 1])
