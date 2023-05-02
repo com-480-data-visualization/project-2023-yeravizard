@@ -56,7 +56,7 @@ d3.csv("data/ideology_structure.csv", function (data) {
         .enter()
         .append("g")
             .attr("transform", function (d) { return "translate(" + x(d.ideology) + ",0)"; })
-            .call(xAxis)
+            .call(x)
             .selectAll("text")
             .style("text-anchor", "end")
             .attr("dx", "-.8em")
