@@ -31,8 +31,8 @@ d3.csv("data/ideology_structure.csv", function (data) {
         .call(d3.axisBottom(x).tickSize(0));
 
     // Add Y axis
-    var y = d3.scaleLinear()
-        .domain([0, 1])
+    var y = d3.scaleLog()
+        .domain([-5, 1])
         .range([height, 0]);
     svg_structures.append("g")
         .call(d3.axisLeft(y));
@@ -56,6 +56,12 @@ d3.csv("data/ideology_structure.csv", function (data) {
         .enter()
         .append("g")
             .attr("transform", function (d) { return "translate(" + x(d.ideology) + ",0)"; })
+            .call(xAxis)
+            .selectAll("text")
+            .style("text-anchor", "end")
+            .attr("dx", "-.8em")
+            .attr("dy", ".15em")
+            .attr("transform", "rotate(-65)")
         .selectAll("rect")
         .data(function (d) { return subgroups.map(function (key) { return { key: key, value: d[key] }; }); })
         .enter().append("rect")
