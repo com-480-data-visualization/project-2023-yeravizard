@@ -17,14 +17,10 @@ subtitle: Uncovering Patterns in Terrorist Group Beliefs and Attacks
 <html>
 <style>
 	/* Here you can add several style "classes" */
-	.standard_container
-  {
-    width: 100%;
-    height: 100%;
-    margin: auto;
-	margin-left: auto;
-	margin-right: auto;
-  }
+	.map_container {
+  display: flex;
+  justify-content: center;
+}
 </style>
 
 <body>
@@ -33,8 +29,10 @@ subtitle: Uncovering Patterns in Terrorist Group Beliefs and Attacks
 		<p>This report consists of three parts. First, we present a general analysis of terrorism over time. Second, we discuss the differences between terrorist attacks that are executed by groups with different ideologies. Last, we zoom in on the terrorist groups themselves and discuss the differences between groups of different ideologies.</p>
 	</div>
 
-	<div style="width:100%; margin:0 auto;">
+	<div class="map_container">
+		<div class="center">
 			<iframe src="https://kepler.gl/demo/map?mapUrl=https://dl.dropboxusercontent.com/s/bepsu9fgguq6lf3/keplergl_n8secos.json" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="800px" width="1000px" allowfullscreen></iframe>
+		</div>
 	</div>
 
 	<div>
