@@ -1,4 +1,4 @@
-chart = {
+d3.csv("file.json", function (data) {
     const root = partition(data);
   
     root.each(d => d.current = d);
@@ -95,5 +95,14 @@ chart = {
       return `rotate(${x - 90}) translate(${y},0) rotate(${x < 180 ? 0 : 180})`;
     }
   
+    function partition(d) {
+        const root = d3.hierarchy(d)
+            .sum(d => d.value)
+            .sort((a, b) => b.value - a.value);
+        return d3.partition()
+            .size([2 * Math.PI, root.height + 1])
+            (root);
+    }
+
     return svg.node();
-  }
+    });
