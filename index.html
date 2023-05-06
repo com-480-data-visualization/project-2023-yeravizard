@@ -2,54 +2,50 @@
 layout: home
 title: Cluster bomb
 subtitle: Uncovering Patterns in Terrorist Group Beliefs and Attacks
+
 ---
-
 <!DOCTYPE html>
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v6.js"></script>
+<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+<script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+<!-- import zoom -->
+
+<!--<link rel="stylesheet" type="text/css" href="assets/css/blahblah.css" />-->
+
+
 <html>
+<style>
+	/* Here you can add several style "classes" */
+	.map_container {
+		display: flex;
+		justify-content: center;
+	}
+	.text_container {
+		text-align: center;
+		font-family: 'Helvetica', 'Arial', 'sans-serif';
+	}
+	#sunburst {
+		width: 100%;
+		height: 100%;
+		background-color: red;
+	}	
 
-<head>
-	<!-- Load d3.js and other dependencies -->
-	<script src="https://d3js.org/d3.v4.js"></script>
-	<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-	<script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
-	<!-- import zoom -->
-	<!--<link rel="stylesheet" type="text/css" href="assets/css/blahblah.css" />-->
-
-	<style>
-		/* Add styles for the sunburst container */
-		#sunburst {
-			width: 100%;
-			height: 100%;
-			background-color: red;
-		}
-
-        
-
-		/* Add styles for the text container */
-		.text_container {
-			text-align: center;
-			font-family: 'Helvetica', 'Arial', 'sans-serif';
-		}
-	</style>
-
-</head>
+</style>
 
 <body>
 
-	<!-- Add the text container and the sunburst container -->
 	<div class="text_container">
 		<h6> SUNBURST COMING IN WITH THE CLUTCH</h6>
 	</div>
-	<div id="sunburst"></div>
 
 	<!-- Load the sunburst script -->
 	<script type="module" src="plots/sunburst.js"></script>
 
-	<!-- Add the text container to signal the end of the sunburst -->
+
 	<div class="text_container">
 		<h6> SUNBURST DONE.</h6>
 	</div>
-
 </body>
 
 </html>

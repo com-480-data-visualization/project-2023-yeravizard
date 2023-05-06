@@ -128,7 +128,7 @@ const create_sunburst = function(data) {
             .size([2 * Math.PI, root.height + 1])
             (root);
     }
-
+    console.log('sunburst function called at the end!');
     return svg.node();
     }
 
