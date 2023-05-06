@@ -12,127 +12,115 @@ var svg_ideologies = d3.select("#my_dataviz")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("data/ethno_nationalist.csv", 
-    function(d) {
-        return { year : d.iyear, 
-            ethno_nationalist : d.ethno_nationalist, 
-            religious : d.religious, 
-            extreme_left: d.extreme_left, 
-            extreme_right: d.extreme_right,  
-            other: d.single_issue};
-        },
+d3.csv("data/ethno_nationalist.csv",
   
     function(data) {
+
+        var groups = data.columns.slice(1);
+        var year = d3.map(data, function(d){return(d.iyear)}).keys();
         
         var keys = ["ethno nationalists", "religious", "extreme left", "extreme right", "other"]
 
-        var color = d3.scaleOrdinal()
-            .domain(keys)
-            .range(d3.schemeSet2);
+        // Add X axis
 
-        // add the options to the button
-        d3.select("#selectButton")
-        .selectAll('myOptions')
-        .data(data)
-        .enter()
-        .append('option')
-        .text(function (d) { return d; }) // text showed in the menu
-        .attr("value", function (d) { return d; }) // corresponding value returned by the button
+        var x = d3.scaleBand()
+        .domain(year)
+        .range([0, width])
+        .padding([0.2])
+        svg.append("g")
+            .attr("transform", "translate(0," + height + ")")
+            .call(d3.axisBottom(x).tickSizeOuter(0));
 
-        // Add X axis --> it is a date format
-        var x = d3.scaleLinear()
-        .domain(d3.extent(data, function(d) { return d.year; }))
-        .range([ 0, width ]);
-        svg_ideologies.append("g")
-        .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
-
-        // Add Y axis log scale
+        // Add Y axis
         var y = d3.scaleLinear()
-            .domain([0, d3.max(data, function(d) { return + d.religious; })])
+            .domain([0, 200])
             .range([ height, 0 ]);
-        svg_ideologies.append("g")
-        .call(d3.axisLeft(y));
+        svg.append("g")
+            .call(d3.axisLeft(y));
 
-        // Add the line
-        svg_ideologies.append("path")
-        .datum(data)
-        .attr("fill", "none")
-        .attr("stroke", function(d){ return color('ethno nationalists')})                                                              
-        .attr("stroke-width", 1.5)
-        .attr("d", d3.line()
-            .x(function(d) { return x(d.year) })
-            .y(function(d) { return y(d.ethno_nationalist) })
-            )
-        // Add the line
-        svg_ideologies.append("path")
-        .datum(data)
-        .attr("fill", "none")
-        .attr("stroke", function(d){ return color('religious')})
-        .attr("stroke-width", 1.5)
-        .attr("d", d3.line()
-            .x(function(d) { return x(d.year) })
-            .y(function(d) { return y(d.religious) })
-            )
-        // Add the line
-        svg_ideologies.append("path")
-        .datum(data)
-        .attr("fill", "none")
-        .attr("stroke", function(d){ return color('extreme left')})
-        .attr("stroke-width", 1.5)
-        .attr("d", d3.line()
-            .x(function(d) { return x(d.year) })
-            .y(function(d) { return y(d.extreme_left) })
-            )
-        // Add the line
-        svg_ideologies.append("path")
-        .datum(data)
-        .attr("fill", "none")
-        .attr("stroke", function(d){ return color('extreme right')})
-        .attr("stroke-width", 1.5)
-        .attr("d", d3.line()
-            .x(function(d) { return x(d.year) })
-            .y(function(d) { return y(d.extreme_right) })
-            )
-        
-        svg_ideologies.append("path")
-        .datum(data)
-        .attr("fill", "none")
-        .attr("stroke", function(d){ return color('other')})
-        .attr("stroke-width", 1.5)
-        .attr("d", d3.line()
-            .x(function(d) { return x(d.year) })
-            .y(function(d) { return y(d.other) })
-            )
-        // ad a title
-        svg_ideologies.append("text")
+        // color palette = one color per subgroup
+        var color = d3.scaleOrdinal()
+            .domain(groups)
+            .range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00', '#ffff33', '#a65628', '#f781bf', '#999999', '#66c2a5']);
+
+        //stack the data? --> stack per subgroup
+        var stackedData = d3.stack()
+            .keys(groups)
+            (data)
+
+        // perform a barplot for each subgroup of the stack
+        svg.append("g")
+        .selectAll("g")
+        // Enter in the stack data = loop key per key = group per group
+        .data(stackedData)
+        .enter().append("g")
+            .attr("fill", function(d) { return color(d.key); })
+            .selectAll("rect")
+            // enter a second time = loop subgroup per subgroup to add all rectangles
+            .data(function(d) { return d; })
+            .enter().append("rect")
+                .attr("x", function(d) { return x(d.data.iyear); })
+                .attr("y", function(d) { return y(d[1]); })
+                .attr("height", function(d) { return y(d[0]) - y(d[1]); })
+                .attr("width",x.bandwidth())
+
+        // add a legend
+        svg.append("text")
         .attr("x", (width / 2))
         .attr("y", 0 - (margin.top / 2))
         .attr("text-anchor", "middle")
         .style("font-size", "16px")
         .style("text-decoration", "underline")
 
-        svg_ideologies.selectAll("mydots")
+        svg.selectAll("mydots")
             .data(keys)
             .enter()
             .append("circle")
-                .attr("cx", 250)
+                .attr("cx", 200)
                 .attr("cy", function(d,i){ return 100 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
                 .attr("r", 7)
-                .style("fill", function(d){ return color(d)})
+                .style("fill", function(d){ return color(d.key)})
 
             // Add one dot in the legend for each name.
-        svg_ideologies.selectAll("mylabels")
+            svg.selectAll("mylabels")
             .data(keys)
             .enter()
             .append("text")
-                .attr("x", 270)
+                .attr("x", 200)
                 .attr("y", function(d,i){ return 100 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
-                .style("fill", function(d){ return color(d)})
-                .text(function(d){ return d})
+                .style("fill", function(d){ return color(d.key)})
+                .text(function(d){ return d.key})
                 .attr("text-anchor", "left")
                 .style("alignment-baseline", "middle")
 
-})
+        function update(selectedGroup) {
+
+            // Create new data with the selection?
+            var dataFilter = data.filter(function(d){return d.name==selectedGroup})
+
+            // Give these new data to update line
+            line
+                .datum(dataFilter)
+                .transition()
+                .duration(1000)
+                .attr("d", d3.line()
+                .x(function(d) { return x(d.year) })
+                .y(function(d) { return y(+d.n) })
+                )
+                .attr("stroke", function(d){ return myColor(selectedGroup) })
+        }
+
+        // When the button is changed, run the updateChart function
+        d3.select("#selectButton").on("change", function(d) {
+            // recover the option that has been chosen
+            var selectedOption = d3.select(this).property("value")
+            // run the updateChart function with this selected option
+            update(selectedOption)
+        })
+
+
+
+        
+        })
 
 
