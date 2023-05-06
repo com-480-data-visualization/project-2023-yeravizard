@@ -1,4 +1,25 @@
-chart = async function (data) {
+//import { FileAttachment } from '@observablehq/stdlib';
+
+const create_sunburst = function(data) {
+
+  
+    console.log('sunburst function called!');
+
+    const color = d3.scaleOrdinal(d3.quantize(d3.interpolateRainbow, data.children.length + 1));
+
+    const format = d3.format(",d");
+
+    const width = 932;
+    const radius = width / 6;
+
+    const arc = d3.arc()
+    .startAngle(d => d.x0)
+    .endAngle(d => d.x1)
+    .padAngle(d => Math.min((d.x1 - d.x0) / 2, 0.005))
+    .padRadius(radius * 1.5)
+    .innerRadius(d => d.y0 * radius)
+    .outerRadius(d => Math.max(d.y0 * radius, d.y1 * radius - 1))
+    
     const root = partition(data);
   
     root.each(d => d.current = d);
@@ -12,14 +33,17 @@ chart = async function (data) {
   
     const path = g.append("g")
       .selectAll("path")
-      .data(root.descendants().slice(1))
-      .join("path")
+      .data(root.descendants().slice(1));
+      
+    path.enter().append("path")
+      .merge(path)
         .attr("fill", d => { while (d.depth > 1) d = d.parent; return color(d.data.name); })
         .attr("fill-opacity", d => arcVisible(d.current) ? (d.children ? 0.6 : 0.4) : 0)
         .attr("pointer-events", d => arcVisible(d.current) ? "auto" : "none")
-  
         .attr("d", d => arc(d.current));
-  
+      
+    path.exit().remove();
+
     path.filter(d => d.children)
         .style("cursor", "pointer")
         .on("click", clicked);
@@ -28,16 +52,17 @@ chart = async function (data) {
         .text(d => `${d.ancestors().map(d => d.data.name).reverse().join("/")}\n${format(d.value)}`);
   
     const label = g.append("g")
-        .attr("pointer-events", "none")
-        .attr("text-anchor", "middle")
-        .style("user-select", "none")
-      .selectAll("text")
-      .data(root.descendants().slice(1))
-      .join("text")
-        .attr("dy", "0.35em")
-        .attr("fill-opacity", d => +labelVisible(d.current))
-        .attr("transform", d => labelTransform(d.current))
-        .text(d => d.data.name);
+    .attr("pointer-events", "none")
+    .attr("text-anchor", "middle")
+    .style("user-select", "none")
+    .selectAll("text")
+    .data(root.descendants().slice(1))
+    .enter()
+    .append("text")
+    .attr("dy", "0.35em")
+    .attr("fill-opacity", d => +labelVisible(d.current))
+    .attr("transform", d => labelTransform(d.current))
+    .text(d => d.data.name);
   
     const parent = g.append("circle")
         .datum(root)
@@ -107,33 +132,15 @@ chart = async function (data) {
     return svg.node();
     }
 
-    data = FileAttachment("../data/sunburst-tree.json").json();
 
-    partition = data => {
-      const root = d3.hierarchy(data)
-          .sum(d => d.value)
-          .sort((a, b) => b.value - a.value);
-      return d3.partition()
-          .size([2 * Math.PI, root.height + 1])
-        (root);
-    }
+async function drawSunburst() {
+  try {
+    const response = await fetch('../data/sunburst_tree.json');
+    const data = await response.json();
+    create_sunburst(data);
+  } catch (err) {
+    console.log(err);
+  }
+}
 
-color = d3.scaleOrdinal(d3.quantize(d3.interpolateRainbow, data.children.length + 1))
-
-format = d3.format(",d")
-
-width = 932
-
-radius = width / 6
-
-arc = d3.arc()
-.startAngle(d => d.x0)
-.endAngle(d => d.x1)
-.padAngle(d => Math.min((d.x1 - d.x0) / 2, 0.005))
-.padRadius(radius * 1.5)
-.innerRadius(d => d.y0 * radius)
-.outerRadius(d => Math.max(d.y0 * radius, d.y1 * radius - 1))
-
-chart(id, data);
-
-
+drawSunburst();

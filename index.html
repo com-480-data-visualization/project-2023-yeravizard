@@ -2,90 +2,53 @@
 layout: home
 title: Cluster bomb
 subtitle: Uncovering Patterns in Terrorist Group Beliefs and Attacks
-
 ---
+
 <!DOCTYPE html>
-<!-- Load d3.js -->
-<script src="https://d3js.org/d3.v4.js"></script>
-<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
-<script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
-<!-- import zoom -->
-
-<!--<link rel="stylesheet" type="text/css" href="assets/css/blahblah.css" />-->
-
-
 <html>
-<style>
-	/* Here you can add several style "classes" */
-	.map_container {
-  display: flex;
-  justify-content: center;
-}
-	.text_container {
-		text-align: center;
-		font-family: 'Helvetica', 'Arial', 'sans-serif';
-	}
-</style>
+
+<head>
+	<!-- Load d3.js and other dependencies -->
+	<script src="https://d3js.org/d3.v4.js"></script>
+	<script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+	<script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+	<!-- import zoom -->
+	<!--<link rel="stylesheet" type="text/css" href="assets/css/blahblah.css" />-->
+
+	<style>
+		/* Add styles for the sunburst container */
+		#sunburst {
+			width: 100%;
+			height: 100%;
+			background-color: red;
+		}
+
+        
+
+		/* Add styles for the text container */
+		.text_container {
+			text-align: center;
+			font-family: 'Helvetica', 'Arial', 'sans-serif';
+		}
+	</style>
+
+</head>
 
 <body>
 
-	<div class="text_container">
-		<h2> General analysis of trends in terrorism over time </h2>
-		<p>This report consists of three parts. First, we present a general analysis of terrorism over time. Second, we discuss the differences between terrorist attacks that are executed by groups with different ideologies. Last, we zoom in on the terrorist groups themselves and discuss the differences between groups of different ideologies.</p>
-	</div>
-
-	<div class="map_container">
-		<div class="center">
-			<iframe src="https://kepler.gl/demo/map?mapUrl=https://dl.dropboxusercontent.com/s/bepsu9fgguq6lf3/keplergl_n8secos.json" style="border:0px #ffffff none;" name="myiFrame" scrolling="no" frameborder="1" marginheight="0px" marginwidth="0px" height="800px" width="1000px" allowfullscreen></iframe>
-		</div>
-	</div>
-
-	<div class="text_container">
-		<h2> The effect of group ideologies on terrorist attacks</h2>
-		<p> In this section, we show the 4 major ideologies to which the groups belong to: which are ethno-nationalists, 
-			religious driven, extrene left-wing and extreme right-wing. </p>
-
-	</div>
-
-	<div class="map_container" id="my_dataviz" width="1200" height="800"></div>
-	<script src = "plots/dataviz_area.js"></script>
-
-	<div class="text_container">
-		<h6> Now we dig into sub-ideologies</h6>
-	</div>
-
-	<div class="map_container" id="religious_time" width="1200" height="800"></div>
-	<script src = "plots/time_rel.js"></script>
-
+	<!-- Add the text container and the sunburst container -->
 	<div class="text_container">
 		<h6> SUNBURST COMING IN WITH THE CLUTCH</h6>
 	</div>
+	<div id="sunburst"></div>
 
-	<div class="map_container" id="sunburst" width="1200" height="800"></div>
-	<script src = "plots/sunburst.js"></script>
+	<!-- Load the sunburst script -->
+	<script type="module" src="plots/sunburst.js"></script>
 
+	<!-- Add the text container to signal the end of the sunburst -->
 	<div class="text_container">
 		<h6> SUNBURST DONE.</h6>
 	</div>
-
-
-	<div class="text_container">
-		<h2> Differences between terrorist groups of different ideologies</h2>
-		<p> In this section, we will dive deeper into what makes a terrorist group. Specifically, we will consider three different groups, with three different ideologies. 
-			By comparing these groups, we will gain a deeper understanding about the key features of a terrorist group.</p>
-	</div>
-
-	<div>
-		<h6> First we compare the structures </h6>
-	</div>
-	<div class="map_container" id="group_structures" width="1200" height="800"></div>
-	<script src="plots/group_structures.js"></script>
-
-	<div>
-		<h6> Now we compare recruitment strategies</h6>
-	</div>
-	<div class="map_container" id="recruitment_strategies"  width="1200" height="800"></div>
-	<script src="plots/recruitment.js"></script>
 
 </body>
 
