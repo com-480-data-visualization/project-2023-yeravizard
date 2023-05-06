@@ -5,124 +5,90 @@ subtitle: Uncovering Patterns in Terrorist Group Beliefs and Attacks
 
 ---
 <!DOCTYPE html>
+
+
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v6.js"></script>
 <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+
+<!-- Fading -->
+<script>
+	$(window).on("load", function() {
+  $(window).scroll(function() {
+    var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+    $(".fade").each(function() {
+      /* Check the location of each desired element */
+      var objectBottom = $(this).offset().top + $(this).outerHeight();
+      
+      /* If the element is completely within bounds of the window, fade it in */
+      if (objectBottom < windowBottom) { //object comes into view (scrolling down)
+        if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
+      } else { //object goes out of view (scrolling up)
+        if ($(this).css("opacity")==1) {$(this).fadeTo(500,0);}
+      }
+    });
+  });
+});
+</script>
+
+
+<!-- Scrolling button -->
+<script>
+	$(document).ready(function () {
+		$("a.scroll-button").on('click', function (event) {
+			if (this.hash !== "") {
+				event.preventDefault();
+				var hash = this.hash;
+				$('html, body').animate({
+					scrollTop: $(hash).offset().top - 100
+				}, 800, function () {
+					window.location.hash = hash;
+				});
+			}
+		});
+	});
+</script>
 
 <html>
-<style>
-	body {
-		background-color: white;
-		color: black;
-	}
-	/* Here you can add several style "classes" */
-	.map_container {
-		display: flex;
-		justify-content: center;
-		margin-top: 50px;
-		margin-bottom: 50px;
-		
 
-		/* Apply a black to transparent gradient to the borders */
-		border: 1px solid transparent;
-		border-image: linear-gradient(to top, black, transparent) 1 100%;
-	}
+<head>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
 
-	.graph_container {
-		display: flex;
-		justify-content: center;
-		margin-top: 50px;
-		margin-bottom: 50px;
-	}
+<body id="top">
 
-	.text_container {
-		text-align: justify;
-		font-family: 'Helvetica Neue light';
-		width: 60%;
-		margin: 0 auto;
-		margin-top: 100px;
-		margin-bottom: 100px;
-	}
-	.img_container {
-		text-align: center;
-		margin-top: 50px;
-		margin-bottom: 50px;
-	}
-	#sunburst {
-		width: 100%;
-		height: 1%;
-	}	
-	a {
-		font-weight: bold;
-		text-decoration: none;
-  	}	
-
-	h1 {
-		font-family: Helvetica;
-		font-size: 64px;
-		font-weight: bold;
-		text-align:center;
-	}
-
-	h2 {
-		font-family: Helvetica;
-		font-size: 42px;
-		font-weight: bold;
-		text-align: center;
-		margin-bottom: 50px;
-		margin-top: 0px;
-	}
-
-	h3 {
-		font-family: Helvetica;
-		font-size: 36px;
-		font-weight: bold;
-		text-align: center;
-		margin-top: 50px;
-	}
-
-	h4 {
-		font-family: Helvetica;
-		font-size: 24px;
-		font-weight: bold;
-		text-align: center;
-	}
-
-	p {
-		font-family: Helvetica;
-		font-size: 24px;
-	}
-
-</style>
-
-<body>
-
-	<div class="text_container">
-		<h1> CLUSTER BOMB </h1>
+	<div class="text_container" id="introduction">
+		<h1>CLUSTER BOMB</h1>
 		<h2> Uncovering Patterns in Terrorist Groups </h2>
-		<p>This website consists of three parts. 
-			First, we present a general analysis of terrorism over time. 
-			Second, we discuss the differences between terrorist attacks that are executed by groups with different ideologies. 
-			Last, we zoom in on the terrorist groups themselves and discuss the differences between groups of different ideologies.
-		</p>
-		<p> Our work will revolve around the extensively studied and impressively rich 
-			<a style="color:cadetblue; font-weight: bold;" href="https://www.start.umd.edu/gtd">Global Terrorism Database</a>. 
-			The GTD includes data on over 200,000 international terrorist attacks since 1970 and has information on over 100 features for each terrorist attack. 
-			We direct our analysis at the differences between terrorist groups with different ideologies.</p> 
-		<p> Please note that most of the visualizations aren't functional yet. </p>
-		<p> We replace missing visualizations with hand-drawn sketches. </p>
+
+		<h3> 
+			<!-- TO FIX: <a class="scroll-button" href="#overview"> -->
+			<a class="scroll-button" href="#overview">
+                Unravel the story<span class="down-arrow"></span>
+            </a>
+		</h3>
 	</div>
 
 	<!-- PART 1: OVERVIEW -->
 
-	<div class="text_container">
-		<h3> Mapping terrorism: where <em> hate</em> strikes. </h3>
-			<p>
-			Our main visualization in this part is an interactive map of terrorist attacks around the world, made using 
-			<a style="color:cadetblue; font-weight: bold;" href="https://kepler.gl">Kepler.gl</a>. 
-			This map contains arcs connecting the country of origin of each terrorist group to the location of their attacks. 
-			</p>
+	<div class="fade">
+		<div class="text_container" id="overview">
+			<h3> Mapping terrorism: where <em> hate</em> strikes. </h3>
+				<p> Our work will revolve around the extensively studied and impressively rich 
+					<a style="color:cadetblue; font-weight: bold;" href="https://www.start.umd.edu/gtd">Global Terrorism Database</a>. 
+					The GTD includes data on over 200,000 international terrorist attacks since 1970 and has information on over 100 features for each terrorist attack. 
+					We direct our analysis at the differences between terrorist groups with different ideologies.</p> 
+				<p> Please note that most of the visualizations aren't functional yet. </p>
+				<p> We replace missing visualizations with hand-drawn sketches. </p>
+				<p>
+				Our main visualization in this part is an interactive map of terrorist attacks around the world, made using 
+				<a style="color:cadetblue; font-weight: bold;" href="https://kepler.gl">Kepler.gl</a>. 
+				This map contains arcs connecting the country of origin of each terrorist group to the location of their attacks. 
+				</p>
+		</div>
 	</div>
 	<div class="map_container">
 		<div class="center">
@@ -146,37 +112,42 @@ subtitle: Uncovering Patterns in Terrorist Group Beliefs and Attacks
 			switching between each of the 5 main ideologies and displaying the stacked 
 			area chart for their respective sub-ideologies. </p>
 		<p>It will change with the zoom on the subideologies composition and attacks over time by scrolling down the 
-			page. </p>
-		</p>
+				page. </p>
 	</div>
 
 
 	<div class="graph_container" id="my_dataviz" width="1200" height="800"></div>
 	<script src = "plots/dataviz_area.js"></script> 
 
-	<!--
-	<div class="img_container">
-		<img src="plots/SketchArea.jpeg" style="width: 50%; display: block; margin: 0 auto;">
+	<div class="fade">
+		<div class="img_container">
+			<img src="plots/SketchArea.jpeg" style="width: 50%; display: block; margin: 0 auto;">
+		</div>
 	</div>
--->
 
 	<!-- 2.2. ATTACK TYPE AND TARGETS PER IDEOLOGY -->
 
-	<div class="text_container">
-		<h4> Zoomable sunburst starts here. </h4>
-		<p> Here, a sunburst diagram will show how attack strategy differs by ideology. 
-			The inner ring will cover the ideologies, the second ring will split the attacks by attack type 
-			and the outer ring will separate them by target type. Ideally, terrorist groups would be identified 
-			at the last layer. </p>
+	<div class="fade">
+		<div class="text_container">
+			<h4> Zoomable sunburst starts here. </h4>
+			<p> Here, a sunburst diagram will show how attack strategy differs by ideology. 
+				The inner ring will cover the ideologies, the second ring will split the attacks by attack type 
+				and the outer ring will separate them by target type. Ideally, terrorist groups would be identified 
+				at the last layer. </p>
+		</div>
 	</div>
+	
 
 	<!-- BROKEN GRAPH
 		<div class="graph_container" id="sunburst" width="1200" height="800"></div>
 		<script type="module" src="plots/sunburst.js"></script>
 	-->
-	<div class="img_container">
-		<img src="plots/SketchSunburst.jpeg" style="width: 50%; display: block; margin: 0 auto;">
+	<div class="fade">
+		<div class="img_container">
+			<img src="plots/SketchSunburst.jpeg" style="width: 50%; display: block; margin: 0 auto;">
+		</div>
 	</div>
+	
 	
 
 	<!-- BROKEN GRAPH
@@ -186,26 +157,28 @@ subtitle: Uncovering Patterns in Terrorist Group Beliefs and Attacks
 
 	<!-- PART 3: GROUPS -->
 
-	<div class="text_container">
-		<h3> Divided We Stand: Unpacking Terrorist Group Disparities </h3>
-		<p> In this section, we will dive deeper into what makes a terrorist group. Specifically, we will consider three different groups, with three different ideologies. 
-			By comparing these groups, we will gain a deeper understanding about the key features of of a terrorist group.</p>
+	<div class="fade">
+		<div class="text_container" id="groups">
+			<h3> Divided We Stand: Unpacking Terrorist Group Disparities </h3>
+			<p> In this section, we will dive deeper into what makes a terrorist group. Specifically, we will consider three different groups, with three different ideologies. 
+				By comparing these groups, we will gain a deeper understanding about the key features of of a terrorist group.</p>
+		</div>
 	</div>
 
 	<!-- 3.1. GROUP BELIEF -->
 
-	<div class="text_container">
-		<h4> Decoding Terrorist Ideologies</h2>
+	<div class="fade">
+		<div class="text_container">
+			<h4> Decoding Terrorist Ideologies</h4>
+			<p> We first analyze the founding belief of different terrorist groups. 
+				After preprocessing these textual features, such as the removal of stopwords and stemming, 
+				we will identify the key words that characterize the founding philosophies. 
+				We will then make a D3 Circle packing chart based on the ideologies and the founding philosophies of groups. 
+			</p>
+			<h4> Circle Packing starts here. </h4>
+		</div>
 	</div>
-
-	<div class="text_container">
-		<p> We first analyze the founding belief of different terrorist groups. 
-			After preprocessing these textual features, such as the removal of stopwords and stemming, 
-			we will identify the key words that characterize the founding philosophies. 
-			We will then make a D3 Circle packing chart based on the ideologies and the founding philosophies of groups. 
-		</p>
-		<h4> Circle Packing starts here. </h4>
-	</div>
+	
 
 	<div class="img_container">
 		<img src="plots/SketchCircles.jpg" style="width: 50%; display: block; margin: 0 auto;">
@@ -237,9 +210,18 @@ subtitle: Uncovering Patterns in Terrorist Group Beliefs and Attacks
 		<h3> Recruitement strategies. </h3>
 		<h4> Grouped bar charts starts here. </h4>
 	</div>
+
 	<!-- BROKEN GRAPH
-	<div class="map_container" id="recruitment_strategies"  width="1200" height="800"></div>
-	<script src="plots/recruitment.js"></script>
+		<div class="map_container" id="recruitment_strategies"  width="1200" height="800"></div>
+		<script src="plots/recruitment.js"></script>
+	-->
+
+
+	<div class="img_container">
+		<img src="plots/SketchStrategy.jpeg" style="width: 50%; display: block; margin: 0 auto;">
+	</div>
+
+
 
 	-->
 

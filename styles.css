@@ -1,0 +1,117 @@
+body {
+    background-color: white;
+    color: black;
+}
+/* Here you can add several style "classes" */
+.map_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 200px;
+    
+
+    /* Apply a black to transparent gradient to the borders */
+    border: 1px solid transparent;
+    border-image: linear-gradient(to top, black, transparent) 1 100%;
+}
+
+.graph_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.text_container {
+    text-align: justify;
+    font-family: 'Helvetica Neue light';
+    width: 60%;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.img_container {
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+#sunburst {
+    width: 100%;
+    height: 1%;
+}	
+a {
+    font-weight: bold;
+    text-decoration: none;
+  }	
+
+h1 {
+    font-family: Helvetica;
+    font-size: 96px;
+    font-weight: bold;
+    text-align:center;
+    margin-top:220px;
+}
+
+h2 {
+    font-family: Helvetica;
+    font-size: 56px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 120px;
+}
+
+h3 {
+    font-family: Helvetica;
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 50px;
+}
+
+h4 {
+    font-family: Helvetica;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+}
+
+p {
+    font-family: Helvetica;
+    font-size: 24px;
+}
+.fade {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+.down-arrow {
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid white;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.scroll-button {
+    background-color: blue;
+    color: white;
+    padding: 20px 20px;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 50px;
+    transition: all 0.3s ease-in-out;
+    margin-bottom: 200px;
+  }
+  
+  .scroll-button:hover {
+    background-color: darkblue;
+    cursor: pointer;
+  }
+
+  .padding {
+    padding: 100px;
+  }
