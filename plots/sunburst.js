@@ -1,9 +1,19 @@
-//import { FileAttachment } from '@observablehq/stdlib';
+// set the dimensions and margins of the graph
+const margin = {top: 60, right: 230, bottom: 50, left: 50},
+    width = 660 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
 
-const create_sunburst = function(data) {
+// append the svg object to the body of the page
+const svg = d3.select("#sunburst")
+  .append("svg")
+    .attr("width", width + margin.left + margin.right)
+    .attr("height", height + margin.top + margin.bottom)
+  .append("g")
+    .attr("transform",
+          `translate(${margin.left}, ${margin.top})`);
 
-  
-    console.log('sunburst function called!');
+
+d3.json("../data/sunburst_tree.json").then(function(data) {
 
     const color = d3.scaleOrdinal(d3.quantize(d3.interpolateRainbow, data.children.length + 1));
 
@@ -19,7 +29,16 @@ const create_sunburst = function(data) {
     .padRadius(radius * 1.5)
     .innerRadius(d => d.y0 * radius)
     .outerRadius(d => Math.max(d.y0 * radius, d.y1 * radius - 1))
-    
+
+    function partition(d) {
+      const root = d3.hierarchy(d)
+          .sum(d => d.value)
+          .sort((a, b) => b.value - a.value);
+      return d3.partition()
+          .size([2 * Math.PI, root.height + 1])
+          (root);
+    }
+
     const root = partition(data);
   
     root.each(d => d.current = d);
@@ -120,27 +139,6 @@ const create_sunburst = function(data) {
       return `rotate(${x - 90}) translate(${y},0) rotate(${x < 180 ? 0 : 180})`;
     }
   
-    function partition(d) {
-        const root = d3.hierarchy(d)
-            .sum(d => d.value)
-            .sort((a, b) => b.value - a.value);
-        return d3.partition()
-            .size([2 * Math.PI, root.height + 1])
-            (root);
-    }
-    console.log('sunburst function called at the end!');
     return svg.node();
     }
-
-
-async function drawSunburst() {
-  try {
-    const response = await fetch('../data/sunburst_tree.json');
-    const data = await response.json();
-    create_sunburst(data);
-  } catch (err) {
-    console.log(err);
-  }
-}
-
-drawSunburst();
+);
