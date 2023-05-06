@@ -6,7 +6,7 @@ subtitle: Uncovering Patterns in Terrorist Group Beliefs and Attacks
 ---
 <!DOCTYPE html>
 <!-- Load d3.js -->
-<script src="https://d3js.org/d3.v4.js"></script>
+<script src="https://d3js.org/d3.v6.js"></script>
 <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
 <script src="https://d3js.org/d3-geo-projection.v2.min.js"></script>
 
@@ -145,16 +145,20 @@ subtitle: Uncovering Patterns in Terrorist Group Beliefs and Attacks
 			left, extreme right, racism). The plot will evolve when the user scrolls by 
 			switching between each of the 5 main ideologies and displaying the stacked 
 			area chart for their respective sub-ideologies. </p>
+		<p>It will change with the zoom on the subideologies composition and attacks over time by scrolling down the 
+			page. </p>
+		</p>
 	</div>
 
-	<!-- BROKEN GRAPH
-		<div class="graph_container" id="my_dataviz" width="1200" height="800"></div>
-		<script src = "plots/dataviz_area.js"></script> 
-	-->
 
+	<div class="graph_container" id="my_dataviz" width="1200" height="800"></div>
+	<script src = "plots/dataviz_area.js"></script> 
+
+	<!--
 	<div class="img_container">
 		<img src="plots/SketchArea.jpeg" style="width: 50%; display: block; margin: 0 auto;">
 	</div>
+-->
 
 	<!-- 2.2. ATTACK TYPE AND TARGETS PER IDEOLOGY -->
 

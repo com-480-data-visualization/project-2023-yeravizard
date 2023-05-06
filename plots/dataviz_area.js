@@ -1,126 +1,184 @@
 // set the dimensions and margins of the graph
-var margin = {top: 10, right: 30, bottom: 30, left: 60},
-    width = 460 - margin.left - margin.right,
+const margin = {top: 60, right: 230, bottom: 50, left: 50},
+    width = 660 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg_ideologies = d3.select("#my_dataviz")
+const svg = d3.select("#my_dataviz")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
     .attr("transform",
-          "translate(" + margin.left + "," + margin.top + ")");
+          `translate(${margin.left}, ${margin.top})`);
 
-d3.csv("data/ethno_nationalist.csv",
-  
+d3.csv("data/ideologies.csv").then(
     function(data) {
+   
+    // List of groups = header of the csv files
+    const keys = data.columns.slice(1);
 
-        var groups = data.columns.slice(1);
-        var year = d3.map(data, function(d){return(d.iyear)}).keys();
-        
-        var keys = ["ethno nationalists", "religious", "extreme left", "extreme right", "other"]
+    // color palette
+    const color = d3.scaleOrdinal()
+        .domain(keys)
+        // choose the colors from a d3 palette
+        .range(d3.schemeSet2);
+  
+    //stack the data?
+    const stackedData = d3.stack()
+        .keys(keys)
+        (data)
+        //console.log("This is the stack result: ", stackedData)
 
-        // Add X axis
+    /////////////
+    // AXIS /////
+    /////////////
+    
+    // Add X axis
+    const x = d3.scaleLinear()
+    .domain(d3.extent(data, function(d) { return +d.iyear; }))
+    .range([ 0, width ]);
+    svg.append("g")
+    .attr("transform", `translate(0, ${height})`)
+    .call(d3.axisBottom(x).tickValues([1970, 1980, 1990, 2000, 2010, 2020]).tickSizeOuter(0));
+     
+    // Add X axis label:
+    svg.append("text")
+        .attr("text-anchor", "end")
+        .attr("x", width)
+        .attr("y", height+ 40 )
+        .text("Time (year)");
 
-        var x = d3.scaleBand()
-        .domain(year)
-        .range([0, width])
-        .padding([0.2])
-        svg.append("g")
-            .attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(x).tickSizeOuter(0));
+     // Add Y axis
+    const y = d3.scaleLinear()
+    .domain([0, 500])
+    .range([ height, 0 ]);
+    svg.append("g")
+    .call(d3.axisLeft(y));
 
-        // Add Y axis
-        var y = d3.scaleLinear()
-            .domain([0, 200])
-            .range([ height, 0 ]);
-        svg.append("g")
-            .call(d3.axisLeft(y));
+    // Add Y axis label:
+    svg.append("text")
+        .attr("text-anchor", "end")
+        .attr("x", 0)
+        .attr("y", -20 )
+        .text("# of attacks")
+        .attr("text-anchor", "start")
 
-        // color palette = one color per subgroup
-        var color = d3.scaleOrdinal()
-            .domain(groups)
-            .range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00', '#ffff33', '#a65628', '#f781bf', '#999999', '#66c2a5']);
+    ////////////////////////
+    // BRUSHING AND CHART //
+    ////////////////////////
 
-        //stack the data? --> stack per subgroup
-        var stackedData = d3.stack()
-            .keys(groups)
-            (data)
+    // Add a clipPath: everything out of this area won't be drawn.
+    const clip = svg.append("defs").append("svg:clipPath")
+    .attr("id", "clip")
+    .append("svg:rect")
+    .attr("width", width )
+    .attr("height", height )
+    .attr("x", 0)
+    .attr("y", 0);
 
-        // perform a barplot for each subgroup of the stack
-        svg.append("g")
-        .selectAll("g")
-        // Enter in the stack data = loop key per key = group per group
-        .data(stackedData)
-        .enter().append("g")
-            .attr("fill", function(d) { return color(d.key); })
-            .selectAll("rect")
-            // enter a second time = loop subgroup per subgroup to add all rectangles
-            .data(function(d) { return d; })
-            .enter().append("rect")
-                .attr("x", function(d) { return x(d.data.iyear); })
-                .attr("y", function(d) { return y(d[1]); })
-                .attr("height", function(d) { return y(d[0]) - y(d[1]); })
-                .attr("width",x.bandwidth())
+    // Add brushing
+    const brush = d3.brushX()                 // Add the brush feature using the d3.brush function
+    .extent( [ [0,0], [width,height] ] ) // initialise the brush area: start at 0,0 and finishes at width,height: it means I select the whole graph area
+    .on("end", updateChart) // Each time the brush selection changes, trigger the 'updateChart' function
 
-        // add a legend
-        svg.append("text")
-        .attr("x", (width / 2))
-        .attr("y", 0 - (margin.top / 2))
-        .attr("text-anchor", "middle")
-        .style("font-size", "16px")
-        .style("text-decoration", "underline")
+    // Create the scatter variable: where both the circles and the brush take place
+    const areaChart = svg.append('g')
+    .attr("clip-path", "url(#clip)")
 
-        svg.selectAll("mydots")
-            .data(keys)
-            .enter()
-            .append("circle")
-                .attr("cx", 200)
-                .attr("cy", function(d,i){ return 100 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
-                .attr("r", 7)
-                .style("fill", function(d){ return color(d.key)})
+    // Area generator
+    const area = d3.area()
+    .x(function(d) { return x(d.data.iyear); })
+    .y0(function(d) { return y(d[0]); })
+    .y1(function(d) { return y(d[1]); })
 
-            // Add one dot in the legend for each name.
-            svg.selectAll("mylabels")
-            .data(keys)
-            .enter()
-            .append("text")
-                .attr("x", 200)
-                .attr("y", function(d,i){ return 100 + i*25}) // 100 is where the first dot appears. 25 is the distance between dots
-                .style("fill", function(d){ return color(d.key)})
-                .text(function(d){ return d.key})
-                .attr("text-anchor", "left")
-                .style("alignment-baseline", "middle")
+    // Show the areas
+    areaChart
+    .selectAll("mylayers")
+    .data(stackedData)
+    .join("path")
+    .attr("class", function(d) { return "myArea " + d.key })
+    .style("fill", function(d) { return color(d.key); })
+    .attr("d", area)
 
-        function update(selectedGroup) {
+    // Add the brushing
+    areaChart
+    .append("g")
+    .attr("class", "brush")
+    .call(brush);
 
-            // Create new data with the selection?
-            var dataFilter = data.filter(function(d){return d.name==selectedGroup})
+    let idleTimeout
+    function idled() { idleTimeout = null; }
+    
+    // A function that update the chart for given boundaries
+    function updateChart(event,d) {
+    
+        extent = event.selection
+    
+        // If no selection, back to initial coordinate. Otherwise, update X axis domain
+    if(!extent){
+        if (!idleTimeout) return idleTimeout = setTimeout(idled, 350); // This allows to wait a little bit
+        x.domain(d3.extent(data, function(d) { return d.iyear; }))
+    }else{
+        x.domain([ x.invert(extent[0]), x.invert(extent[1]) ])
+        areaChart.select(".brush").call(brush.move, null) // This remove the grey brush area as soon as the selection has been done
+    }
+    
+        // Update axis and area position
+    xAxis.transition().duration(1000).call(d3.axisBottom(x).ticks(5))
+    svg
+        .selectAll("path")
+        .transition().duration(1000)
+        .attr("d", area)
+    }
 
-            // Give these new data to update line
-            line
-                .datum(dataFilter)
-                .transition()
-                .duration(1000)
-                .attr("d", d3.line()
-                .x(function(d) { return x(d.year) })
-                .y(function(d) { return y(+d.n) })
-                )
-                .attr("stroke", function(d){ return myColor(selectedGroup) })
-        }
+    ////////////////////////////
+    // HIGHLIGHT GROUP /////////
+    ////////////////////////////
 
-        // When the button is changed, run the updateChart function
-        d3.select("#selectButton").on("change", function(d) {
-            // recover the option that has been chosen
-            var selectedOption = d3.select(this).property("value")
-            // run the updateChart function with this selected option
-            update(selectedOption)
-        })
+    // What to do when one group is hovered
+    const highlight = function(event,d){
+        // reduce opacity of all groups
+        d3.selectAll(".myArea").style("opacity", .1)
+        // expect the one that is hovered
+        d3.select("."+d).style("opacity", 1)
+      }
+  
+      // And when it is not hovered anymore
+      const noHighlight = function(event,d){
+        d3.selectAll(".myArea").style("opacity", 1)
+      }
+  
+  
+  
+    //////////
+    // LEGEND //
+    //////////
 
+    // Add one dot in the legend for each name.
+    const size = 20
+    svg.selectAll("myrect")
+    .data(keys)
+    .join("rect")
+        .attr("x", 400)
+        .attr("y", function(d,i){ return 10 + i*(size+5)}) // 100 is where the first dot appears. 25 is the distance between dots
+        .attr("width", size)
+        .attr("height", size)
+        .style("fill", function(d){ return color(d)})
+        .on("mouseover", highlight)
+        .on("mouseleave", noHighlight)
 
-
-        
-        })
-
-
+    // Add one dot in the legend for each name.
+    svg.selectAll("mylabels")
+    .data(keys)
+    .join("text")
+        .attr("x", 400 + size*1.2)
+        .attr("y", function(d,i){ return 10 + i*(size+5) + (size/2)}) // 100 is where the first dot appears. 25 is the distance between dots
+        .style("fill", function(d){ return color(d)})
+        .text(function(d){ return d})
+        .attr("text-anchor", "left")
+        .style("alignment-baseline", "middle")
+        .on("mouseover", highlight)
+        .on("mouseleave", noHighlight)
+  
+  })
