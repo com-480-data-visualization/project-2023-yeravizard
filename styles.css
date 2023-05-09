@@ -9,7 +9,6 @@ body {
     margin-top: 50px;
     margin-bottom: 200px;
     
-
     /* Apply a black to transparent gradient to the borders */
     border: 1px solid transparent;
     border-image: linear-gradient(to top, black, transparent) 1 100%;
