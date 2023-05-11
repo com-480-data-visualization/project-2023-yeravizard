@@ -147,4 +147,4 @@ d3.json("../data/sunburst_tree.json").then(function(data) {
 
 }
 
-export default Sunburst;
+export default drawSunburst;

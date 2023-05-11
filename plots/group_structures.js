@@ -15,7 +15,7 @@ var svg_structures = d3.select("#group_structures")
         "translate(" + margin.left + "," + margin.top + ")");
 
 // Parse the Data
-d3.csv("data/ideology_structure.csv", function (data) {
+d3.csv("../data/ideology_structure.csv", function (data) {
 
     // List of subgroups = header of the csv files = soil condition here
     var subgroups = data.columns.slice(1)

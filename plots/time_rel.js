@@ -5,7 +5,7 @@ var margin = {top: 10, right: 30, bottom: 30, left: 60},
     height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-var svg = document.querySelector("#religious_time")
+var svg = d3.select("#religious_time")
   .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
@@ -13,7 +13,7 @@ var svg = document.querySelector("#religious_time")
     .attr("transform",
           "translate(" + margin.left + "," + margin.top + ")");
 
-d3.csv("data/REL.csv", 
+d3.csv("../data/REL.csv", 
         function(data) {
 
         var subgroups = data.columns.slice(1);

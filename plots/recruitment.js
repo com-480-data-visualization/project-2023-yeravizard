@@ -15,7 +15,7 @@ var svg_recruitment = d3.select("#recruitment_strategies")
         "translate(" + margin.left + "," + margin.top + ")");
 
 // Parse the Data
-d3.csv("data/ideology_recruitment.csv", function (data) {
+d3.csv("../data/ideology_recruitment.csv", function (data) {
 
     // List of subgroups = header of the csv files = soil condition here
     var subgroups = data.columns.slice(1)
