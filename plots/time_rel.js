@@ -38,9 +38,12 @@ d3.csv("../data/REL.csv").then((data) => {
         var y = d3.scaleLinear().domain([0, maxVal]).range([height, 0]);
         svg.append("g").call(d3.axisLeft(y));
 
+        var stackedData = d3.stack().keys(subgroups)(data);
+        var stackedKeys = stackedData.map(d => d.key);
+
         // color palette = one color per subgroup
         var color = d3.scaleOrdinal()
-            .domain(subgroups)
+            .domain(stackedKeys)
             .range(['#e41a1c','#377eb8','#4daf4a','#984ea3','#ff7f00', '#ffff33', '#a65628', '#f781bf', '#999999', '#66c2a5']);
 
         //stack the data? --> stack per subgroup
@@ -62,6 +65,7 @@ d3.csv("../data/REL.csv").then((data) => {
             .attr("height", (d) => y(d[0]) - y(d[1]))
             .attr("width", x.bandwidth())
 
+
         // add a legend
         svg.append("text")
         .attr("x", (width / 2))
@@ -73,21 +77,22 @@ d3.csv("../data/REL.csv").then((data) => {
         svg.selectAll("mydots")
             .data(subgroups)
             .join("circle")
-            .attr("cx", 200)
+            .attr("cx", 500)
             .attr("cy", (_,i) => 100 + i*25) // 100 is where the first dot appears. 25 is the distance between dots
             .attr("r", 7)
-            .style("fill", (d) => color(d.key))
+            .style("fill", (d) => color(d))
 
             // Add one dot in the legend for each name.
             svg.selectAll("mylabels")
                 .data(subgroups)
                 .join("text")
-                .attr("x", 200)
-                .attr("y", (d,i) => 100 + i*25) // 100 is where the first dot appears. 25 is the distance between dots
-                .text((d) => d)
+                .attr("x", 515)
+                .attr("y", (d,i) => 101 + i*25) // 100 is where the first dot appears. 25 is the distance between dots
+                // Add some space between the dot and the name
+                .text((d) => '' + d)
                 .attr("text-anchor", "left")
                 .style("alignment-baseline", "middle")
-                .attr("fill", (d) => color(d.key));
+                .attr("fill", (d) => color(d));
         
         })
 
