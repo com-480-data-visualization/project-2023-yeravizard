@@ -1,3 +1,5 @@
+const drawSunburst = () => {
+
 // set the dimensions and margins of the graph
 const margin = {top: 60, right: 230, bottom: 50, left: 50},
     width = 660 - margin.left - margin.right,
@@ -142,3 +144,7 @@ d3.json("../data/sunburst_tree.json").then(function(data) {
     return svg.node();
     }
 );
+
+}
+
+export default Sunburst;
