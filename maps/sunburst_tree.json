@@ -1,0 +1,1529 @@
+{
+    "name": "flare",
+    "children": [
+        {
+            "name": "extreme_left",
+            "value": 430,
+            "children": [
+                {
+                    "name": "Facility/Infrastructure Attack",
+                    "value": 27,
+                    "children": [
+                        {
+                            "name": "Journalists & Media",
+                            "value": 1
+                        },
+                        {
+                            "name": "Business",
+                            "value": 13
+                        },
+                        {
+                            "name": "Educational Institution",
+                            "value": 3
+                        },
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 3
+                        },
+                        {
+                            "name": "Government (Diplomatic)",
+                            "value": 2
+                        },
+                        {
+                            "name": "Government (General)",
+                            "value": 3
+                        },
+                        {
+                            "name": "Utilities",
+                            "value": 2
+                        }
+                    ]
+                },
+                {
+                    "name": "Bombing/Explosion",
+                    "value": 265,
+                    "children": [
+                        {
+                            "name": "Military",
+                            "value": 23
+                        },
+                        {
+                            "name": "Utilities",
+                            "value": 31
+                        },
+                        {
+                            "name": "Telecommunication",
+                            "value": 1
+                        },
+                        {
+                            "name": "Educational Institution",
+                            "value": 7
+                        },
+                        {
+                            "name": "Religious Figures/Institutions",
+                            "value": 2
+                        },
+                        {
+                            "name": "Police",
+                            "value": 25
+                        },
+                        {
+                            "name": "Business",
+                            "value": 77
+                        },
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 25
+                        },
+                        {
+                            "name": "Government (General)",
+                            "value": 47
+                        },
+                        {
+                            "name": "Transportation",
+                            "value": 2
+                        },
+                        {
+                            "name": "Government (Diplomatic)",
+                            "value": 18
+                        },
+                        {
+                            "name": "Airports & Aircraft",
+                            "value": 1
+                        },
+                        {
+                            "name": "Journalists & Media",
+                            "value": 2
+                        },
+                        {
+                            "name": "NGO",
+                            "value": 3
+                        },
+                        {
+                            "name": "Unknown",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Armed Assault",
+                    "value": 61,
+                    "children": [
+                        {
+                            "name": "Police",
+                            "value": 26
+                        },
+                        {
+                            "name": "Business",
+                            "value": 20
+                        },
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 1
+                        },
+                        {
+                            "name": "Military",
+                            "value": 11
+                        },
+                        {
+                            "name": "Government (Diplomatic)",
+                            "value": 1
+                        },
+                        {
+                            "name": "NGO",
+                            "value": 1
+                        },
+                        {
+                            "name": "Government (General)",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Assassination",
+                    "value": 33,
+                    "children": [
+                        {
+                            "name": "Police",
+                            "value": 4
+                        },
+                        {
+                            "name": "Violent Political Party",
+                            "value": 1
+                        },
+                        {
+                            "name": "Military",
+                            "value": 5
+                        },
+                        {
+                            "name": "Business",
+                            "value": 5
+                        },
+                        {
+                            "name": "Government (General)",
+                            "value": 8
+                        },
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 2
+                        },
+                        {
+                            "name": "Government (Diplomatic)",
+                            "value": 4
+                        },
+                        {
+                            "name": "Religious Figures/Institutions",
+                            "value": 3
+                        },
+                        {
+                            "name": "Educational Institution",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Hostage Taking (Barricade Incident)",
+                    "value": 26,
+                    "children": [
+                        {
+                            "name": "Business",
+                            "value": 23
+                        },
+                        {
+                            "name": "Government (Diplomatic)",
+                            "value": 3
+                        }
+                    ]
+                },
+                {
+                    "name": "Unknown",
+                    "value": 8,
+                    "children": [
+                        {
+                            "name": "Police",
+                            "value": 1
+                        },
+                        {
+                            "name": "Government (Diplomatic)",
+                            "value": 1
+                        },
+                        {
+                            "name": "Military",
+                            "value": 1
+                        },
+                        {
+                            "name": "Government (General)",
+                            "value": 3
+                        },
+                        {
+                            "name": "Utilities",
+                            "value": 1
+                        },
+                        {
+                            "name": "Business",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Hijacking",
+                    "value": 7,
+                    "children": [
+                        {
+                            "name": "Airports & Aircraft",
+                            "value": 7
+                        }
+                    ]
+                },
+                {
+                    "name": "Hostage Taking (Kidnapping)",
+                    "value": 2,
+                    "children": [
+                        {
+                            "name": "Business",
+                            "value": 1
+                        },
+                        {
+                            "name": "Journalists & Media",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Unarmed Assault",
+                    "value": 1,
+                    "children": [
+                        {
+                            "name": "Government (General)",
+                            "value": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "religious",
+            "value": 2722,
+            "children": [
+                {
+                    "name": "Bombing/Explosion",
+                    "value": 1182,
+                    "children": [
+                        {
+                            "name": "Business",
+                            "value": 64
+                        },
+                        {
+                            "name": "Government (Diplomatic)",
+                            "value": 16
+                        },
+                        {
+                            "name": "Military",
+                            "value": 329
+                        },
+                        {
+                            "name": "Airports & Aircraft",
+                            "value": 11
+                        },
+                        {
+                            "name": "Religious Figures/Institutions",
+                            "value": 38
+                        },
+                        {
+                            "name": "Government (General)",
+                            "value": 78
+                        },
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 156
+                        },
+                        {
+                            "name": "Maritime",
+                            "value": 3
+                        },
+                        {
+                            "name": "Educational Institution",
+                            "value": 129
+                        },
+                        {
+                            "name": "Transportation",
+                            "value": 28
+                        },
+                        {
+                            "name": "Police",
+                            "value": 149
+                        },
+                        {
+                            "name": "Tourists",
+                            "value": 1
+                        },
+                        {
+                            "name": "Utilities",
+                            "value": 40
+                        },
+                        {
+                            "name": "Terrorists/Non-State Militia",
+                            "value": 70
+                        },
+                        {
+                            "name": "Unknown",
+                            "value": 30
+                        },
+                        {
+                            "name": "Other",
+                            "value": 1
+                        },
+                        {
+                            "name": "Journalists & Media",
+                            "value": 8
+                        },
+                        {
+                            "name": "Violent Political Party",
+                            "value": 22
+                        },
+                        {
+                            "name": "Abortion Related",
+                            "value": 1
+                        },
+                        {
+                            "name": "Telecommunication",
+                            "value": 3
+                        },
+                        {
+                            "name": "NGO",
+                            "value": 3
+                        },
+                        {
+                            "name": "Food or Water Supply",
+                            "value": 2
+                        }
+                    ]
+                },
+                {
+                    "name": "Hijacking",
+                    "value": 9,
+                    "children": [
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 4
+                        },
+                        {
+                            "name": "Government (General)",
+                            "value": 1
+                        },
+                        {
+                            "name": "Military",
+                            "value": 2
+                        },
+                        {
+                            "name": "Maritime",
+                            "value": 1
+                        },
+                        {
+                            "name": "Business",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Assassination",
+                    "value": 338,
+                    "children": [
+                        {
+                            "name": "Government (General)",
+                            "value": 91
+                        },
+                        {
+                            "name": "Violent Political Party",
+                            "value": 10
+                        },
+                        {
+                            "name": "Government (Diplomatic)",
+                            "value": 6
+                        },
+                        {
+                            "name": "Military",
+                            "value": 73
+                        },
+                        {
+                            "name": "Police",
+                            "value": 50
+                        },
+                        {
+                            "name": "Religious Figures/Institutions",
+                            "value": 4
+                        },
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 52
+                        },
+                        {
+                            "name": "Terrorists/Non-State Militia",
+                            "value": 42
+                        },
+                        {
+                            "name": "Business",
+                            "value": 4
+                        },
+                        {
+                            "name": "Journalists & Media",
+                            "value": 4
+                        },
+                        {
+                            "name": "NGO",
+                            "value": 2
+                        }
+                    ]
+                },
+                {
+                    "name": "Hostage Taking (Kidnapping)",
+                    "value": 231,
+                    "children": [
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 69
+                        },
+                        {
+                            "name": "Business",
+                            "value": 14
+                        },
+                        {
+                            "name": "Military",
+                            "value": 45
+                        },
+                        {
+                            "name": "Government (General)",
+                            "value": 30
+                        },
+                        {
+                            "name": "Tourists",
+                            "value": 5
+                        },
+                        {
+                            "name": "Government (Diplomatic)",
+                            "value": 10
+                        },
+                        {
+                            "name": "Police",
+                            "value": 23
+                        },
+                        {
+                            "name": "NGO",
+                            "value": 8
+                        },
+                        {
+                            "name": "Educational Institution",
+                            "value": 6
+                        },
+                        {
+                            "name": "Terrorists/Non-State Militia",
+                            "value": 14
+                        },
+                        {
+                            "name": "Journalists & Media",
+                            "value": 3
+                        },
+                        {
+                            "name": "Airports & Aircraft",
+                            "value": 1
+                        },
+                        {
+                            "name": "Violent Political Party",
+                            "value": 2
+                        },
+                        {
+                            "name": "Utilities",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Armed Assault",
+                    "value": 745,
+                    "children": [
+                        {
+                            "name": "Military",
+                            "value": 295
+                        },
+                        {
+                            "name": "Police",
+                            "value": 174
+                        },
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 114
+                        },
+                        {
+                            "name": "Government (Diplomatic)",
+                            "value": 10
+                        },
+                        {
+                            "name": "Government (General)",
+                            "value": 54
+                        },
+                        {
+                            "name": "Educational Institution",
+                            "value": 7
+                        },
+                        {
+                            "name": "Business",
+                            "value": 19
+                        },
+                        {
+                            "name": "Utilities",
+                            "value": 2
+                        },
+                        {
+                            "name": "Terrorists/Non-State Militia",
+                            "value": 45
+                        },
+                        {
+                            "name": "NGO",
+                            "value": 4
+                        },
+                        {
+                            "name": "Religious Figures/Institutions",
+                            "value": 9
+                        },
+                        {
+                            "name": "Violent Political Party",
+                            "value": 4
+                        },
+                        {
+                            "name": "Transportation",
+                            "value": 2
+                        },
+                        {
+                            "name": "Journalists & Media",
+                            "value": 4
+                        },
+                        {
+                            "name": "Other",
+                            "value": 1
+                        },
+                        {
+                            "name": "Airports & Aircraft",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Hostage Taking (Barricade Incident)",
+                    "value": 13,
+                    "children": [
+                        {
+                            "name": "Business",
+                            "value": 1
+                        },
+                        {
+                            "name": "Military",
+                            "value": 2
+                        },
+                        {
+                            "name": "Journalists & Media",
+                            "value": 1
+                        },
+                        {
+                            "name": "Religious Figures/Institutions",
+                            "value": 4
+                        },
+                        {
+                            "name": "Educational Institution",
+                            "value": 2
+                        },
+                        {
+                            "name": "Terrorists/Non-State Militia",
+                            "value": 2
+                        },
+                        {
+                            "name": "Police",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Unknown",
+                    "value": 132,
+                    "children": [
+                        {
+                            "name": "Military",
+                            "value": 76
+                        },
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 23
+                        },
+                        {
+                            "name": "Police",
+                            "value": 10
+                        },
+                        {
+                            "name": "Terrorists/Non-State Militia",
+                            "value": 11
+                        },
+                        {
+                            "name": "Government (General)",
+                            "value": 9
+                        },
+                        {
+                            "name": "Violent Political Party",
+                            "value": 1
+                        },
+                        {
+                            "name": "Business",
+                            "value": 1
+                        },
+                        {
+                            "name": "Government (Diplomatic)",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Facility/Infrastructure Attack",
+                    "value": 63,
+                    "children": [
+                        {
+                            "name": "Business",
+                            "value": 5
+                        },
+                        {
+                            "name": "Police",
+                            "value": 2
+                        },
+                        {
+                            "name": "Government (General)",
+                            "value": 3
+                        },
+                        {
+                            "name": "Utilities",
+                            "value": 2
+                        },
+                        {
+                            "name": "Journalists & Media",
+                            "value": 2
+                        },
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 4
+                        },
+                        {
+                            "name": "Military",
+                            "value": 8
+                        },
+                        {
+                            "name": "Religious Figures/Institutions",
+                            "value": 5
+                        },
+                        {
+                            "name": "Educational Institution",
+                            "value": 29
+                        },
+                        {
+                            "name": "Terrorists/Non-State Militia",
+                            "value": 1
+                        },
+                        {
+                            "name": "Unknown",
+                            "value": 2
+                        }
+                    ]
+                },
+                {
+                    "name": "Unarmed Assault",
+                    "value": 9,
+                    "children": [
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 5
+                        },
+                        {
+                            "name": "Government (General)",
+                            "value": 2
+                        },
+                        {
+                            "name": "Business",
+                            "value": 2
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "ethno_nationalist",
+            "value": 3495,
+            "children": [
+                {
+                    "name": "Hostage Taking (Barricade Incident)",
+                    "value": 21,
+                    "children": [
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 4
+                        },
+                        {
+                            "name": "Business",
+                            "value": 5
+                        },
+                        {
+                            "name": "Government (Diplomatic)",
+                            "value": 3
+                        },
+                        {
+                            "name": "Airports & Aircraft",
+                            "value": 3
+                        },
+                        {
+                            "name": "Military",
+                            "value": 3
+                        },
+                        {
+                            "name": "Transportation",
+                            "value": 1
+                        },
+                        {
+                            "name": "Unknown",
+                            "value": 1
+                        },
+                        {
+                            "name": "Journalists & Media",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Bombing/Explosion",
+                    "value": 1667,
+                    "children": [
+                        {
+                            "name": "Government (General)",
+                            "value": 123
+                        },
+                        {
+                            "name": "Utilities",
+                            "value": 18
+                        },
+                        {
+                            "name": "Military",
+                            "value": 330
+                        },
+                        {
+                            "name": "Telecommunication",
+                            "value": 9
+                        },
+                        {
+                            "name": "Police",
+                            "value": 249
+                        },
+                        {
+                            "name": "Business",
+                            "value": 413
+                        },
+                        {
+                            "name": "Government (Diplomatic)",
+                            "value": 62
+                        },
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 203
+                        },
+                        {
+                            "name": "Religious Figures/Institutions",
+                            "value": 6
+                        },
+                        {
+                            "name": "Airports & Aircraft",
+                            "value": 106
+                        },
+                        {
+                            "name": "Tourists",
+                            "value": 13
+                        },
+                        {
+                            "name": "Transportation",
+                            "value": 68
+                        },
+                        {
+                            "name": "Unknown",
+                            "value": 26
+                        },
+                        {
+                            "name": "Other",
+                            "value": 1
+                        },
+                        {
+                            "name": "Maritime",
+                            "value": 2
+                        },
+                        {
+                            "name": "Educational Institution",
+                            "value": 12
+                        },
+                        {
+                            "name": "Journalists & Media",
+                            "value": 4
+                        },
+                        {
+                            "name": "Terrorists/Non-State Militia",
+                            "value": 18
+                        },
+                        {
+                            "name": "NGO",
+                            "value": 4
+                        }
+                    ]
+                },
+                {
+                    "name": "Facility/Infrastructure Attack",
+                    "value": 380,
+                    "children": [
+                        {
+                            "name": "Business",
+                            "value": 285
+                        },
+                        {
+                            "name": "Educational Institution",
+                            "value": 6
+                        },
+                        {
+                            "name": "Government (General)",
+                            "value": 30
+                        },
+                        {
+                            "name": "Utilities",
+                            "value": 1
+                        },
+                        {
+                            "name": "NGO",
+                            "value": 3
+                        },
+                        {
+                            "name": "Airports & Aircraft",
+                            "value": 3
+                        },
+                        {
+                            "name": "Government (Diplomatic)",
+                            "value": 6
+                        },
+                        {
+                            "name": "Police",
+                            "value": 9
+                        },
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 16
+                        },
+                        {
+                            "name": "Transportation",
+                            "value": 9
+                        },
+                        {
+                            "name": "Unknown",
+                            "value": 2
+                        },
+                        {
+                            "name": "Military",
+                            "value": 5
+                        },
+                        {
+                            "name": "Tourists",
+                            "value": 2
+                        },
+                        {
+                            "name": "Journalists & Media",
+                            "value": 1
+                        },
+                        {
+                            "name": "Food or Water Supply",
+                            "value": 1
+                        },
+                        {
+                            "name": "Telecommunication",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Assassination",
+                    "value": 1006,
+                    "children": [
+                        {
+                            "name": "Military",
+                            "value": 357
+                        },
+                        {
+                            "name": "Government (Diplomatic)",
+                            "value": 92
+                        },
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 170
+                        },
+                        {
+                            "name": "Educational Institution",
+                            "value": 1
+                        },
+                        {
+                            "name": "Police",
+                            "value": 205
+                        },
+                        {
+                            "name": "Terrorists/Non-State Militia",
+                            "value": 58
+                        },
+                        {
+                            "name": "Government (General)",
+                            "value": 70
+                        },
+                        {
+                            "name": "NGO",
+                            "value": 5
+                        },
+                        {
+                            "name": "Airports & Aircraft",
+                            "value": 1
+                        },
+                        {
+                            "name": "Religious Figures/Institutions",
+                            "value": 3
+                        },
+                        {
+                            "name": "Journalists & Media",
+                            "value": 3
+                        },
+                        {
+                            "name": "Business",
+                            "value": 40
+                        },
+                        {
+                            "name": "Unknown",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Unknown",
+                    "value": 22,
+                    "children": [
+                        {
+                            "name": "Military",
+                            "value": 5
+                        },
+                        {
+                            "name": "Business",
+                            "value": 6
+                        },
+                        {
+                            "name": "Government (Diplomatic)",
+                            "value": 1
+                        },
+                        {
+                            "name": "Airports & Aircraft",
+                            "value": 1
+                        },
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 2
+                        },
+                        {
+                            "name": "Religious Figures/Institutions",
+                            "value": 1
+                        },
+                        {
+                            "name": "Unknown",
+                            "value": 2
+                        },
+                        {
+                            "name": "Transportation",
+                            "value": 1
+                        },
+                        {
+                            "name": "Police",
+                            "value": 1
+                        },
+                        {
+                            "name": "Government (General)",
+                            "value": 2
+                        }
+                    ]
+                },
+                {
+                    "name": "Armed Assault",
+                    "value": 338,
+                    "children": [
+                        {
+                            "name": "Government (Diplomatic)",
+                            "value": 17
+                        },
+                        {
+                            "name": "Terrorists/Non-State Militia",
+                            "value": 6
+                        },
+                        {
+                            "name": "Other",
+                            "value": 1
+                        },
+                        {
+                            "name": "Airports & Aircraft",
+                            "value": 2
+                        },
+                        {
+                            "name": "Police",
+                            "value": 87
+                        },
+                        {
+                            "name": "Military",
+                            "value": 126
+                        },
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 63
+                        },
+                        {
+                            "name": "Business",
+                            "value": 15
+                        },
+                        {
+                            "name": "Government (General)",
+                            "value": 7
+                        },
+                        {
+                            "name": "Unknown",
+                            "value": 8
+                        },
+                        {
+                            "name": "Religious Figures/Institutions",
+                            "value": 1
+                        },
+                        {
+                            "name": "Educational Institution",
+                            "value": 1
+                        },
+                        {
+                            "name": "Transportation",
+                            "value": 4
+                        }
+                    ]
+                },
+                {
+                    "name": "Hostage Taking (Kidnapping)",
+                    "value": 49,
+                    "children": [
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 17
+                        },
+                        {
+                            "name": "Government (Diplomatic)",
+                            "value": 2
+                        },
+                        {
+                            "name": "Government (General)",
+                            "value": 5
+                        },
+                        {
+                            "name": "Military",
+                            "value": 8
+                        },
+                        {
+                            "name": "Terrorists/Non-State Militia",
+                            "value": 4
+                        },
+                        {
+                            "name": "Journalists & Media",
+                            "value": 1
+                        },
+                        {
+                            "name": "Police",
+                            "value": 4
+                        },
+                        {
+                            "name": "Business",
+                            "value": 6
+                        },
+                        {
+                            "name": "Maritime",
+                            "value": 1
+                        },
+                        {
+                            "name": "Religious Figures/Institutions",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Hijacking",
+                    "value": 6,
+                    "children": [
+                        {
+                            "name": "Airports & Aircraft",
+                            "value": 3
+                        },
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 3
+                        }
+                    ]
+                },
+                {
+                    "name": "Unarmed Assault",
+                    "value": 6,
+                    "children": [
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 3
+                        },
+                        {
+                            "name": "Terrorists/Non-State Militia",
+                            "value": 1
+                        },
+                        {
+                            "name": "Business",
+                            "value": 2
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "single_issue",
+            "value": 415,
+            "children": [
+                {
+                    "name": "Bombing/Explosion",
+                    "value": 186,
+                    "children": [
+                        {
+                            "name": "NGO",
+                            "value": 2
+                        },
+                        {
+                            "name": "Government (General)",
+                            "value": 9
+                        },
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 14
+                        },
+                        {
+                            "name": "Business",
+                            "value": 72
+                        },
+                        {
+                            "name": "Educational Institution",
+                            "value": 6
+                        },
+                        {
+                            "name": "Airports & Aircraft",
+                            "value": 15
+                        },
+                        {
+                            "name": "Abortion Related",
+                            "value": 12
+                        },
+                        {
+                            "name": "Government (Diplomatic)",
+                            "value": 33
+                        },
+                        {
+                            "name": "Journalists & Media",
+                            "value": 7
+                        },
+                        {
+                            "name": "Maritime",
+                            "value": 3
+                        },
+                        {
+                            "name": "Military",
+                            "value": 3
+                        },
+                        {
+                            "name": "Tourists",
+                            "value": 1
+                        },
+                        {
+                            "name": "Utilities",
+                            "value": 3
+                        },
+                        {
+                            "name": "Unknown",
+                            "value": 2
+                        },
+                        {
+                            "name": "Police",
+                            "value": 2
+                        },
+                        {
+                            "name": "Religious Figures/Institutions",
+                            "value": 2
+                        }
+                    ]
+                },
+                {
+                    "name": "Assassination",
+                    "value": 19,
+                    "children": [
+                        {
+                            "name": "Business",
+                            "value": 4
+                        },
+                        {
+                            "name": "Educational Institution",
+                            "value": 2
+                        },
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 4
+                        },
+                        {
+                            "name": "Abortion Related",
+                            "value": 4
+                        },
+                        {
+                            "name": "Government (Diplomatic)",
+                            "value": 3
+                        },
+                        {
+                            "name": "Government (General)",
+                            "value": 2
+                        }
+                    ]
+                },
+                {
+                    "name": "Unarmed Assault",
+                    "value": 17,
+                    "children": [
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 2
+                        },
+                        {
+                            "name": "Business",
+                            "value": 3
+                        },
+                        {
+                            "name": "Educational Institution",
+                            "value": 12
+                        }
+                    ]
+                },
+                {
+                    "name": "Facility/Infrastructure Attack",
+                    "value": 185,
+                    "children": [
+                        {
+                            "name": "Educational Institution",
+                            "value": 18
+                        },
+                        {
+                            "name": "Business",
+                            "value": 113
+                        },
+                        {
+                            "name": "Government (General)",
+                            "value": 18
+                        },
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 19
+                        },
+                        {
+                            "name": "Police",
+                            "value": 2
+                        },
+                        {
+                            "name": "Transportation",
+                            "value": 1
+                        },
+                        {
+                            "name": "Abortion Related",
+                            "value": 5
+                        },
+                        {
+                            "name": "Maritime",
+                            "value": 1
+                        },
+                        {
+                            "name": "Utilities",
+                            "value": 3
+                        },
+                        {
+                            "name": "Military",
+                            "value": 2
+                        },
+                        {
+                            "name": "Telecommunication",
+                            "value": 1
+                        },
+                        {
+                            "name": "Government (Diplomatic)",
+                            "value": 1
+                        },
+                        {
+                            "name": "Journalists & Media",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Hostage Taking (Kidnapping)",
+                    "value": 4,
+                    "children": [
+                        {
+                            "name": "Abortion Related",
+                            "value": 1
+                        },
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 1
+                        },
+                        {
+                            "name": "Military",
+                            "value": 1
+                        },
+                        {
+                            "name": "Government (Diplomatic)",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Armed Assault",
+                    "value": 3,
+                    "children": [
+                        {
+                            "name": "Abortion Related",
+                            "value": 1
+                        },
+                        {
+                            "name": "Airports & Aircraft",
+                            "value": 1
+                        },
+                        {
+                            "name": "Business",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Unknown",
+                    "value": 1,
+                    "children": [
+                        {
+                            "name": "Maritime",
+                            "value": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "extreme_right",
+            "value": 61,
+            "children": [
+                {
+                    "name": "Bombing/Explosion",
+                    "value": 21,
+                    "children": [
+                        {
+                            "name": "Government (General)",
+                            "value": 3
+                        },
+                        {
+                            "name": "Military",
+                            "value": 1
+                        },
+                        {
+                            "name": "Business",
+                            "value": 7
+                        },
+                        {
+                            "name": "Police",
+                            "value": 2
+                        },
+                        {
+                            "name": "Telecommunication",
+                            "value": 2
+                        },
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 1
+                        },
+                        {
+                            "name": "Transportation",
+                            "value": 1
+                        },
+                        {
+                            "name": "Religious Figures/Institutions",
+                            "value": 3
+                        },
+                        {
+                            "name": "Utilities",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Armed Assault",
+                    "value": 9,
+                    "children": [
+                        {
+                            "name": "Religious Figures/Institutions",
+                            "value": 1
+                        },
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 7
+                        },
+                        {
+                            "name": "Police",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Facility/Infrastructure Attack",
+                    "value": 18,
+                    "children": [
+                        {
+                            "name": "Government (General)",
+                            "value": 1
+                        },
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 5
+                        },
+                        {
+                            "name": "Journalists & Media",
+                            "value": 2
+                        },
+                        {
+                            "name": "NGO",
+                            "value": 1
+                        },
+                        {
+                            "name": "Religious Figures/Institutions",
+                            "value": 3
+                        },
+                        {
+                            "name": "Business",
+                            "value": 5
+                        },
+                        {
+                            "name": "Transportation",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Hostage Taking (Kidnapping)",
+                    "value": 4,
+                    "children": [
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 3
+                        },
+                        {
+                            "name": "Religious Figures/Institutions",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Assassination",
+                    "value": 7,
+                    "children": [
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 3
+                        },
+                        {
+                            "name": "Journalists & Media",
+                            "value": 4
+                        }
+                    ]
+                },
+                {
+                    "name": "Unarmed Assault",
+                    "value": 1,
+                    "children": [
+                        {
+                            "name": "Private Citizens & Property",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "name": "Hostage Taking (Barricade Incident)",
+                    "value": 1,
+                    "children": [
+                        {
+                            "name": "Business",
+                            "value": 1
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
