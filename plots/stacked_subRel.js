@@ -186,6 +186,5 @@ d3.csv("../data/attacks_per_ideology/sub_religious_ideologies.csv").then(
 
     })
 }
-        
 
 export default drawRelAreaChart;
