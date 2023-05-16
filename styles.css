@@ -21,6 +21,13 @@ body {
     margin-bottom: 50px;
 }
 
+.rel_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
 .text_container {
     text-align: justify;
     font-family: 'Helvetica Neue light';
