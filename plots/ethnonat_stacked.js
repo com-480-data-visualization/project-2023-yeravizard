@@ -25,7 +25,7 @@ const drawEthnonatAreaChart = () => {
             // color palette
             const color = d3.scaleOrdinal()
                 .domain(keys)
-                .range(d3.schemeSet2);
+                .range(["#ffffb2","#fecc5c","#fd8d3c","#f03b20","#bd0026"]);
             
             //stack the data?
             const stackedData = d3.stack()

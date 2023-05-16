@@ -25,7 +25,7 @@ const drawLeftAreaChart = () => {
         // color palette
         const color = d3.scaleOrdinal()
             .domain(keys)
-            .range(d3.schemeSet2);
+            .range(["#ffffb2","#fed976","#feb24c","#fd8d3c","#fc4e2a","#e31a1c","#b10026"]);
         
         //stack the data?
         const stackedData = d3.stack()
