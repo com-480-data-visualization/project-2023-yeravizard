@@ -1,4 +1,4 @@
-const drawAreaChart = () => {
+const drawRelAreaChart = () => {
 
 // set the dimensions and margins of the graph
 const margin = {top: 60, right: 230, bottom: 50, left: 50},
@@ -6,17 +6,18 @@ const margin = {top: 60, right: 230, bottom: 50, left: 50},
     height = 600 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
-const svg = d3.select("#area_chart")
-  .append("svg")
+const svg = d3.select("#religious_area_chart")
+    .append("svg")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
-  .append("g")
+    .append("g")
     .attr("transform",
-          `translate(${margin.left}, ${margin.top})`);
+            `translate(${margin.left}, ${margin.top})`);
 
-d3.csv("../data/attacks_per_ideology/dominant_ideologies.csv").then(
+d3.csv("../data/attacks_per_ideology/sub_religious_ideologies.csv").then(
+    
     function(data) {
-   
+    
     // List of groups = header of the csv files
     const keys = data.columns.slice(1);
     console.log(keys)
@@ -24,14 +25,13 @@ d3.csv("../data/attacks_per_ideology/dominant_ideologies.csv").then(
     // color palette
     const color = d3.scaleOrdinal()
         .domain(keys)
-        // choose the colors from a d3 palette
         .range(d3.schemeSet2);
-  
+    
     //stack the data?
     const stackedData = d3.stack()
         .keys(keys)
         (data)
-    console.log("This is the stack result: ", stackedData)
+        console.log("This is the stack result: ", stackedData)
 
     /////////////
     // AXIS /////
@@ -44,7 +44,7 @@ d3.csv("../data/attacks_per_ideology/dominant_ideologies.csv").then(
     svg.append("g")
     .attr("transform", `translate(0, ${height})`)
     .call(d3.axisBottom(x).tickValues([1970, 1980, 1990, 2000, 2010, 2020]).tickSizeOuter(0));
-     
+        
     // Add X axis label:
     svg.append("text")
         .attr("text-anchor", "end")
@@ -52,7 +52,7 @@ d3.csv("../data/attacks_per_ideology/dominant_ideologies.csv").then(
         .attr("y", height+ 40 )
         .text("Time (year)");
 
-     // Add Y axis
+        // Add Y axis
     const y = d3.scaleLinear()
     .domain([0, 500])
     .range([ height, 0 ]);
@@ -145,15 +145,15 @@ d3.csv("../data/attacks_per_ideology/dominant_ideologies.csv").then(
         d3.selectAll(".myArea").style("opacity", .1)
         // expect the one that is hovered
         d3.select("."+d).style("opacity", 1)
-      }
-  
-      // And when it is not hovered anymore
-      const noHighlight = function(event,d){
+        }
+    
+        // And when it is not hovered anymore
+        const noHighlight = function(event,d){
         d3.selectAll(".myArea").style("opacity", 1)
-      }
-  
-  
-  
+        }
+    
+    
+    
     //////////
     // LEGEND //
     //////////
@@ -188,4 +188,4 @@ d3.csv("../data/attacks_per_ideology/dominant_ideologies.csv").then(
 }
         
 
-export default drawAreaChart;
+export default drawRelAreaChart;
