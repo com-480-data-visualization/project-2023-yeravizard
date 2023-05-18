@@ -163,7 +163,7 @@ d3.csv("data/attacks_per_ideology/sub_ethnonat_ideologies.csv").then(
         svg.selectAll("myrect")
         .data(keys)
         .join("rect")
-            .attr("x", 600)
+            .attr("x", 400)
             .attr("y", function(d,i){ return 10 + i*(size+5)}) // 100 is where the first dot appears. 25 is the distance between dots
             .attr("width", size)
             .attr("height", size)
@@ -175,7 +175,7 @@ d3.csv("data/attacks_per_ideology/sub_ethnonat_ideologies.csv").then(
         svg.selectAll("mylabels")
         .data(keys)
         .join("text")
-            .attr("x", 600 + size*1.2)
+            .attr("x", 400 + size*1.2)
             .attr("y", function(d,i){ return 10 + i*(size+5) + (size/2)}) // 100 is where the first dot appears. 25 is the distance between dots
             .style("fill", function(d){ return color(d)})
             .text(function(d){ return d})
