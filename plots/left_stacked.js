@@ -14,7 +14,7 @@ const svg = d3.select("#left_area_chart")
     .attr("transform",
             `translate(${margin.left}, ${margin.top})`);
 
-d3.csv("../data/attacks_per_ideology/sub_left_ideologies.csv").then(
+d3.csv("data/attacks_per_ideology/sub_left_ideologies.csv").then(
     
     function(data) {
     

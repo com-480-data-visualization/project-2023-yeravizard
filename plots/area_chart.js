@@ -13,7 +13,7 @@ const svg = d3.select("#area_chart")
     .attr("transform",
           `translate(${margin.left}, ${margin.top})`);
 
-d3.csv("../data/attacks_per_ideology/dominant_ideologies.csv").then(
+d3.csv("data/attacks_per_ideology/dominant_ideologies.csv").then(
     function(data) {
    
     // List of groups = header of the csv files
