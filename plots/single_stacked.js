@@ -14,7 +14,7 @@ const drawSingleAreaChart = () => {
         .attr("transform",
                 `translate(${margin.left}, ${margin.top})`);
     
-    d3.csv("{{site.baseurl}}/data/attacks_per_ideology/sub_single_ideologies.csv").then(
+    d3.csv("../data/attacks_per_ideology/sub_single_ideologies.csv").then(
         
         function(data) {
         
