@@ -1,12 +1,12 @@
-import drawAreaChart from 'plots/area_chart.js';
-import drawSunburst from 'plots/sunburst.js';
-import drawGroupStructures from 'plots/group_structures.js';
-import drawRecruitment from 'plots/recruitment.js';
-import drawRelAreaChart from 'plots/stacked_subRel.js';
-import drawEthnonatAreaChart from 'plots/ethnonat_stacked.js';
-import drawLeftAreaChart from 'plots/left_stacked.js';
-import drawRightAreaChart from 'plots/right_stacked.js';
-import drawSingleAreaChart from 'plots/single_stacked.js';
+import drawAreaChart from 'project-2023-yeravizard/plots/area_chart.js';
+import drawSunburst from 'project-2023-yeravizard/plots/sunburst.js';
+import drawGroupStructures from 'project-2023-yeravizard/plots/group_structures.js';
+import drawRecruitment from 'project-2023-yeravizard/plots/recruitment.js';
+import drawRelAreaChart from 'project-2023-yeravizard/plots/stacked_subRel.js';
+import drawEthnonatAreaChart from 'project-2023-yeravizard/plots/ethnonat_stacked.js';
+import drawLeftAreaChart from 'project-2023-yeravizard/plots/left_stacked.js';
+import drawRightAreaChart from 'project-2023-yeravizard/plots/right_stacked.js';
+import drawSingleAreaChart from 'project-2023-yeravizard/plots/single_stacked.js';
 
 
 
