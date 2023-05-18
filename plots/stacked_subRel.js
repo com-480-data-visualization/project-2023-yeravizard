@@ -1,4 +1,4 @@
-const drawRelAreaChart = () => {
+
 
 // set the dimensions and margins of the graph
 const margin = {top: 60, right: 230, bottom: 50, left: 50},
@@ -185,6 +185,3 @@ d3.csv("../data/attacks_per_ideology/sub_religious_ideologies.csv").then(
         .on("mouseleave", noHighlight)
 
     })
-}
-
-export default drawRelAreaChart;
