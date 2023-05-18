@@ -1,4 +1,4 @@
-import drawAreaChart from '{{site.baseurl}}/plots/area_chart.js';
+import drawAreaChart from '/project-2023-yeravizard/plots/area_chart.js';
 import drawSunburst from '{{site.baseurl}}/plots/sunburst.js';
 import drawGroupStructures from '{{site.baseurl}}/plots/group_structures.js';
 import drawRecruitment from '{{site.baseurl}}/plots/recruitment.js';
