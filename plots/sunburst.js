@@ -135,24 +135,6 @@ d3.json("data/sunburst_tree.json").then(function(data) {
       return `rotate(${x - 90}) translate(${y},0) rotate(${x < 180 ? 0 : 180})`;
     }
 
-    // When you hover over a node, show "value: " and the value
-    // of the node in the tooltip
-    path.on("mouseover", function(d) {
-        tooltip.transition()
-            .duration(200)
-            .style("opacity", .9);
-        tooltip.html("value: " + d.value)
-            .style("left", (d3.event.pageX + 5) + "px")
-            .style("top", (d3.event.pageY - 28) + "px");
-        })
-
-    // When you hover out of a node, hide the tooltip
-    path.on("mouseout", function(d) {
-        tooltip.transition()
-            .duration(500)
-            .style("opacity", 0);
-        })
-  
     return svg.node();
     }
 );
