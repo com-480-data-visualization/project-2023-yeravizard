@@ -15,7 +15,7 @@ const svg = d3.select("#sunburst")
           `translate(${margin.left}, ${margin.top})`);
 
 
-d3.json("../data/sunburst_tree.json").then(function(data) {
+d3.json("data/sunburst_tree.json").then(function(data) {
 
     const color = d3.scaleOrdinal(d3.quantize(d3.interpolateRainbow, data.children.length + 1));
 

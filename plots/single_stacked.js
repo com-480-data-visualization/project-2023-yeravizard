@@ -20,7 +20,6 @@ d3.csv("data/attacks_per_ideology/sub_single_ideologies.csv").then(
     
     // List of groups = header of the csv files
     const keys = data.columns.slice(1);
-    console.log(keys)
 
     // color palette
     const color = d3.scaleOrdinal()
@@ -31,7 +30,6 @@ d3.csv("data/attacks_per_ideology/sub_single_ideologies.csv").then(
     const stackedData = d3.stack()
         .keys(keys)
         (data)
-        console.log("This is the stack result: ", stackedData)
 
     /////////////
     // AXIS /////
