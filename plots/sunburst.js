@@ -35,7 +35,7 @@ d3.json("data/sunburst_tree.json").then(function(data) {
           .sum(d => d.value)
           .sort((a, b) => b.value - a.value);
       return d3.partition()
-          .size([Math.PI, root.height + 1])
+          .size([2*Math.PI, root.height + 1])
           (root);
     }
 
