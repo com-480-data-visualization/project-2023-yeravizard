@@ -1,9 +1,7 @@
-const drawSunburst = () => {
-
 // set the dimensions and margins of the graph
-const margin = {top: 60, right: 230, bottom: 50, left: 50},
-    width = 660 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+const margin = {top: 10, right: 10, bottom: 10, left: 10},
+    width = 1000 - margin.left - margin.right,
+    height = 1000 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 const svg = d3.select("#sunburst")
@@ -45,25 +43,22 @@ d3.json("data/sunburst_tree.json").then(function(data) {
   
     root.each(d => d.current = d);
   
-    const svg = d3.create("svg")
-        .attr("viewBox", [0, 0, width, width])
-        .style("font", "10px sans-serif");
+    //const svg = d3.create("svg")
+    //    .attr("viewBox", [0, 0, width, width])
+    //    .style("font", "10px sans-serif");
   
     const g = svg.append("g")
         .attr("transform", `translate(${width / 2},${width / 2})`);
   
     const path = g.append("g")
-      .selectAll("path")
-      .data(root.descendants().slice(1));
-      
-    path.enter().append("path")
-      .merge(path)
-        .attr("fill", d => { while (d.depth > 1) d = d.parent; return color(d.data.name); })
-        .attr("fill-opacity", d => arcVisible(d.current) ? (d.children ? 0.6 : 0.4) : 0)
-        .attr("pointer-events", d => arcVisible(d.current) ? "auto" : "none")
-        .attr("d", d => arc(d.current));
-      
-    path.exit().remove();
+        .selectAll("path")
+        .data(root.descendants().slice(1))
+        .join("path")
+          .attr("fill", d => { while (d.depth > 1) d = d.parent; return color(d.data.name); })
+          .attr("fill-opacity", d => arcVisible(d.current) ? (d.children ? 0.6 : 0.4) : 0)
+          .attr("pointer-events", d => arcVisible(d.current) ? "auto" : "none")
+    
+          .attr("d", d => arc(d.current));
 
     path.filter(d => d.children)
         .style("cursor", "pointer")
@@ -73,17 +68,16 @@ d3.json("data/sunburst_tree.json").then(function(data) {
         .text(d => `${d.ancestors().map(d => d.data.name).reverse().join("/")}\n${format(d.value)}`);
   
     const label = g.append("g")
-    .attr("pointer-events", "none")
-    .attr("text-anchor", "middle")
-    .style("user-select", "none")
-    .selectAll("text")
-    .data(root.descendants().slice(1))
-    .enter()
-    .append("text")
-    .attr("dy", "0.35em")
-    .attr("fill-opacity", d => +labelVisible(d.current))
-    .attr("transform", d => labelTransform(d.current))
-    .text(d => d.data.name);
+        .attr("pointer-events", "none")
+        .attr("text-anchor", "middle")
+        .style("user-select", "none")
+      .selectAll("text")
+      .data(root.descendants().slice(1))
+      .join("text")
+        .attr("dy", "0.35em")
+        .attr("fill-opacity", d => +labelVisible(d.current))
+        .attr("transform", d => labelTransform(d.current))
+        .text(d => d.data.name);
   
     const parent = g.append("circle")
         .datum(root)
@@ -144,7 +138,3 @@ d3.json("data/sunburst_tree.json").then(function(data) {
     return svg.node();
     }
 );
-
-}
-
-export default drawSunburst;

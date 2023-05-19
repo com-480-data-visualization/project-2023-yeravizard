@@ -21,6 +21,15 @@ body {
     margin-bottom: 50px;
 }
 
+.sunburst_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    height: 100%;
+    width: 100%;
+}
+
 .rel_container {
     display: flex;
     justify-content: center;
