@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
-const margin = { top: 10, right: 30, bottom: 30, left: 60 },
-    width = 460 - margin.left - margin.right,
-    height = 400 - margin.top - margin.bottom;
+const margin = { top: 10, right: 150, bottom: 90, left: 60 },
+    width = 800 - margin.left - margin.right,
+    height = 600 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 const svg_structures = d3.select("#group_structures")
@@ -38,8 +38,6 @@ d3.csv("data/ideology_structure.csv").then(function (data) {
     const y = d3.scaleLog()
         .domain([0.001, 1])
         .range([height, 0]);
-    svg_structures.append("g")
-        .call(d3.axisLeft(y));
 
     // Another scale for subgroup position?
     const xSubgroup = d3.scaleBand()
@@ -68,23 +66,38 @@ d3.csv("data/ideology_structure.csv").then(function (data) {
             .attr("height", d => height - y(d.value))
             .attr("fill", d => color(d.key));
     
+
+    // Show y axis ticks as 0.0001, 0.001, 0.01 etc. Do not show too many ticks.
+    svg_structures.append("g")
+        .call(d3.axisLeft(y)
+            .tickValues([0.001, 0.01, 0.1, 1])
+            // show values as decimal numbers (not scientific notation), but do not show too many digits. Hence 0.0001 is good, but not 1.000 (this should be 1)
+            .tickFormat(d3.format(".4")));
+
+
+
+
+
+
     svg_structures.append("text")
         .attr("class", "y label")
         // size of text
         .attr("font-size", "14px")
-        // color white
-        .attr("fill", "white")
+        // color black
+        .attr("fill", "black")
         .attr("text-anchor", "end")
         .attr("y", 6)
-        .attr("dy", "-1.1em")
+        // setting below shifts label to the left
+        .attr("dy", "-3em")
+        // shift label to the left
         .attr("transform", "rotate(-90)")
         .text("Proportion of groups with the indicated structure");
 
      legend = svg_structures.append("g")
         .attr("class", "legend")
-        .attr("transform", "translate(" + (width + margin.right - 100) + "," + margin.top + ")")
-        // color white
-        .attr("fill", "white")
+        // put legend right from the graph
+        .attr("transform", "translate(" + (width) + "," + 0 + ")")
+        // color black
         .selectAll("g")
         .data(color.domain().slice().reverse())
         .enter().append("g")
@@ -94,11 +107,14 @@ d3.csv("data/ideology_structure.csv").then(function (data) {
         .attr("x", 0)
         .attr("width", 18)
         .attr("height", 18)
-        .style("fill", color);
+        // color of the rectangles
+        .attr("fill", color);
 
     legend.append("text")
         .attr("x", 25)
         .attr("y", 9)
+        // color black
+        .attr("fill", "black")
         .attr("dy", ".35em")
         .style("text-anchor", "start")
         .text(function (d) { return d; });
