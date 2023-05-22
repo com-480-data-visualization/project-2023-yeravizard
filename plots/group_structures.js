@@ -74,11 +74,6 @@ d3.csv("data/ideology_structure.csv").then(function (data) {
             // show values as decimal numbers (not scientific notation), but do not show too many digits. Hence 0.0001 is good, but not 1.000 (this should be 1)
             .tickFormat(d3.format(".4")));
 
-
-
-
-
-
     svg_structures.append("text")
         .attr("class", "y label")
         // size of text
