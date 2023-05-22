@@ -1,4 +1,5 @@
 
+
 // set the dimensions and margins of the graph
 const margin = {top: 60, right: 230, bottom: 50, left: 50},
     width = 800 - margin.left - margin.right,
@@ -19,17 +20,11 @@ d3.csv("data/attacks_per_ideology/sub_ethnonat_ideologies.csv").then(
     
         // List of groups = header of the csv files
         const keys = data.columns.slice(1);
- 
-        /* Trying to interpolate around the main ideology color; not working. 
-        const numberOfSubIdeologies = 5; // Adjust the number of sub-ideologies
-        const mainIdeologyColor = "#76B7B2" // From tableau 10
-        const subColorRange = d3.interpolateHcl(mainIdeologyColor, "white"); // Adjust the second color as needed
-        */
+    
         // color palette
         const color = d3.scaleOrdinal()
             .domain(keys)
-            .range(["#1b4e7d","#2a7390","#3b99a3","#50b6ac", "#63b1db"]); // choose the colors from a d3 palette
-
+            .range(["#ffffb2","#fecc5c","#fd8d3c","#f03b20","#bd0026"]);
         
         //stack the data?
         const stackedData = d3.stack()
@@ -46,19 +41,15 @@ d3.csv("data/attacks_per_ideology/sub_ethnonat_ideologies.csv").then(
         .range([ 0, width ]);
         svg.append("g")
         .attr("transform", `translate(0, ${height})`)
-        .call(d3.axisBottom(x).tickFormat(d3.format("d")).tickValues([1970, 1980, 1990, 2000, 2010, 2020]).tickSizeOuter(0));
+        .call(d3.axisBottom(x).tickValues([1970, 1980, 1990, 2000, 2010, 2020]).tickSizeOuter(0));
             
         // Add X axis label:
         svg.append("text")
-        .attr("text-anchor", "end")
-        .attr("x", width)
-        .attr("y", height +90)
-        .text("Time (year)")
-        .style("font-family", "Helvetica")
-        .style("font-weight", "bold")
-        .style("font-size", "14px")
-        .attr("fill", "#000")
-        .attr("transform", `translate(-${margin.right}, -${margin.bottom})`);
+            .attr("text-anchor", "end")
+            .attr("x", width)
+            .attr("y", height+ 40 )
+            .text("Time (year)");
+    
             // Add Y axis
         const y = d3.scaleLinear()
         .domain([0, 100])
@@ -68,15 +59,11 @@ d3.csv("data/attacks_per_ideology/sub_ethnonat_ideologies.csv").then(
     
         // Add Y axis label:
         svg.append("text")
-        .attr("text-anchor", "end")
-        .attr("x", 0)
-        .attr("y", -20)
-        .text("Number of attacks")
-        .attr("text-anchor", "start")
-        .style("font-family", "Helvetica")
-        .style("font-weight", "bold")
-        .style("font-size", "14px")
-        .attr("fill", "#000")
+            .attr("text-anchor", "end")
+            .attr("x", 0)
+            .attr("y", -20 )
+            .text("# of attacks")
+            .attr("text-anchor", "start")
     
         ////////////////////////
         // BRUSHING AND CHART //
@@ -192,13 +179,7 @@ d3.csv("data/attacks_per_ideology/sub_ethnonat_ideologies.csv").then(
             .text(function(d){ return d})
             .attr("text-anchor", "left")
             .style("alignment-baseline", "middle")
-            .style("font-family", "Helvetica")
             .on("mouseover", highlight)
             .on("mouseleave", noHighlight)
     
         })
-
-        svg
-        .style("font-family", "Helvetica")
-        .style("font-weight", "bold");
-
