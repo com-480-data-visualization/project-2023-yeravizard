@@ -37,7 +37,7 @@ body {
     margin-bottom: 50px;
 }
 
-.text_container {
+.text_container{
     text-align: justify;
     font-family: 'Helvetica Neue light';
     width: 60%;
@@ -45,6 +45,8 @@ body {
     margin-top: 50px;
     margin-bottom: 50px;
 }
+
+      
 .img_container {
     text-align: center;
     margin-top: 50px;
@@ -94,10 +96,7 @@ p {
     font-family: Helvetica;
     font-size: 24px;
 }
-.fade {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
+
 .down-arrow {
     display: block;
     width: 0;
@@ -130,3 +129,48 @@ p {
   .padding {
     padding: 100px;
   }
+
+
+.slide.active {
+    display: block;
+}
+
+.slide {
+    display: none;
+}
+
+/* Add styles for the fade-area class */
+.fade-area {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.fade-area.active {
+    opacity: 1;
+}
+.area_container {
+    float: left;
+    width: 60%;
+    padding-right: 2%;
+  }
+  
+.area_text_container {
+    float: right;
+    width: 38%;
+}
+
+/* Add styles for the fade class */
+/*
+.fade {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.fade.active {
+    opacity: 1;
+}
+
+.fade.in {
+    opacity: 1;
+}
+*/

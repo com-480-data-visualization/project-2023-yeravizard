@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
-const margin = {top: 10, right: 10, bottom: 10, left: 10},
-    width = 1000 - margin.left - margin.right,
-    height = 1000 - margin.top - margin.bottom;
+const margin = {top: 10, right: 10, bottom: 10, left: 10};
+const width = 800 - margin.left - margin.right;
+const height = 800 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 const svg = d3.select("#sunburst")
@@ -9,8 +9,7 @@ const svg = d3.select("#sunburst")
     .attr("width", width + margin.left + margin.right)
     .attr("height", height + margin.top + margin.bottom)
   .append("g")
-    .attr("transform",
-          `translate(${margin.left}, ${margin.top})`);
+    .attr("transform",`translate(${margin.left}, ${margin.top})`);
 
 
 d3.json("data/sunburst_tree.json").then(function(data) {
@@ -18,8 +17,6 @@ d3.json("data/sunburst_tree.json").then(function(data) {
     const color = d3.scaleOrdinal(d3.quantize(d3.interpolateRainbow, data.children.length + 1));
 
     const format = d3.format(",d");
-
-    const width = 932;
     const radius = width / 6;
 
     const arc = d3.arc()
@@ -77,7 +74,21 @@ d3.json("data/sunburst_tree.json").then(function(data) {
         .attr("dy", "0.35em")
         .attr("fill-opacity", d => +labelVisible(d.current))
         .attr("transform", d => labelTransform(d.current))
-        .text(d => d.data.name);
+        //.attr("fill", "white") // Set text color to white
+        .style("font-family", "Helvetica") // Set text font to Helvetica
+        .style("font-weight", "bold") // Set text font weight to bold
+        .style("font-size", "10px") // Set text font size to a smaller value
+        .each(function(d) {
+          const lines = d.data.name.split("/"); // Split label text by "/"
+          const tspans = d3.select(this).selectAll("tspan")
+            .data(lines)
+            .enter()
+            .append("tspan")
+            .attr("x", 0)
+            .attr("dy", "1.2em")
+            .text((text) => text);
+        });
+
   
     const parent = g.append("circle")
         .datum(root)

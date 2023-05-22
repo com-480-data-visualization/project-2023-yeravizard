@@ -22,40 +22,84 @@ subtitle: Uncovering Patterns in Terrorist Group Beliefs and Attacks
 
 	<!-- Fading effect -->
 	<script>
-		$(window).on("load", function() {
-			$(window).scroll(function() {
-			var windowBottom = $(this).scrollTop() + $(this).innerHeight();
-			$(".fade").each(function() {
-				/* Check the location of each desired element */
-				var objectBottom = $(this).offset().top + $(this).outerHeight();
-				
-				/* If the element is completely within bounds of the window, fade it in */
-				if (objectBottom < windowBottom) { //object comes into view (scrolling down)
-				if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
-				} else { //object goes out of view (scrolling up)
-				if ($(this).css("opacity")==1) {$(this).fadeTo(500,0);}
-				}
-			});
-			});
-		});
-	</script>
+        $(window).on("load", function() {
+            $(window).scroll(function() {
+                var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+                var windowHeight = $(this).innerHeight();
+                var chartSectionTop = $("#chart_section").offset().top;
+                var chartSectionHeight = $("#chart_section").outerHeight();
+                var textSectionTop = $("#text_section").offset().top;
+                var textSectionHeight = $("#text_section").outerHeight();
 
-	<!-- Scrolling button -->
-	<script>
-		$(document).ready(function () {
-			$("a.scroll-button").on('click', function (event) {
-				if (this.hash !== "") {
-					event.preventDefault();
-					var hash = this.hash;
-					$('html, body').animate({
-						scrollTop: $(hash).offset().top - 100
-					}, 800, function () {
-						window.location.hash = hash;
-					});
-				}
-			});
-		});
+                $(".fade-area").each(function() {
+                    var objectTop = $(this).offset().top;
+                    var objectBottom = objectTop + $(this).outerHeight();
+
+                    if (
+                        (objectTop >= chartSectionTop + chartSectionHeight / 2 &&
+                            objectBottom <= textSectionTop + textSectionHeight / 2) ||
+                        (objectTop <= chartSectionTop + chartSectionHeight / 2 &&
+                            objectBottom >= chartSectionTop + chartSectionHeight / 2) ||
+                        (objectTop <= textSectionTop + textSectionHeight / 2 &&
+                            objectBottom >= textSectionTop + textSectionHeight / 2)
+                    ) {
+                        if ($(this).css("opacity") == 0) {
+                            $(this).fadeTo(500, 1);
+                        }
+                    } else {
+                        if ($(this).css("opacity") == 1) {
+                            $(this).fadeTo(500, 0);
+                        }
+                    }
+                });
+
+                $(".slide").each(function() {
+                    var objectTop = $(this).offset().top - 200;
+                    if (objectTop < windowBottom - windowHeight / 2) {
+                        $(this).addClass("active").siblings().removeClass("active");
+                    }
+                });
+            });
+        });
 	</script>
+	
+
+	<!-- Scroll-triggered updates -->
+	<script>
+		// Function to update the chart and show the corresponding text box
+		// Function to update the chart and show the corresponding text box
+        function updateChart(sectionId) {
+            hideChart(sectionId);
+            showTextBox(sectionId + "_textbox");
+        }
+
+        // Function to hide the chart and text box
+        function hideChart(sectionId) {
+            $("#" + sectionId + "_chart").hide();
+        }
+
+        // Function to show the text box
+        function showTextBox(textBoxId) {
+            $("#" + textBoxId).show();
+        }
+
+        // Function to hide the text box
+        function hideTextBox(textBoxId) {
+            $("#" + textBoxId).hide();
+        }
+
+        // Function to update the sub-ideology chart and show the corresponding text box
+        function updateSubIdeologyChart(sectionId) {
+            hideSubIdeologyChart(sectionId);
+            showTextBox(sectionId + "_textbox");
+        }
+
+        // Function to hide the sub-ideology chart
+        function hideSubIdeologyChart(sectionId) {
+            $("#" + sectionId + "_chart").hide();
+        }
+    </script>
+
 </head>
 
 <body id="top">
@@ -100,98 +144,136 @@ subtitle: Uncovering Patterns in Terrorist Group Beliefs and Attacks
 
 	<!-- PART 2: IDEOLOGY -->
 
-	<!-- 2.1. NUM ATTACKS PER IDEOLOGY -->
-
+	<!-- 1.1. NUM ATTACKS PER IDEOLOGY -->
 	<div class="text_container">
-		<h3> From holy wars to political violence:<br> how ideologies drive terror</h3>
-		<p> In this section, we show the four major ideologies to which the groups belong: ethno-nationalists, 
-			religious-driven, extreme left-wing, and extreme right-wing. </p>
-
-		<h4> Stacked area charts starting here. </h4>
-		<p> This plot will show how the yearly frequency of attacks evolves over time 
-			for each of the five main ideologies (ethno-nationalism, religious, extreme 
-			left, extreme right, racism). The plot will evolve when the user scrolls by 
-			switching between each of the 5 main ideologies and displaying the stacked 
-			area chart for their respective sub-ideologies. </p>
-		<p>It will change with the zoom on the subideologies composition and attacks over time by scrolling down the 
-				page. </p>
+		<h3>From holy wars to political violence:<br> how ideologies drive terror</h3>
+		<p>In this section, we show the four major ideologies to which the groups belong: ethno-nationalists, religious-driven, extreme left-wing, and extreme right-wing.</p>
+		<h4>Stacked area charts starting here.</h4>
+		<p>This plot will show how the yearly frequency of attacks evolves over time for each of the five main ideologies (ethno-nationalism, religious, extreme left, extreme right, racism). The plot will evolve when the user scrolls by switching between each of the 5 main ideologies and displaying the stacked area chart for their respective sub-ideologies.</p>
+		<p>It will change with the zoom on the sub-ideologies composition and attacks over time by scrolling down the page.</p>
 	</div>
 
-	<!--
-	<div class="fade">
+	<!-- ADD CODE HERE -->
+
+	<!-- Main ideologies -->
+
+
+	<div class="graph_container" id="dominant_area_chart"  width="1200" height="800"></div>
+	<script src="plots/dominant_stacked.js"></script>
+	
+	<!-- 
+
+		THIS WORKS
+		<div class="graph_container" id="dominant_area_chart"  width="1200" height="800"></div>
+	<script src="plots/dominant_stacked.js"></script>
+		THIS DOES NOT WORK
+	<div id="dominant_area_chart" class="slide fade-area">
+		<div class="graph_container" id="dominant_area_chart"></div>
+		<script src="plots/dominant_stacked.js"></script>
+
 		<div class="text_container">
-			<h4> Religious time here. </h4>
+			<h4>Dominant Ideology</h4>
+			<p>This is the stacked area chart for the dominant ideology.</p>
 		</div>
 	</div>
 	-->
-
-	<!-- DOMINANT IDEOLOGIES OVER TIME -->
-
-	<div class="graph_container" id="area_chart" width="1800" height="800"></div>
-	<script type="module" src="plots/area_chart.js"></script>
-
-	<!-- ETHNO NAT SUB IDEOLOGY -->
-	<div class="text_container">
-		<h3> Ethno-nationalist attacks over time. </h3>
-	</div>
-
-	<div class = "graph_container" id = "ethno_area_chart" width="1800" height="800"></div>
-	<script type="module" src="plots/ethnonat_stacked.js"></script>
-
-	<!-- EXTREME LEFT SUB IDEOLOGY -->
-	<div class="text_container">
-		<h3> Extreme Left attacks over time. </h3>
-	</div>
-
-	<div class = "graph_container" id = "left_area_chart" width="1800" height="800"></div>
-	<script type="module" src="plots/left_stacked.js"></script>
-
-	<!-- EXTREME RIGHT SUB IDEOLOGY -->
-	<div class="text_container">
-		<h3> Extreme Right attacks over time. </h3>
-	</div>
-
-	<div class = "graph_container" id = "right_area_chart" width="1800" height="800"></div>
-	<script type="module" src="plots/right_stacked.js"></script>
-
-	<!-- ETHNO SINGLE ISSUE IDEOLOGY -->
-	<div class="text_container">
-		<h3> Single Issue attacks over time. </h3>
-	</div>
-
-	<div class = "graph_container" id = "single_area_chart" width="1800" height="800"></div>
-	<script type="module" src="plots/single_stacked.js"></script>
-
-	<!-- RELIGIOUS SUB IDEOLOGY -->
-	<div class="text_container">
-		<h3> Religious attacks over time. </h3>
-	</div>
-
-	<div class = "graph_container" id = "religious_area_chart" width="1200" height="800"></div>
-	<script type="module" src="plots/stacked_subRel.js"></script>
-
-
-	<!-- END OF SUB-IDOLOGIES ANALYSIS OVER TIME -->
-
-	<div>
-		<h4> Zoomable sunburst starts here. </h4>
-		<div class="sunburst_container" id="sunburst"  width="1500" height="800"></div>
-		<script type="module" src="plots/sunburst.js"></script>
-	</div>	
-
-
-	<!-- 2.2. ATTACK TYPE AND TARGETS PER IDEOLOGY -->
-
-	<div class="fade">
-		<div class="text_container">
-			<h4> Zoomable sunburst starts here. </h4>
-			<p> Here, a sunburst diagram will show how attack strategy differs by ideology. 
-				The inner ring will cover the ideologies, the second ring will split the attacks by attack type 
-				and the outer ring will separate them by target type. Ideally, terrorist groups would be identified 
-				at the last layer. </p>
+	<!-- Dominant ideology -->
+	<div id="dominant_area_chart" class="slide fade-area">
+		<div class="area_container">
+			<div class="graph_container" id="dominant_area_chart"></div>
+		</div>
+		<div class="area_text_container" id="dominant_area_chart_textbox">
+			<div class="text_container">
+				<h4>Dominant Ideology</h4>
+				<p>This is the stacked area chart for the dominant ideology.</p>
+			</div>
 		</div>
 	</div>
+	<script src="plots/dominant_stacked.js"></script>
 
+	<!-- Ethno-nationalism -->
+	<div id="ethno_nationalism" class="slide fade-area">
+		<div class="area_container">
+		  <div class="graph_container" id="ethno_area_chart"></div>
+		  <script type="module" src="plots/ethnonat_stacked.js"></script>
+		</div>
+		<div class="area_text_container" id="ethno_nationalism_textbox">
+		  <div class="text_container">
+			<h4>Ethno-nationalism</h4>
+			<p>This is the stacked area chart for ethno-nationalism.</p>
+		  </div>
+		</div>
+	  </div>
+	
+	  <!-- Religious -->
+	  <div id="religious" class="slide fade-area">
+		<div class="area_container">
+		  <div class="graph_container" id="religious_area_chart"></div>
+		  <script type="module" src="plots/religious_stacked.js"></script>
+		</div>
+		<div class="area_text_container" id="religious_textbox">
+		  <div class="text_container">
+			<h4>Religious</h4>
+			<p>This is the stacked area chart for religious.</p>
+		  </div>
+		</div>
+	  </div>
+	
+	  <!-- Extreme left-wing -->
+	  <div id="extreme_left" class="slide fade-area">
+		<div class="area_container">
+		  <div class="graph_container" id="left_area_chart"></div>
+		  <script type="module" src="plots/left_stacked.js"></script>
+		</div>
+		<div class="area_text_container" id="extreme_left_textbox">
+		  <div class="text_container">
+			<h4>Extreme Left-Wing</h4>
+			<p>This is the stacked area chart for extreme left-wing.</p>
+		  </div>
+		</div>
+	  </div>
+		<!-- Extreme right-wing -->
+	  <div id="extreme_right" class="slide fade-area">
+		<div class="area_container">
+		  <div class="graph_container" id="right_area_chart"></div>
+		  <script type="module" src="plots/right_stacked.js"></script>
+		</div>
+		<div class="area_text_container" id="extreme_right_textbox">
+		  <div class="text_container">
+			<h4>Extreme Right-Wing</h4>
+			<p>This is the stacked area chart for extreme right-wing.</p>
+		  </div>
+		</div>
+	  </div>
+	
+	  <!-- Single issue -->
+	  <div id="singlue_issue" class="slide fade-area">
+		<div class="area_container">
+		  <div class="graph_container" id="single_area_chart"></div>
+		  <script type="module" src="plots/single_stacked.js"></script>
+		</div>
+		<div class="area_text_container" id="racism_textbox">
+		  <div class="text_container">
+			<h4>Racism</h4>
+			<p>This is the stacked area chart for single-issue.</p>
+		  </div>
+		</div>
+	  </div>
+	
+	<!-- 2.2. ATTACK TYPE AND TARGETS PER IDEOLOGY -->
+
+	<div class="text_container fade">
+		<h4> Zoomable sunburst starts here. </h4>
+		<p> Here, a sunburst diagram will show how attack strategy differs by ideology. 
+			The inner ring will cover the ideologies, the second ring will split the attacks by attack type 
+			and the outer ring will separate them by target type. Ideally, terrorist groups would be identified 
+			at the last layer. </p>
+	</div>
+	
+	<div class="graph_container">
+		<div class="sunburst_container" id="sunburst"></div>
+		<script type="module" src="plots/sunburst.js"></script>
+	  </div>
 
 	<!-- PART 3: GROUPS -->
 
@@ -244,6 +326,7 @@ subtitle: Uncovering Patterns in Terrorist Group Beliefs and Attacks
 		<img src="plots/sketches/SketchStructure.jpeg" style="width: 50%; display: block; margin: 0 auto;">
 	</div> -->
 
+	<!--
 
 	<div class="text_container">
 		<h3> Recruitement strategies. </h3>
@@ -252,6 +335,8 @@ subtitle: Uncovering Patterns in Terrorist Group Beliefs and Attacks
 
 	<div class="graph_container" id="recruitment_strategies"  width="1200" height="800"></div>
 	<script src="plots/recruitment.js"></script>
+
+	-->
 
 	<!--<div class="graph_container" id="recruitment_strategies"  width="1200" height="800"></div>-->
 <!-- 
