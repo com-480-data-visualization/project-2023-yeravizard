@@ -1,18 +1,18 @@
 // set the dimensions and margins of the graph
-const margin = { top: 10, right: 150, bottom: 90, left: 60 },
-    width = 800 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom;
+const margin_recruitment = { top: 10, right: 150, bottom: 90, left: 60 },
+    width_recr = 800 - margin_recruitment.left - margin_recruitment.right,
+    height_recr = 600 - margin_recruitment.top - margin_recruitment.bottom;
 
 // append the svg object to the body of the page
 const svg_recruitment = d3.select("#recruitment_strategies")
     .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("width", width_recr + margin_recruitment.left + margin_recruitment.right)
+    .attr("height", height_recr + margin_recruitment.top + margin_recruitment.bottom)
     .append("g")
-    .attr("transform", `translate(${margin.left},${margin.top})`);
+    .attr("transform", `translate(${margin_recruitment.left},${margin_recruitment.top})`);
 
 // Parse the Data
-d3.csv("../data/ideology_recruitment.csv", function (data) {
+d3.csv("data/ideology_recruitment.csv").then(function (data) {
 
     // List of subgroups = header of the csv files
     const subgroups = data.columns.slice(1)
@@ -23,10 +23,10 @@ d3.csv("../data/ideology_recruitment.csv", function (data) {
     // Add X axis
     const x = d3.scaleBand()
         .domain(groups)
-        .range([0, width])
+        .range([0, width_recr])
         .padding([0.2])
     svg_recruitment.append("g")
-        .attr("transform", `translate(0, ${height})`)
+        .attr("transform", `translate(0, ${height_recr})`)
         .call(d3.axisBottom(x).tickSize(0));
 
     // rotate x axis labels
@@ -37,7 +37,7 @@ d3.csv("../data/ideology_recruitment.csv", function (data) {
     // Add Y axis
     const y = d3.scaleLog()
         .domain([0.001, 1])
-        .range([height, 0]);
+        .range([height_recr, 0]);
 
     // Another scale for subgroup position?
     const xSubgroup = d3.scaleBand()
@@ -63,7 +63,7 @@ d3.csv("../data/ideology_recruitment.csv", function (data) {
             .attr("x", d => xSubgroup(d.key))
             .attr("y", d => y(d.value))
             .attr("width", xSubgroup.bandwidth())
-            .attr("height", d => height - y(d.value))
+            .attr("height", d => height_recr - y(d.value))
             .attr("fill", d => color(d.key));
 
     // Show y axis ticks as 0.0001, 0.001, 0.01 etc. Do not show too many ticks.
@@ -90,7 +90,7 @@ d3.csv("../data/ideology_recruitment.csv", function (data) {
      legend = svg_recruitment.append("g")
         .attr("class", "legend")
         // put legend right from the graph
-        .attr("transform", "translate(" + (width) + "," + 0 + ")")
+        .attr("transform", "translate(" + (width_recr) + "," + 0 + ")")
         // color black
         .selectAll("g")
         .data(color.domain().slice().reverse())

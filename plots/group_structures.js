@@ -61,9 +61,9 @@ d3.csv("data/ideology_structure.csv").then(function (data) {
         .data(function (d) { return subgroups.map(function (key) { return { key: key, value: d[key] }; }); })
         .join("rect")
             .attr("x", d => xSubgroup(d.key))
-            .attr("y", d => y(d.value))
+            .attr("y", d => y(d.value) + 0.0000001)
             .attr("width", xSubgroup.bandwidth())
-            .attr("height", d => height - y(d.value))
+            .attr("height", d => height - y(d.value) + 0.000001)
             .attr("fill", d => color(d.key));
     
 
