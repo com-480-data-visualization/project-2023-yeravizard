@@ -173,13 +173,6 @@ subtitle: Uncovering Patterns in Terrorist Group Beliefs and Attacks
 
 	<!-- END OF SUB-IDOLOGIES ANALYSIS OVER TIME -->
 
-	<div>
-		<h4> Zoomable sunburst starts here. </h4>
-		<div class="sunburst_container" id="sunburst"  width="1500" height="800"></div>
-		<script type="module" src="plots/sunburst.js"></script>
-	</div>	
-
-
 	<!-- 2.2. ATTACK TYPE AND TARGETS PER IDEOLOGY -->
 
 	<div class="fade">
@@ -192,35 +185,44 @@ subtitle: Uncovering Patterns in Terrorist Group Beliefs and Attacks
 		</div>
 	</div>
 
+	<div>
+		<h4> Zoomable sunburst starts here. </h4>
+		<div class="sunburst_container" id="sunburst"  width="1500" height="800"></div>
+		<script type="module" src="plots/sunburst.js"></script>
+	</div>	
+
+	<!-- START OF PACKING CIRCLES ON GOALS AND SUB GOALS-->
 
 	<!-- PART 3: GROUPS -->
 
-	<div class="fade">
-		<div class="text_container" id="groups">
-			<h3> Divided We Stand: Unpacking Terrorist Group Disparities </h3>
-			<p> In this section, we will dive deeper into what makes a terrorist group. Specifically, we will consider three different groups, with three different ideologies. 
-				By comparing these groups, we will gain a deeper understanding about the key features of of a terrorist group.</p>
-		</div>
+
+	<div class="text_container" id="groups">
+		<h3> Divided We Stand: Unpacking Terrorist Group Disparities </h3>
+		<p> In this section, we will dive deeper into what makes a terrorist group. Specifically, we will consider three different groups, with three different ideologies. 
+			By comparing these groups, we will gain a deeper understanding about the key features of of a terrorist group.</p>
 	</div>
+
 
 	<!-- 3.1. GROUP BELIEF -->
 
-	<div class="fade">
-		<div class="text_container">
-			<h4> Decoding Terrorist Ideologies</h4>
-			<p> We first analyze the founding belief of different terrorist groups. 
-				After preprocessing these textual features, such as the removal of stopwords and stemming, 
-				we will identify the key words that characterize the founding philosophies. 
-				We will then make a D3 Circle packing chart based on the ideologies and the founding philosophies of groups. 
-			</p>
-			<h4> Circle Packing starts here. </h4>
-		</div>
+
+	<div class="text_container">
+		<h4> Decoding Terrorist Ideologies</h4>
+		<p> We first analyze the founding belief of different terrorist groups. 
+			After preprocessing these textual features, such as the removal of stopwords and stemming, 
+			we will identify the key words that characterize the founding philosophies. 
+			We will then make a D3 Circle packing chart based on the ideologies and the founding philosophies of groups. 
+		</p>
 	</div>
 
 
-	<div class="img_container">
-		<img src="plots/sketches/SketchCircles.jpg" style="width: 50%; display: block; margin: 0 auto;">
+	<div>
+		<h4> Circle Packing starts here. </h4>
+		<div class="packing_container" id="packing"  width="1500" height="800"></div>
+		<script type="module" src="plots/packing_circles.js"></script>
 	</div>
+
+	
 
 	<!-- 3.2. GROUP STRUCTURE -->
 
