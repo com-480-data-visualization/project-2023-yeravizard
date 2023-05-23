@@ -1,0 +1,136 @@
+{
+    "name": "flare",
+    "children": [
+        {
+            "name": "flare",
+            "children": [
+                {
+                    "name": "Extreme left",
+                    "children": [
+                        {
+                            "name": "G_POL",
+                            "value": 421
+                        },
+                        {
+                            "name": "G_SOC",
+                            "value": 306
+                        },
+                        {
+                            "name": "G_ECO",
+                            "value": 299
+                        },
+                        {
+                            "name": "G_REL",
+                            "value": 10
+                        }
+                    ]
+                },
+                {
+                    "name": "Religious",
+                    "children": [
+                        {
+                            "name": "G_POL",
+                            "value": 2722
+                        },
+                        {
+                            "name": "G_SOC",
+                            "value": 17
+                        },
+                        {
+                            "name": "G_ECO",
+                            "value": 1199
+                        },
+                        {
+                            "name": "G_REL",
+                            "value": 2721
+                        }
+                    ]
+                },
+                {
+                    "name": "Ethno-nationalist",
+                    "children": [
+                        {
+                            "name": "G_POL",
+                            "value": 3495
+                        },
+                        {
+                            "name": "G_SOC",
+                            "value": 3424
+                        },
+                        {
+                            "name": "G_ECO",
+                            "value": 2980
+                        },
+                        {
+                            "name": "G_REL",
+                            "value": 2780
+                        }
+                    ]
+                },
+                {
+                    "name": "Single issue",
+                    "children": [
+                        {
+                            "name": "G_POL",
+                            "value": 410
+                        },
+                        {
+                            "name": "G_SOC",
+                            "value": 271
+                        },
+                        {
+                            "name": "G_ECO",
+                            "value": 278
+                        },
+                        {
+                            "name": "G_REL",
+                            "value": 29
+                        }
+                    ]
+                },
+                {
+                    "name": "Extreme right",
+                    "children": [
+                        {
+                            "name": "G_POL",
+                            "value": 60
+                        },
+                        {
+                            "name": "G_SOC",
+                            "value": 52
+                        },
+                        {
+                            "name": "G_ECO",
+                            "value": 38
+                        },
+                        {
+                            "name": "G_REL",
+                            "value": 18
+                        }
+                    ]
+                },
+                {
+                    "name": "Uncertain",
+                    "children": [
+                        {
+                            "name": "G_POL",
+                            "value": 8
+                        },
+                        {
+                            "name": "G_SOC",
+                            "value": 6
+                        },
+                        {
+                            "name": "G_ECO",
+                            "value": 6
+                        },
+                        {
+                            "name": "G_REL",
+                            "value": 6
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

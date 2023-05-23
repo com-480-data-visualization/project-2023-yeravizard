@@ -30,6 +30,17 @@ body {
     width: 100%;
 }
 
+.packing_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 500px;
+    margin-left: 300px;
+    margin-bottom: 50px;
+    height: 1000px;
+    width: 1500px;
+  }
+  
+
 .rel_container {
     display: flex;
     justify-content: center;
