@@ -15,7 +15,13 @@ const svg = d3.select("#sunburst")
 
 d3.json("data/sunburst_tree.json").then(function(data) {
 
-    const color = d3.scaleOrdinal(d3.quantize(d3.interpolateRainbow, data.children.length + 1));
+  const dataChildrenLength = data.children.length;
+  const customColors = ["#0571b0", "#7b3294", "#F2C14E", "#BF2237", "#1a9641"];
+  
+  const color = d3.scaleOrdinal()
+    .domain(d3.range(dataChildrenLength))
+    .range(customColors);
+
 
     const format = d3.format(",d");
 

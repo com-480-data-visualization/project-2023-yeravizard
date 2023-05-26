@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-const margin = {top: 500, right: 100, bottom: 10, left:600},
+const margin = {top: 400, right: 100, bottom: 10, left:500},
     width = 1500 - margin.left - margin.right,
     height = 1000 - margin.top - margin.bottom;
 
@@ -15,7 +15,39 @@ const svg = d3.select("#packing")
 d3.json("data/major_goals.json").then(function(data) {
   //const color = d3.scaleOrdinal(d3.quantize(d3.interpolateHcl, data.children.length + 1));
 
-  const color = d3.scaleLinear().domain([0, 5]).range(["hsl(152,80%,80%)", "hsl(228,30%,40%)"]).interpolate(d3.interpolateHcl)
+  const multicolor = true;
+  function setColorScheme(multi){
+    if (multi) {
+      let color = d3.scaleOrdinal()
+        .range(["#5890b0", "#896894", "#f2dcaa", "#bf868e", "#699678"])
+      return color;
+    }
+  }
+  
+  let fontsize = d3.scaleOrdinal()
+    .domain([1,3])
+    .range([24,16])
+  
+  let color = setColorScheme(multicolor);
+
+  function setCircleColor(obj) {
+    let depth = obj.depth;
+    while (obj.depth > 1) {
+      obj = obj.parent;
+    }
+    let newcolor = multicolor ? d3.hsl(color(obj.data.name)) : d3.hsl(hexcolor);
+    newcolor.l += depth == 0 ? 1 : depth * 0.05;
+    return newcolor;
+  }
+  
+  function setStrokeColor(obj) {
+    let depth = obj.depth;
+    while (obj.depth > 1) {
+      obj = obj.parent;
+    }
+    let strokecolor = multicolor ? d3.hsl(color(obj.data.name)) : d3.hsl(hexcolor);
+    return strokecolor;
+  }
 
   const pack = data => d3.pack()
     .size([width - 2, height - 2])
@@ -32,10 +64,11 @@ d3.json("data/major_goals.json").then(function(data) {
     .selectAll("circle")
     .data(root.descendants().slice(1))
     .join("circle")
-      .attr("fill", d => d.children ? color(d.depth) : "white")
-      .attr("pointer-events", d => !d.children ? "none" : null)
-      .on("mouseover", function() { d3.select(this).attr("stroke", "#000"); })
-      .on("mouseout", function() { d3.select(this).attr("stroke", null); })
+    .attr("fill", setCircleColor)
+    .attr("stroke", setStrokeColor)
+    .attr("pointer-events", d => !d.children ? "none" : null)
+    .on("mouseover", function() { d3.select(this).attr("stroke", d => d.depth == 1 ? "black" : "white"); })
+    .on("mouseout", function() { d3.select(this).attr("stroke", setStrokeColor); })
       .on("click", (event, d) => focus !== d && (zoom(event, d), event.stopPropagation()));
   
   const label = svg.append("g")

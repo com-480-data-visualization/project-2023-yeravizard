@@ -1,136 +1,464 @@
-{
-    "name": "flare",
-    "children": [
+
         {
-            "name": "flare",
-            "children": [
-                {
-                    "name": "Extreme left",
-                    "children": [
-                        {
-                            "name": "G_POL",
-                            "value": 421
-                        },
-                        {
-                            "name": "G_SOC",
-                            "value": 306
-                        },
-                        {
-                            "name": "G_ECO",
-                            "value": 299
-                        },
-                        {
-                            "name": "G_REL",
-                            "value": 10
-                        }
-                    ]
-                },
-                {
-                    "name": "Religious",
-                    "children": [
-                        {
-                            "name": "G_POL",
-                            "value": 2722
-                        },
-                        {
-                            "name": "G_SOC",
-                            "value": 17
-                        },
-                        {
-                            "name": "G_ECO",
-                            "value": 1199
-                        },
-                        {
-                            "name": "G_REL",
-                            "value": 2721
-                        }
-                    ]
-                },
-                {
-                    "name": "Ethno-nationalist",
-                    "children": [
-                        {
-                            "name": "G_POL",
-                            "value": 3495
-                        },
-                        {
-                            "name": "G_SOC",
-                            "value": 3424
-                        },
-                        {
-                            "name": "G_ECO",
-                            "value": 2980
-                        },
-                        {
-                            "name": "G_REL",
-                            "value": 2780
-                        }
-                    ]
-                },
-                {
-                    "name": "Single issue",
-                    "children": [
-                        {
-                            "name": "G_POL",
-                            "value": 410
-                        },
-                        {
-                            "name": "G_SOC",
-                            "value": 271
-                        },
-                        {
-                            "name": "G_ECO",
-                            "value": 278
-                        },
-                        {
-                            "name": "G_REL",
-                            "value": 29
-                        }
-                    ]
-                },
-                {
-                    "name": "Extreme right",
-                    "children": [
-                        {
-                            "name": "G_POL",
-                            "value": 60
-                        },
-                        {
-                            "name": "G_SOC",
-                            "value": 52
-                        },
-                        {
-                            "name": "G_ECO",
-                            "value": 38
-                        },
-                        {
-                            "name": "G_REL",
-                            "value": 18
-                        }
-                    ]
-                },
-                {
-                    "name": "Uncertain",
-                    "children": [
-                        {
-                            "name": "G_POL",
-                            "value": 8
-                        },
-                        {
-                            "name": "G_SOC",
-                            "value": 6
-                        },
-                        {
-                            "name": "G_ECO",
-                            "value": 6
-                        },
-                        {
-                            "name": "G_REL",
-                            "value": 6
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
-}
+        "name": "Major Goals of the groups per ideology",
+        "children": [
+            {
+                "name": "Religious",
+                "children": [
+                    {
+                        "name": "Political",
+                        "children": [
+                            {
+                                "name": "Protest government policies/laws",
+                                "value": 2718.0
+                            },
+                            {
+                                "name": "Protest government ruling party",
+                                "value": 2716.0
+                            },
+                            {
+                                "name": "Seek regime type",
+                                "value": 2704.0
+                            },
+                            {
+                                "name": "Territorial goals",
+                                "value": 2704.0
+                            },
+                            {
+                                "name": "Influence election",
+                                "value": 4.0
+                            },
+                            {
+                                "name": "Other political goal",
+                                "value": 4.0
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Social",
+                        "children": [
+                            {
+                                "name": "Protest social discrimination/social justice issues",
+                                "value": 12.0
+                            },
+                            {
+                                "name": "Protest public & private institutions",
+                                "value": 13.0
+                            },
+                            {
+                                "name": "Other social goal",
+                                "value": 8.0
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Economic",
+                        "children": [
+                            {
+                                "name": "Protest economic discrimination",
+                                "value": 0.0
+                            },
+                            {
+                                "name": "Protest government/corporate economic policies",
+                                "value": 1195.0
+                            },
+                            {
+                                "name": "Other economical goal",
+                                "value": 4.0
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Religious",
+                        "children": [
+                            {
+                                "name": "Protest religious discrimination",
+                                "value": 83.0
+                            },
+                            {
+                                "name": "Protest religious institutions",
+                                "value": 2639.0
+                            },
+                            {
+                                "name": "Killing infidels/Non-believers",
+                                "value": 2717.0
+                            },
+                            {
+                                "name": "Other religious goal",
+                                "value": 83.0
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Ethno-nationalist",
+                "children": [
+                    {
+                        "name": "Political",
+                        "children": [
+                            {
+                                "name": "Protest government policies/laws",
+                                "value": 3455.0
+                            },
+                            {
+                                "name": "Protest government ruling party",
+                                "value": 3102.0
+                            },
+                            {
+                                "name": "Seek regime type",
+                                "value": 2965.0
+                            },
+                            {
+                                "name": "Territorial goals",
+                                "value": 3489.0
+                            },
+                            {
+                                "name": "Influence election",
+                                "value": 2671.0
+                            },
+                            {
+                                "name": "Other political goal",
+                                "value": 3075.0
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Social",
+                        "children": [
+                            {
+                                "name": "Protest social discrimination/social justice issues",
+                                "value": 3402.0
+                            },
+                            {
+                                "name": "Protest public & private institutions",
+                                "value": 160.0
+                            },
+                            {
+                                "name": "Other social goal",
+                                "value": 2766.0
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Economic",
+                        "children": [
+                            {
+                                "name": "Protest economic discrimination",
+                                "value": 2968.0
+                            },
+                            {
+                                "name": "Protest government/corporate economic policies",
+                                "value": 307.0
+                            },
+                            {
+                                "name": "Other economical goal",
+                                "value": 2671.0
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Religious",
+                        "children": [
+                            {
+                                "name": "Protest religious discrimination",
+                                "value": 2779.0
+                            },
+                            {
+                                "name": "Protest religious institutions",
+                                "value": 19.0
+                            },
+                            {
+                                "name": "Killing infidels/Non-believers",
+                                "value": 0.0
+                            },
+                            {
+                                "name": "Other religious goal",
+                                "value": 82.0
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Extreme left",
+                "children": [
+                    {
+                        "name": "Political",
+                        "children": [
+                            {
+                                "name": "Protest government policies/laws",
+                                "value": 324.0
+                            },
+                            {
+                                "name": "Protest government ruling party",
+                                "value": 218.0
+                            },
+                            {
+                                "name": "Seek regime type",
+                                "value": 278.0
+                            },
+                            {
+                                "name": "Territorial goals",
+                                "value": 20.0
+                            },
+                            {
+                                "name": "Influence election",
+                                "value": 2.0
+                            },
+                            {
+                                "name": "Other political goal",
+                                "value": 49.0
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Social",
+                        "children": [
+                            {
+                                "name": "Protest social discrimination/social justice issues",
+                                "value": 291.0
+                            },
+                            {
+                                "name": "Protest public & private institutions",
+                                "value": 218.0
+                            },
+                            {
+                                "name": "Other social goal",
+                                "value": 47.0
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Economic",
+                        "children": [
+                            {
+                                "name": "Protest economic discrimination",
+                                "value": 235.0
+                            },
+                            {
+                                "name": "Protest government/corporate economic policies",
+                                "value": 269.0
+                            },
+                            {
+                                "name": "Other economical goal",
+                                "value": 20.0
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Single issue",
+                "children": [
+                    {
+                        "name": "Political",
+                        "children": [
+                            {
+                                "name": "Protest government policies/laws",
+                                "value": 397.0
+                            },
+                            {
+                                "name": "Protest government ruling party",
+                                "value": 138.0
+                            },
+                            {
+                                "name": "Seek regime type",
+                                "value": 83.0
+                            },
+                            {
+                                "name": "Territorial goals",
+                                "value": 3.0
+                            },
+                            {
+                                "name": "Influence election",
+                                "value": 0.0
+                            },
+                            {
+                                "name": "Other political goal",
+                                "value": 32.0
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Social",
+                        "children": [
+                            {
+                                "name": "Protest social discrimination/social justice issues",
+                                "value": 135.0
+                            },
+                            {
+                                "name": "Protest public & private institutions",
+                                "value": 237.0
+                            },
+                            {
+                                "name": "Other social goal",
+                                "value": 47.0
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Economic",
+                        "children": [
+                            {
+                                "name": "Protest economic discrimination",
+                                "value": 123.0
+                            },
+                            {
+                                "name": "Protest government/corporate economic policies",
+                                "value": 272.0
+                            },
+                            {
+                                "name": "Other economical goal",
+                                "value": 13.0
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Religious",
+                        "children": [
+                            {
+                                "name": "Protest religious discrimination",
+                                "value": 0.0
+                            },
+                            {
+                                "name": "Protest religious institutions",
+                                "value": 0.0
+                            },
+                            {
+                                "name": "Killing infidels/Non-believers",
+                                "value": 0.0
+                            },
+                            {
+                                "name": "Other religious goal",
+                                "value": 28.0
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Extreme right",
+                "children": [
+                    {
+                        "name": "Political",
+                        "children": [
+                            {
+                                "name": "Protest government policies/laws",
+                                "value": 40.0
+                            },
+                            {
+                                "name": "Protest government ruling party",
+                                "value": 20.0
+                            },
+                            {
+                                "name": "Seek regime type",
+                                "value": 6.0
+                            },
+                            {
+                                "name": "Territorial goals",
+                                "value": 15.0
+                            },
+                            {
+                                "name": "Influence election",
+                                "value": 30.0
+                            },
+                            {
+                                "name": "Other political goal",
+                                "value": 32.0
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Social",
+                        "children": [
+                            {
+                                "name": "Protest social discrimination/social justice issues",
+                                "value": 41.0
+                            },
+                            {
+                                "name": "Protest public & private institutions",
+                                "value": 33.0
+                            },
+                            {
+                                "name": "Other social goal",
+                                "value": 18.0
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Economic",
+                        "children": [
+                            {
+                                "name": "Protest economic discrimination",
+                                "value": 33.0
+                            },
+                            {
+                                "name": "Protest government/corporate economic policies",
+                                "value": 31.0
+                            },
+                            {
+                                "name": "Other economical goal",
+                                "value": 1.0
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Religious",
+                        "children": [
+                            {
+                                "name": "Protest religious discrimination",
+                                "value": 0.0
+                            },
+                            {
+                                "name": "Protest religious institutions",
+                                "value": 0.0
+                            },
+                            {
+                                "name": "Killing infidels/Non-believers",
+                                "value": 6.0
+                            },
+                            {
+                                "name": "Other religious goal",
+                                "value": 11.0
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Uncertain",
+                "children": [
+                    {
+                        "name": "Political",
+                        "children": [
+                            {
+                                "name": "Protest government policies/laws",
+                                "value": 0.0
+                            },
+                            {
+                                "name": "Protest government ruling party",
+                                "value": 0.0
+                            },
+                            {
+                                "name": "Seek regime type",
+                                "value": 0.0
+                            },
+                            {
+                                "name": "Territorial goals",
+                                "value": 0.0
+                            },
+                            {
+                                "name": "Influence election",
+                                "value": 0.0
+                            },
+                            {
+                                "name": "Other political goal",
+                                "value": 2.0
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }

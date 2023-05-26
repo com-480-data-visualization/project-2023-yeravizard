@@ -22,10 +22,9 @@ d3.csv("data/attacks_per_ideology/dominant_ideologies.csv").then(
 
     // color palette
     const color = d3.scaleOrdinal()
-        .domain(keys)
-        // choose the colors from a d3 palette
-        .range(["#ffffb2","#fecc5c","#fd8d3c","#f03b20","#bd0026"]);
-  
+         .domain(keys)
+         .range(["#0571b0","#7b3294","#F2C14E","#BF2237", "#1a9641"]); // choose the colors from a d3 palette
+         
     //stack the data?
     const stackedData = d3.stack()
         .keys(keys)
