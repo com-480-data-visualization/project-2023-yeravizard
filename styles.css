@@ -22,10 +22,12 @@ body {
     background-color: #f2f2f2;
     padding: 20px;
     margin: 0 auto;
+    left : 0;
+    right : 0;
     justify-content: center;
     width: max-content;
     /* center the container on the webpage */
-    
+
   }
   
   .graph-container {
