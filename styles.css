@@ -152,7 +152,8 @@ p {
       border: 1px solid #f1f1f1;
       perspective: 1000px;
       /* center the fliping boxes */
-      align-items: center;
+      margin: auto;
+
       /* Remove this if you don't want the 3D effect */
   }
 
@@ -180,6 +181,7 @@ p {
       -webkit-backface-visibility: hidden;
       /* Safari */
       backface-visibility: hidden;
+      margin: auto;
   }
 
   /* Style the front side (fallback if image is missing) */
@@ -189,6 +191,7 @@ p {
         font-size: 11px;
         text-align: center;
         vertical-align: middle;
+        margin: auto;
     }
 
   /* Style the back side */
