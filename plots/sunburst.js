@@ -17,8 +17,7 @@ d3.json("data/sunburst_tree.json").then(function(data) {
 
   const dataChildrenLength = data.children.length;
   const customColors = ["#F2C14E", "#0571b0", "#BF2237", "#7B3294", "#1a9641"];
-  
-  
+
   const color = d3.scaleOrdinal()
     .domain(d3.range(dataChildrenLength))
     .range(customColors);
@@ -75,6 +74,8 @@ d3.json("data/sunburst_tree.json").then(function(data) {
         .text(d => `${d.ancestors().map(d => d.data.name).reverse().join("/")}\n${format(d.value)}`);
   
     const label = g.append("g")
+        .style("font-family", "Arial")
+        .style("font-weight", "bold")
         .attr("pointer-events", "none")
         .attr("text-anchor", "middle")
         .style("user-select", "none")
@@ -82,10 +83,12 @@ d3.json("data/sunburst_tree.json").then(function(data) {
       .data(root.descendants().slice(1))
       .join("text")
         .attr("dy", "0.35em")
+        // make all the labels folow the ["#F2C14E", "#0571b0", "#BF2237", "#7B3294", "#1a9641"] color scheme but darker
+        .attr("fill", d => { while (d.depth > 1) d = d.parent; return d3.color(color(d.data.name)).darker(d.depth); })
         .attr("fill-opacity", d => +labelVisible(d.current))
         .attr("transform", d => labelTransform(d.current))
         .text(d => d.data.name);
-  
+
     const parent = g.append("circle")
         .datum(root)
         .attr("r", radius)
