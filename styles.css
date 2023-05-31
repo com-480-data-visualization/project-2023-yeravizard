@@ -149,6 +149,8 @@ p {
       height: 200px;
       border: 1px solid #f1f1f1;
       perspective: 1000px;
+      /* center the fliping boxes */
+      align-items: center;
       /* Remove this if you don't want the 3D effect */
   }
 
@@ -179,14 +181,20 @@ p {
   }
 
   /* Style the front side (fallback if image is missing) */
-  .flip-card-front {
-      background-color: #bbb;
-      color: black;
-  }
+    .flip-card-front {
+        background-color: lightblue;
+        color: black;
+        font-size: 11px;
+        text-align: center;
+        vertical-align: middle;
+    }
 
   /* Style the back side */
-  .flip-card-back {
-      background-color: dodgerblue;
-      color: white;
-      transform: rotateY(180deg);
-  }
+    .flip-card-back {
+        background-color: darkblue;
+        vertical-align: middle;
+        color: white;
+        font-size: 11px;
+        text-align: center;
+        transform: rotateY(180deg);
+    }
