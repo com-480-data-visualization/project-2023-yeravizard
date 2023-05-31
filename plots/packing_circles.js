@@ -91,9 +91,7 @@ d3.json("data/major_goals.json").then(function(data) {
 
       const resetButton = svg.append("g")
         .attr("class", "reset-button")
-        //.attr("transform", `translate(${width / 2},${height / 2})`)
-        // put the button top left
-        .attr("transform", `translate(${0},${0})`)
+        .attr("transform", `translate(${20},${20})`)
         .on("click", () => {
           zoomTo([root.x, root.y, root.r * 2]);
           label
