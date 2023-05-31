@@ -106,6 +106,7 @@ d3.json("data/major_goals.json").then(function(data) {
         .style("fill", "blue")
         .style("cursor", "pointer");
 
+
       // Create text for the button
       resetButton.append("text")
         .attr("dy", "0.3em")
