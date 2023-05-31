@@ -21,16 +21,11 @@ body {
     grid-gap: 20px;
     background-color: #f2f2f2;
     padding: 20px;
-    /* width: 5000; */
     margin: 0 auto;
     justify-content: center;
-    /* Center the items horizontally within the container */
-    align-items: center;
-    /* Center the items vertically within the container */
-    overflow: auto;
-    /* Add this line to enable horizontal scrolling */
     width: max-content;
-    /* Add this line to make the container width fit its content */
+    /* center the container on the webpage */
+    
   }
   
   .graph-container {
