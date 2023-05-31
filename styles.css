@@ -29,7 +29,7 @@ body {
     /* Center the items vertically within the container */
     overflow: auto;
     /* Add this line to enable horizontal scrolling */
-    width: fit-content;
+    width: max-content;
     /* Add this line to make the container width fit its content */
   }
   
@@ -64,7 +64,7 @@ body {
     margin-left: 100px;
     margin-bottom: 50px;
     height: 600px;
-    width: 1000px;
+    width: max-content;
   }
   
 
