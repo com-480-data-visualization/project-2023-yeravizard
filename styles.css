@@ -153,6 +153,9 @@ p {
       perspective: 1000px;
       /* center the fliping boxes */
       margin: auto;
+      display: flex;
+      align-items: center;
+
 
       /* Remove this if you don't want the 3D effect */
   }
@@ -181,17 +184,21 @@ p {
       -webkit-backface-visibility: hidden;
       /* Safari */
       backface-visibility: hidden;
-      margin: auto;
+      /* margin: auto; */
+        margin-left: 10px;
+        margin-right: 10px;
   }
 
   /* Style the front side (fallback if image is missing) */
     .flip-card-front {
         background-color: lightblue;
         color: black;
-        font-size: 11px;
         text-align: center;
+        display: flex;
+        margin-left: 10px;
+        margin-right: 10px;
+        align-items: center;
         vertical-align: middle;
-        margin: auto;
     }
 
   /* Style the back side */
@@ -199,7 +206,10 @@ p {
         background-color: darkblue;
         vertical-align: middle;
         color: white;
-        font-size: 11px;
         text-align: center;
+        margin-left: 10px;
+        margin-right: 10px;
+        display: flex;
+        align-items: center;
         transform: rotateY(180deg);
     }
