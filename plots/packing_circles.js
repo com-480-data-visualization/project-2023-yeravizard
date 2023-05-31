@@ -19,7 +19,7 @@ d3.json("data/major_goals.json").then(function(data) {
   function setColorScheme(multi){
     if (multi) {
       let color = d3.scaleOrdinal()
-        .range(["#5890b0", "#896894", "#f2dcaa", "#bf868e", "#699678"])
+        .range(["#5890b0", "#896894", "#f2dcaa", "#bf868e", "#699678", "#c9b5a0"])
       return color;
     }
   }
@@ -72,45 +72,86 @@ d3.json("data/major_goals.json").then(function(data) {
       .on("click", (event, d) => focus !== d && (zoom(event, d), event.stopPropagation()));
   
   const label = svg.append("g")
-      .style("font", "10px sans-serif")
-      .attr("pointer-events", "none")
-      .attr("text-anchor", "middle")
+    // make the text of the color of the circle but darker  
+      //.style("font", "20px arial")
+    .style("font-family", "Arial")
+    .style("font-weight", "bold")
+    .attr("pointer-events", "none")
+    .attr("text-anchor", "middle")
     .selectAll("text")
     .data(root.descendants())
     .join("text")
+    .style("fill", d => d3.hsl(setCircleColor(d)).darker())
+    .style("font-size", d => `${fontsize(d.depth)}px`)
       .style("fill-opacity", d => d.parent === root ? 1 : 0)
       .style("display", d => d.parent === root ? "inline" : "none")
       .text(d => d.data.name);
   
-  zoomTo([root.x, root.y, root.r * 2]);
-  
-  function zoomTo(v) {
-    const k = width / v[2];
-  
-    view = v;
-  
-    label.attr("transform", d => `translate(${(d.x - v[0]) * k},${(d.y - v[1]) * k})`);
-    node.attr("transform", d => `translate(${(d.x - v[0]) * k},${(d.y - v[1]) * k})`);
-    node.attr("r", d => d.r * k);
-  }
-  
-  function zoom(event, d) {
-    const focus0 = focus;
-  
-    focus = d;
-  
-    const transition = svg.transition()
-        .duration(event.altKey ? 7500 : 750)
-        .tween("zoom", d => {
-          const i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2]);
-          return t => zoomTo(i(t));
+      zoomTo([root.x, root.y, root.r * 2]);
+
+      const resetButton = svg.append("g")
+        .attr("class", "reset-button")
+        //.attr("transform", `translate(${width / 2},${height / 2})`)
+        // put the button top left
+        .attr("transform", `translate(${0},${0})`)
+        .on("click", () => {
+          zoomTo([root.x, root.y, root.r * 2]);
+          label
+            .transition()
+            .style("fill-opacity", d => d.parent === root ? 1 : 0)
+            .style("display", d => d.parent === root ? "inline" : "none");
         });
-  
-    label
-      .filter(function(d) { return d.parent === focus || this.style.display === "inline"; })
-      .transition(transition)
-        .style("fill-opacity", d => d.parent === focus ? 1 : 0)
-        .on("start", function(d) { if (d.parent === focus) this.style.display = "inline"; })
-        .on("end", function(d) { if (d.parent !== focus) this.style.display = "none"; });
-  }
+
+      // Create a circle for the button
+      resetButton.append("circle")
+        .attr("r", 20)
+        .style("fill", "blue")
+        .style("cursor", "pointer");
+
+
+      // Create text for the button
+      resetButton.append("text")
+        // put the button on the top left
+        .attr("x", 0)
+        .attr("y", 0)
+        .style("fill", "white")
+        .style("font-size", "14px")
+        .style("text-anchor", "middle")
+        .style("pointer-events", "none")
+        .text("Reset");
+
+      function zoomTo(v) {
+        const k = width / v[2];
+
+        view = v;
+
+        label.attr("transform", d => `translate(${(d.x - v[0]) * k},${(d.y - v[1]) * k})`);
+        node
+          .attr("transform", d => `translate(${(d.x - v[0]) * k},${(d.y - v[1]) * k})`)
+          .attr("r", d => d.r * k);
+      }
+
+      function zoom(event, d) {
+      
+        const focus = d;
+      
+        const transition = svg.transition()
+          .duration(event.altKey ? 7500 : 750)
+          .tween("zoom", d => {
+            if (d === root) { // Check if the clicked circle is the outer circle
+              zoomTo([root.x, root.y, root.r * 2]); // Reset the zoom level to the initial state
+              return;
+            }
+            const i = d3.interpolateZoom(view, [focus.x, focus.y, focus.r * 2]);
+            return t => zoomTo(i(t));
+          });
+      
+        label
+          .filter(function(d) { return d.parent === focus || this.style.display === "inline"; })
+          .transition(transition)
+          .style("fill-opacity", d => d.parent === focus ? 1 : 0)
+          .on("start", function(d) { if (d.parent === focus) this.style.display = "inline"; })
+          .on("end", function(d) { if (d.parent !== focus) this.style.display = "none"; });
+      }
+      
 });
