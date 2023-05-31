@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-const margin = {top: 300, right: 100, bottom: 10, left:500},
+const margin = {top: 300, right: 0, bottom: 0, left:500},
     width = 1500 - margin.left - margin.right,
     height = 1000 - margin.top - margin.bottom;
 
@@ -91,7 +91,7 @@ d3.json("data/major_goals.json").then(function(data) {
 
       const resetButton = svg.append("g")
         .attr("class", "reset-button")
-        .attr("transform", `translate(${20},${20})`)
+        .attr("transform", `translate(${0},${10})`)
         .on("click", () => {
           zoomTo([root.x, root.y, root.r * 2]);
           label
