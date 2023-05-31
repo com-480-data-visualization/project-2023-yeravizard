@@ -1,9 +1,9 @@
 
 
 // set the dimensions and margins of the graph
-const margin = {top: 60, right: 230, bottom: 50, left: 50},
-    width = 800 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom;
+const margin = {top: 50, right: 50, bottom: 50, left: 50},
+    width = 500 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 const svg = d3.select("#ethno_area_chart")
@@ -157,29 +157,30 @@ d3.csv("data/attacks_per_ideology/sub_ethnonat_ideologies.csv").then(
         //////////
     
         // Add one dot in the legend for each name.
-        const size = 20
-        svg.selectAll("myrect")
-        .data(keys)
-        .join("rect")
-            .attr("x", 400)
-            .attr("y", function(d,i){ return 10 + i*(size+5)}) // 100 is where the first dot appears. 25 is the distance between dots
-            .attr("width", size)
-            .attr("height", size)
-            .style("fill", function(d){ return color(d)})
-            .on("mouseover", highlight)
-            .on("mouseleave", noHighlight)
-    
-        // Add one dot in the legend for each name.
-        svg.selectAll("mylabels")
-        .data(keys)
-        .join("text")
-            .attr("x", 400 + size*1.2)
-            .attr("y", function(d,i){ return 10 + i*(size+5) + (size/2)}) // 100 is where the first dot appears. 25 is the distance between dots
-            .style("fill", function(d){ return color(d)})
-            .text(function(d){ return d})
-            .attr("text-anchor", "left")
-            .style("alignment-baseline", "middle")
-            .on("mouseover", highlight)
-            .on("mouseleave", noHighlight)
-    
-        })
+    const size = 20
+    svg.selectAll("myrect")
+    .data(keys)
+    .join("rect")
+        .attr("x", 150)
+        .attr("y", function(d,i){ return 10 + i*(size+5)}) // 100 is where the first dot appears. 25 is the distance between dots
+        .attr("width", size)
+        .attr("height", size)
+        .style("fill", function(d){ return color(d)})
+        .on("mouseover", highlight)
+        .on("mouseleave", noHighlight)
+
+    // Add one dot in the legend for each name.
+    svg.selectAll("mylabels")
+    .data(keys)
+    .join("text")
+        .attr("x", 150 + size*1.2)
+        .attr("y", function(d,i){ return 10 + i*(size+5) + (size/2)}) // 100 is where the first dot appears. 25 is the distance between dots
+        .style("fill", function(d){ return color(d)})
+        .text(function(d){ return d})
+        .attr("text-anchor", "left")
+        .style("alignment-baseline", "middle")
+        .on("mouseover", highlight)
+        .on("mouseleave", noHighlight)
+
+    })
+

@@ -1,9 +1,7 @@
-
-
 // set the dimensions and margins of the graph
-const margin = {top: 60, right: 230, bottom: 50, left: 50},
-    width = 800 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom;
+const margin = {top: 50, right: 50, bottom: 50, left: 50},
+    width = 500 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 const svg = d3.select("#religious_area_chart")
@@ -160,7 +158,7 @@ d3.csv("data/attacks_per_ideology/sub_religious_ideologies.csv").then(
     svg.selectAll("myrect")
     .data(keys)
     .join("rect")
-        .attr("x", 500)
+        .attr("x", 50)
         .attr("y", function(d,i){ return 10 + i*(size+5)}) // 100 is where the first dot appears. 25 is the distance between dots
         .attr("width", size)
         .attr("height", size)
@@ -172,7 +170,7 @@ d3.csv("data/attacks_per_ideology/sub_religious_ideologies.csv").then(
     svg.selectAll("mylabels")
     .data(keys)
     .join("text")
-        .attr("x", 500 + size*1.2)
+        .attr("x", 50 + size*1.2)
         .attr("y", function(d,i){ return 10 + i*(size+5) + (size/2)}) // 100 is where the first dot appears. 25 is the distance between dots
         .style("fill", function(d){ return color(d)})
         .text(function(d){ return d})
@@ -182,3 +180,4 @@ d3.csv("data/attacks_per_ideology/sub_religious_ideologies.csv").then(
         .on("mouseleave", noHighlight)
 
     })
+

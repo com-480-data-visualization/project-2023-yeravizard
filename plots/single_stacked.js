@@ -1,9 +1,7 @@
-
-
 // set the dimensions and margins of the graph
-const margin = {top: 60, right: 230, bottom: 50, left: 50},
-    width = 800 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom;
+const margin = {top: 50, right: 50, bottom: 50, left: 50},
+    width = 525 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 const svg = d3.select("#single_area_chart")
@@ -23,8 +21,8 @@ d3.csv("data/attacks_per_ideology/sub_single_ideologies.csv").then(
 
     // color palette
     const color = d3.scaleOrdinal()
-        .domain(keys)g
-        .range(["#00441b", "#04672b", "#1b843f", "#38a055", "#5db96b", "#88cd87", "#addea7", "#cdebc7", "#e6f5e1"])
+        .domain(keys)
+        .range(["000000", "00200d", "#00441b", "#04672b", "#1b843f", "#38a055", "#5db96b", "#88cd87", "#addea7", "#cdebc7", "#e6f5e1"])
     //stack the data?
     const stackedData = d3.stack()
         .keys(keys)
@@ -160,7 +158,7 @@ d3.csv("data/attacks_per_ideology/sub_single_ideologies.csv").then(
     svg.selectAll("myrect")
     .data(keys)
     .join("rect")
-        .attr("x", 400)
+        .attr("x", 320)
         .attr("y", function(d,i){ return 10 + i*(size+5)}) // 100 is where the first dot appears. 25 is the distance between dots
         .attr("width", size)
         .attr("height", size)
@@ -172,7 +170,7 @@ d3.csv("data/attacks_per_ideology/sub_single_ideologies.csv").then(
     svg.selectAll("mylabels")
     .data(keys)
     .join("text")
-        .attr("x", 400 + size*1.2)
+        .attr("x", 320 + size*1.2)
         .attr("y", function(d,i){ return 10 + i*(size+5) + (size/2)}) // 100 is where the first dot appears. 25 is the distance between dots
         .style("fill", function(d){ return color(d)})
         .text(function(d){ return d})
