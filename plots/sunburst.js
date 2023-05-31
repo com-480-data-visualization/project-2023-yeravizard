@@ -18,6 +18,7 @@ d3.json("data/sunburst_tree.json").then(function(data) {
   const dataChildrenLength = data.children.length;
   const customColors = ["#F2C14E", "#0571b0", "#BF2237", "#7B3294", "#1a9641"];
   
+  
   const color = d3.scaleOrdinal()
     .domain(d3.range(dataChildrenLength))
     .range(customColors);
