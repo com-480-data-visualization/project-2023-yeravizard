@@ -23,6 +23,14 @@ body {
     padding: 20px;
     width: 5000;
     margin: 0 auto;
+    justify-content: center;
+    /* Center the items horizontally within the container */
+    align-items: center;
+    /* Center the items vertically within the container */
+    overflow: auto;
+    /* Add this line to enable horizontal scrolling */
+    width: fit-content;
+    /* Add this line to make the container width fit its content */
   }
   
   .graph-container {
