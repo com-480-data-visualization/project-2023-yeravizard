@@ -7,7 +7,7 @@ layout: null
 /* --- General --- */
 
 html {
-  font-size: 100%
+  font-size: 100%;
 }
 
 body {
@@ -21,7 +21,10 @@ body {
   background-attachment: fixed;
   {% endif %}
   overflow-wrap: break-word;
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
+
 p {
   line-height: 1.5;
   margin: 1.875rem 0;
