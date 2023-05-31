@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-const margin = {top: 10, right: 50, bottom: 10, left: 10},
+const margin = {top: 10, right: 100, bottom: 10, left: 10},
     width_total = 1500 - margin.left - margin.right,
     height = 1200 - margin.top - margin.bottom;
 
@@ -16,7 +16,8 @@ const svg = d3.select("#sunburst")
 d3.json("data/sunburst_tree.json").then(function(data) {
 
   const dataChildrenLength = data.children.length;
-  const customColors = ["#0571b0", "#7b3294", "#F2C14E", "#BF2237", "#1a9641"];
+  const customColors = ["#F2C14E", "#0571b0", "#BF2237", "#7B3294", "#1a9641"];
+  
   
   const color = d3.scaleOrdinal()
     .domain(d3.range(dataChildrenLength))

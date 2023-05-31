@@ -19,7 +19,7 @@ d3.json("data/major_goals.json").then(function(data) {
   function setColorScheme(multi){
     if (multi) {
       let color = d3.scaleOrdinal()
-        .range(["#5890b0", "#896894", "#f2dcaa", "#bf868e", "#699678", "#c9b5a0"])
+        .range(["#5890b0", "#BF6470", "#896894", "#699678", "#F2DCAA", "#c9b5a0"])
       return color;
     }
   }
