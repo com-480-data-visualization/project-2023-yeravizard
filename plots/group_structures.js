@@ -1,13 +1,13 @@
 // set the dimensions and margins of the graph
 const margin_groupstruct = { top: 10, right: 150, bottom: 90, left: 60 },
-    width = 800 - margin_groupstruct.left - margin_groupstruct.right,
-    height = 600 - margin_groupstruct.top - margin_groupstruct.bottom;
+    width_groupstruct = 800 - margin_groupstruct.left - margin_groupstruct.right,
+    height_groupstruct = 600 - margin_groupstruct.top - margin_groupstruct.bottom;
 
 // append the svg object to the body of the page
 const svg_structures = d3.select("#group_structures")
     .append("svg")
-    .attr("width", width + margin_groupstruct.left + margin_groupstruct.right)
-    .attr("height", height + margin_groupstruct.top + margin_groupstruct.bottom)
+    .attr("width", width_groupstruct + margin_groupstruct.left + margin_groupstruct.right)
+    .attr("height", height_groupstruct + margin_groupstruct.top + margin_groupstruct.bottom)
     .append("g")
     .attr("transform", `translate(${margin_groupstruct.left},${margin_groupstruct.top})`);
 
@@ -23,10 +23,10 @@ d3.csv("data/ideology_structure.csv").then(function (data) {
     // Add X axis
     const x = d3.scaleBand()
         .domain(groups)
-        .range([0, width])
+        .range([0, width_groupstruct])
         .padding([0.2])
     svg_structures.append("g")
-        .attr("transform", `translate(0, ${height})`)
+        .attr("transform", `translate(0, ${height_groupstruct})`)
         .call(d3.axisBottom(x).tickSize(0));
 
     // rotate x axis labels
@@ -37,7 +37,7 @@ d3.csv("data/ideology_structure.csv").then(function (data) {
     // Add Y axis
     const y = d3.scaleLog()
         .domain([0.001, 1])
-        .range([height, 0]);
+        .range([height_groupstruct, 0]);
 
     // Another scale for subgroup position?
     const xSubgroup = d3.scaleBand()
@@ -63,7 +63,7 @@ d3.csv("data/ideology_structure.csv").then(function (data) {
             .attr("x", d => xSubgroup(d.key))
             .attr("y", d => y(d.value) + 0.0000001)
             .attr("width", xSubgroup.bandwidth())
-            .attr("height", d => height - y(d.value) + 0.000001)
+            .attr("height", d => height_groupstruct - y(d.value) + 0.000001)
             .attr("fill", d => color(d.key));
     
 
@@ -91,7 +91,7 @@ d3.csv("data/ideology_structure.csv").then(function (data) {
      legend = svg_structures.append("g")
         .attr("class", "legend")
         // put legend right from the graph
-        .attr("transform", "translate(" + (width) + "," + 0 + ")")
+        .attr("transform", "translate(" + (width_groupstruct) + "," + 0 + ")")
         // color black
         .selectAll("g")
         .data(color.domain().slice().reverse())

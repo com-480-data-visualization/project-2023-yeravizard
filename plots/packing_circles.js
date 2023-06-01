@@ -1,13 +1,13 @@
 // set the dimensions and margins of the graph
 const margin_packed = {top: 300, right: 0, bottom: 0, left:500},
     width = 1500 - margin_packed.left - margin_packed.right,
-    height = 1000 - margin_packed.top - margin_packed.bottom;
+    height_packed = 1000 - margin_packed.top - margin_packed.bottom;
 
 // append the svg object to the body of the page
-const svg = d3.select("#packing")
+const svg_packed = d3.select("#packing")
   .append("svg")
     .attr("width", width + margin_packed.left + margin_packed.right)
-    .attr("height", height + margin_packed.top + margin_packed.bottom)
+    .attr("height", height_packed + margin_packed.top + margin_packed.bottom)
   .append("g")
     .attr("transform",
           `translate(${margin_packed.left}, ${margin_packed.top})`);
@@ -50,7 +50,7 @@ d3.json("data/major_goals.json").then(function(data) {
   }
 
   const pack = data => d3.pack()
-    .size([width - 2, height - 2])
+    .size([width - 2, height_packed - 2])
     .padding(3)
     (d3.hierarchy(data)
       .sum(d => d.value)
@@ -60,7 +60,7 @@ d3.json("data/major_goals.json").then(function(data) {
   let focus = root;
   let view;
   
-  const node = svg.append("g")
+  const node = svg_packed.append("g")
     .selectAll("circle")
     .data(root.descendants().slice(1))
     .join("circle")
@@ -71,7 +71,7 @@ d3.json("data/major_goals.json").then(function(data) {
     .on("mouseout", function() { d3.select(this).attr("stroke", setStrokeColor); })
       .on("click", (event, d) => focus !== d && (zoom(event, d), event.stopPropagation()));
   
-  const label = svg.append("g")
+  const label = svg_packed.append("g")
     // make the text of the color of the circle but darker  
       //.style("font", "20px arial")
     .style("font-family", "Arial")
@@ -89,7 +89,7 @@ d3.json("data/major_goals.json").then(function(data) {
   
       zoomTo([root.x, root.y, root.r * 2]);
 
-      const resetButton = svg.append("g")
+      const resetButton = svg_packed.append("g")
         .attr("class", "reset-button")
         .attr("transform", `translate(${0},${10})`)
         .on("click", () => {
@@ -133,7 +133,7 @@ d3.json("data/major_goals.json").then(function(data) {
       
         const focus = d;
       
-        const transition = svg.transition()
+        const transition = svg_packed.transition()
           .duration(event.altKey ? 7500 : 750)
           .tween("zoom", d => {
             if (d === root) { // Check if the clicked circle is the outer circle
