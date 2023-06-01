@@ -77,6 +77,13 @@ body {
     margin-left: 20px;
 }
 
+.bar_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 20px;
+}
 
 .text_container {
     text-align: justify;
