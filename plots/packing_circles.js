@@ -1,6 +1,6 @@
 // set the dimensions and margins of the graph
-const margin_packed = {top: 400, right: 10, bottom: 10, left:10},
-    width = 1000 - margin_packed.left - margin_packed.right,
+const margin_packed = {top: 400, right: 10, bottom: 10, left:430},
+    width = 1300 - margin_packed.left - margin_packed.right,
     height_packed = 1300 - margin_packed.top - margin_packed.bottom;
 
 // append the svg object to the body of the page
@@ -71,7 +71,7 @@ d3.json("data/major_goals.json").then(function(data) {
     .on("mouseout", function() { d3.select(this).attr("stroke", setStrokeColor); })
       .on("click", (event, d) => focus !== d && (zoom(event, d), event.stopPropagation()));
   
-  const label = svg_packed.append("g")
+      const label = svg_packed.append("g")
       .style("font-family", "Arial")
       .style("font-weight", "bold")
       .attr("pointer-events", "none")
@@ -109,8 +109,8 @@ d3.json("data/major_goals.json").then(function(data) {
       .attr("class", "reset-button")
       .attr("x", -1000) // adjust the x-coordinate to position the rectangle
       .attr("y", -1000) // adjust the y-coordinate to position the rectangle
-      .attr("width", 30000) // set the width of the rectangle
-      .attr("height", 30000) // set the height of the rectangle
+      .attr("width", 1500) // set the width of the rectangle
+      .attr("height", 1500) // set the height of the rectangle
       .style("fill", "lightgrey")
       .style("cursor", "pointer")
       .on("click", () => {

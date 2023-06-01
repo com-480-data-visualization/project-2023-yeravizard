@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
 const margin_sunburst = {top: 40, right: 300, bottom: 10, left: 0},
-    width_total = 1000 - margin_sunburst.left - margin_sunburst.right,
-    height_sunburst = 1000 - margin_sunburst.top - margin_sunburst.bottom;
+    width_total = 1200 - margin_sunburst.left - margin_sunburst.right,
+    height_sunburst = 1200 - margin_sunburst.top - margin_sunburst.bottom;
 
 // append the svg object to the body of the page
 const svg = d3.select("#sunburst")
@@ -25,7 +25,7 @@ d3.json("data/sunburst_tree.json").then(function(data) {
 
     const format = d3.format(",d");
 
-    const width = 932;
+    const width = 800;
     const radius = width / 6;
 
     const arc = d3.arc()
