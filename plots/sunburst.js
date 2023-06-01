@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-const margin_sunburst = {top: 40, right: 10, bottom: 10, left: 600},
+const margin_sunburst = {top: 40, right: 10, bottom: 10, left: 220},
     width_total = 1200 - margin_sunburst.left - margin_sunburst.right,
     height_sunburst = 900 - margin_sunburst.top - margin_sunburst.bottom;
 
@@ -11,9 +11,6 @@ const svg = d3.select("#sunburst")
   .append("g")
     .attr("transform",
           `translate(${margin_sunburst.left}, ${margin_sunburst.top})`);
-
-// set display to block and margin to auto
-d3.select("#sunburst").style("display", "block").style("margin", "auto");
 
 
 d3.json("data/sunburst_tree.json").then(function(data) {
