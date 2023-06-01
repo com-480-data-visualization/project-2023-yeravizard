@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-const margin_sunburst = {top: 40, right: 10, bottom: 10, left: 275},
+const margin_sunburst = {top: 40, right: 10, bottom: 10, left: 260},
     width_total = 1200 - margin_sunburst.left - margin_sunburst.right,
     height_sunburst = 900 - margin_sunburst.top - margin_sunburst.bottom;
 

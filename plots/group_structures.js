@@ -1,6 +1,6 @@
 // Set the dimensions and margins of the graph
 const margin_groupstruct = { top: 60, right: 110, bottom: 100, left: 60 },
-  width_groupstruct = 800 - margin_groupstruct.left - margin_groupstruct.right,
+  width_groupstruct = 850 - margin_groupstruct.left - margin_groupstruct.right,
   height_groupstruct = 600 - margin_groupstruct.top - margin_groupstruct.bottom;
 
 // Append the svg object to the body of the page
