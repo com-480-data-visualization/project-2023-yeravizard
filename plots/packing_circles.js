@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
-const margin_packed = {top:500, right: 10, bottom: 10, left:750},
-    width = 1800 - margin_packed.left - margin_packed.right,
-    height_packed = 1000 - margin_packed.top - margin_packed.bottom;
+const margin_packed = {top:400, right: 10, bottom: 10, left:750},
+    width = 2000 - margin_packed.left - margin_packed.right,
+    height_packed = 800 - margin_packed.top - margin_packed.bottom;
 
 // append the svg object to the body of the page
 const svg_packed = d3.select("#packing")
