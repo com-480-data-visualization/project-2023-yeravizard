@@ -46,10 +46,6 @@ body {
 .sunburst_container {
     display: flex;
     justify-content: center;
-    margin-top: 100px;
-    margin-left: 100px;
-    margin-bottom: 50px;
-    margin-right: 1000px;
     height: 1000px;
     width: 2000px;
 }
@@ -57,10 +53,7 @@ body {
 .packing_container {
     display: flex;
     justify-content: center;
-    margin-top: 100px;
-    margin-left: 100px;
-    margin-bottom: 300px;
-    height: 10px;
+    height: 500px;
     width: max-content;
   }
   
@@ -207,8 +200,6 @@ p {
       /* Safari */
       backface-visibility: hidden;
       /* margin: auto; */
-        margin-left: 10px;
-        margin-right: 10px;
   }
 
   /* Style the front side (fallback if image is missing) */
@@ -217,8 +208,6 @@ p {
         color: black;
         text-align: center;
         display: flex;
-        margin-left: 10px;
-        margin-right: 10px;
         align-items: center;
         vertical-align: middle;
     }
@@ -229,8 +218,6 @@ p {
         vertical-align: middle;
         color: white;
         text-align: center;
-        margin-left: 10px;
-        margin-right: 10px;
         display: flex;
         align-items: center;
         transform: rotateY(180deg);

@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
-const margin_packed = {top: 600, right: 10, bottom: 10, left:630},
-    width = 1700 - margin_packed.left - margin_packed.right,
-    height_packed = 1700 - margin_packed.top - margin_packed.bottom;
+const margin_packed = {top:400, right: 10, bottom: 10, left:800},
+    width = 2000 - margin_packed.left - margin_packed.right,
+    height_packed = 1500 - margin_packed.top - margin_packed.bottom;
 
 // append the svg object to the body of the page
 const svg_packed = d3.select("#packing")
@@ -98,7 +98,8 @@ d3.json("data/major_goals.json").then(function(data) {
             .attr("x", 0)
             .attr("dy", "1.2em"); // Adjust the line spacing
         }
-      });
+      })
+      .style("font-size", d => `${Math.max(8, d.r / 4)}px`);
     
   
   
@@ -109,8 +110,8 @@ d3.json("data/major_goals.json").then(function(data) {
       .attr("class", "reset-button")
       .attr("x", -1000) // adjust the x-coordinate to position the rectangle
       .attr("y", -1000) // adjust the y-coordinate to position the rectangle
-      .attr("width", 1500) // set the width of the rectangle
-      .attr("height", 1500) // set the height of the rectangle
+      .attr("width", 100000) // set the width of the rectangle
+      .attr("height", 2000) // set the height of the rectangle
       .style("fill", "lightgrey")
       .style("cursor", "pointer")
       .on("click", () => {

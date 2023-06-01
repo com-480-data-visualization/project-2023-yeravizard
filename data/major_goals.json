@@ -425,40 +425,6 @@
                         ]
                     }
                 ]
-            },
-            {
-                "name": "Uncertain",
-                "children": [
-                    {
-                        "name": "Political",
-                        "children": [
-                            {
-                                "name": "Protest government policies/laws",
-                                "value": 0.0
-                            },
-                            {
-                                "name": "Protest government ruling party",
-                                "value": 0.0
-                            },
-                            {
-                                "name": "Seek regime type",
-                                "value": 0.0
-                            },
-                            {
-                                "name": "Territorial goals",
-                                "value": 0.0
-                            },
-                            {
-                                "name": "Influence election",
-                                "value": 0.0
-                            },
-                            {
-                                "name": "Other political goal",
-                                "value": 2.0
-                            }
-                        ]
-                    }
-                ]
             }
         ]
     }
