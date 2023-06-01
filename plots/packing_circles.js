@@ -1,6 +1,6 @@
 // set the dimensions and margins of the graph
-const margin_packed = {top: 400, right: 10, bottom: 10, left:800},
-    width = 1500 - margin_packed.left - margin_packed.right,
+const margin_packed = {top: 400, right: 10, bottom: 10, left:10},
+    width = 1000 - margin_packed.left - margin_packed.right,
     height_packed = 1300 - margin_packed.top - margin_packed.bottom;
 
 // append the svg object to the body of the page
@@ -72,20 +72,35 @@ d3.json("data/major_goals.json").then(function(data) {
       .on("click", (event, d) => focus !== d && (zoom(event, d), event.stopPropagation()));
   
   const label = svg_packed.append("g")
-    // make the text of the color of the circle but darker  
-      //.style("font", "20px arial")
-    .style("font-family", "Arial")
-    .style("font-weight", "bold")
-    .attr("pointer-events", "none")
-    .attr("text-anchor", "middle")
-    .selectAll("text")
-    .data(root.descendants())
-    .join("text")
-    .style("fill", d => d3.hsl(setCircleColor(d)).darker())
-    .style("font-size", d => `${fontsize(d.depth)}px`)
+      .style("font-family", "Arial")
+      .style("font-weight", "bold")
+      .attr("pointer-events", "none")
+      .attr("text-anchor", "middle")
+      .selectAll("text")
+      .data(root.descendants())
+      .join("text")
+      .style("fill", d => d3.hsl(setCircleColor(d)).darker())
+      .style("font-size", d => `${fontsize(d.depth)}px`)
       .style("fill-opacity", d => d.parent === root ? 1 : 0)
       .style("display", d => d.parent === root ? "inline" : "none")
-      .text(d => d.data.name);
+      .attr("dy", "0.35em") // Adjust vertical alignment of text
+      
+    label
+      .text(d => d.data.name)
+      .each(function(d) {
+        const words = d.data.name.split(" ");
+        if (words.length > 2) {
+          // Create line breaks after the second word
+          d3.select(this)
+            .text(words[0] + " " + words[1])
+            .append("tspan")
+            .text(words.slice(2).join(" "))
+            .attr("x", 0)
+            .attr("dy", "1.2em"); // Adjust the line spacing
+        }
+      });
+    
+  
   
       zoomTo([root.x, root.y, root.r * 2]);
 
@@ -96,7 +111,7 @@ d3.json("data/major_goals.json").then(function(data) {
       .attr("y", -1000) // adjust the y-coordinate to position the rectangle
       .attr("width", 30000) // set the width of the rectangle
       .attr("height", 30000) // set the height of the rectangle
-      .style("fill", "gray")
+      .style("fill", "lightgrey")
       .style("cursor", "pointer")
       .on("click", () => {
         zoomTo([root.x, root.y, root.r * 2]);
