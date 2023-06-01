@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-const margin_groupstruct = { top: 10, right: 150, bottom: 90, left: 60 },
+const margin_groupstruct = { top: 10, right: 10, bottom: 10, left: 10 },
     width_groupstruct = 800 - margin_groupstruct.left - margin_groupstruct.right,
     height_groupstruct = 600 - margin_groupstruct.top - margin_groupstruct.bottom;
 
