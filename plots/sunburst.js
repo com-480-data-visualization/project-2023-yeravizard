@@ -79,15 +79,21 @@ d3.json("data/sunburst_tree.json").then(function(data) {
         .attr("pointer-events", "none")
         .attr("text-anchor", "middle")
         .style("user-select", "none")
-      .selectAll("text")
-      .data(root.descendants().slice(1))
-      .join("text")
-        .attr("dy", "0.35em")
-        // make all the labels folow the ["#F2C14E", "#0571b0", "#BF2237", "#7B3294", "#1a9641"] color scheme but darker
+        .selectAll("text")
+        .data(root.descendants().slice(1))
+        .join("text")
+        .attr("dy", "0.15em")
         .attr("fill", d => { while (d.depth > 1) d = d.parent; return d3.color(color(d.data.name)).darker(d.depth); })
         .attr("fill-opacity", d => +labelVisible(d.current))
         .attr("transform", d => labelTransform(d.current))
+        .style("font-size", d => `${10}px`) // Set the font size dynamically
         .text(d => d.data.name);
+
+    const centerText = g.append("text")
+        .attr("text-anchor", "middle")
+        .attr("dy", "0.35em")
+        .attr("fill", "black")
+        .style("font-size", "20px");
 
     const parent = g.append("circle")
         .datum(root)
@@ -98,6 +104,11 @@ d3.json("data/sunburst_tree.json").then(function(data) {
   
     function clicked(event, p) {
       parent.datum(p.parent || root);
+
+      centerText.text(p.data.name);
+      centerText.attr("fill", "black");
+      centerText.style("font-weight", "bold").style("font-size", "20px").style("font-family", "Arial");
+  
   
       root.each(d => d.target = {
         x0: Math.max(0, Math.min(1, (d.x0 - p.x0) / (p.x1 - p.x0))) * 2 * Math.PI,
