@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-const margin_packed = {top: 400, right: 10, bottom: 10, left:500},
+const margin_packed = {top: 400, right: 10, bottom: 10, left:800},
     width = 1500 - margin_packed.left - margin_packed.right,
     height_packed = 1300 - margin_packed.top - margin_packed.bottom;
 
@@ -92,11 +92,11 @@ d3.json("data/major_goals.json").then(function(data) {
       
     const resetButton = svg_packed.insert("rect", ":first-child") // insert the rectangle as the first child of the svg element
       .attr("class", "reset-button")
-      .attr("x", -500) // adjust the x-coordinate to position the rectangle
-      .attr("y", -500) // adjust the y-coordinate to position the rectangle
+      .attr("x", -1000) // adjust the x-coordinate to position the rectangle
+      .attr("y", -1000) // adjust the y-coordinate to position the rectangle
       .attr("width", 30000) // set the width of the rectangle
       .attr("height", 30000) // set the height of the rectangle
-      .style("fill", "white")
+      .style("fill", "gray")
       .style("cursor", "pointer")
       .on("click", () => {
         zoomTo([root.x, root.y, root.r * 2]);
