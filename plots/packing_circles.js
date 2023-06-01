@@ -89,34 +89,23 @@ d3.json("data/major_goals.json").then(function(data) {
   
       zoomTo([root.x, root.y, root.r * 2]);
 
-      const resetButton = svg_packed.append("g")
-        .attr("class", "reset-button")
-        .attr("transform", `translate(${0},${10})`)
-        .on("click", () => {
-          zoomTo([root.x, root.y, root.r * 2]);
-          label
-            .transition()
-            .style("fill-opacity", d => d.parent === root ? 1 : 0)
-            .style("display", d => d.parent === root ? "inline" : "none");
-        });
+      
+    const resetButton = svg_packed.insert("rect", ":first-child") // insert the rectangle as the first child of the svg element
+      .attr("class", "reset-button")
+      .attr("x", -500) // adjust the x-coordinate to position the rectangle
+      .attr("y", -500) // adjust the y-coordinate to position the rectangle
+      .attr("width", 30000) // set the width of the rectangle
+      .attr("height", 30000) // set the height of the rectangle
+      .style("fill", "white")
+      .style("cursor", "pointer")
+      .on("click", () => {
+        zoomTo([root.x, root.y, root.r * 2]);
+        label
+          .transition()
+          .style("fill-opacity", d => d.parent === root ? 1 : 0)
+          .style("display", d => d.parent === root ? "inline" : "none");
+      });
 
-      // Create a circle for the button
-      resetButton.append("circle")
-        .attr("r", 20)
-        .style("fill", "blue")
-        .style("cursor", "pointer");
-
-
-      // Create text for the button
-      resetButton.append("text")
-        // put the button on the top left
-        .attr("x", 0)
-        .attr("y", 0)
-        .style("fill", "white")
-        .style("font-size", "14px")
-        .style("text-anchor", "middle")
-        .style("pointer-events", "none")
-        .text("Reset");
 
       function zoomTo(v) {
         const k = width / v[2];
