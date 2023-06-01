@@ -25,7 +25,7 @@ d3.json("data/sunburst_tree.json").then(function(data) {
 
     const format = d3.format(",d");
 
-    const width = width_total;
+    const width = 932;
     const radius = width / 6;
 
     const arc = d3.arc()
