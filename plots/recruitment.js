@@ -1,6 +1,6 @@
 // set the dimensions and margins of the graph
 const margin_recruitment = { top: 60, right: 130, bottom: 100, left: 60 },
-    width_recr = 800 - margin_recruitment.left - margin_recruitment.right,
+    width_recr = 900 - margin_recruitment.left - margin_recruitment.right,
     height_recr = 600 - margin_recruitment.top - margin_recruitment.bottom;
 
 // append the svg object to the body of the page
