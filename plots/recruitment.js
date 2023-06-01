@@ -112,6 +112,5 @@ d3.csv("data/ideology_recruitment.csv").then(function (data) {
         .attr("dy", ".35em")
         .style("text-anchor", "start")
         .text(function (d) { return d; });
-
-})
+});
 

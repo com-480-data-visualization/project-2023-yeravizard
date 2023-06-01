@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
 const margin = {top: 50, right: 50, bottom: 50, left: 50},
-    width = 500 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
+    width = 480 - margin.left - margin.right,
+    height = 480 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 const svg = d3.select("#right_area_chart")
@@ -47,7 +47,7 @@ d3.csv("data/attacks_per_ideology/sub_right_ideologies.csv").then(
         .attr("text-anchor", "end")
         .attr("x", width)
         .attr("y", height+ 40 )
-        .text("Time (year)");
+        .text("Year");
 
         // Add Y axis
     const y = d3.scaleLinear()
@@ -56,13 +56,27 @@ d3.csv("data/attacks_per_ideology/sub_right_ideologies.csv").then(
     svg.append("g")
     .call(d3.axisLeft(y));
 
-    // Add Y axis label:
+    
+        // Add Y axis label
     svg.append("text")
         .attr("text-anchor", "end")
-        .attr("x", 0)
-        .attr("y", -20 )
-        .text("# of attacks")
+        .attr("x", -100)
+        .attr("y", -50)
+        .text("number of attacks")
         .attr("text-anchor", "start")
+        .attr("transform", "rotate(-90)")
+        .attr("dy", "1em");
+
+    // add a title
+    svg.append("text")
+        .attr("x", 25)
+        .attr("y", -20)
+        .attr("text-anchor", "left")
+        .style("font-size", "18px")
+        .text("Attacks by Extreme-Right Ideologies")
+        .style("font-weight", "bold")
+        .style("fill", "#fc4e2a");
+
 
     ////////////////////////
     // BRUSHING AND CHART //
