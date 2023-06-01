@@ -45,6 +45,15 @@ body {
 .graph-container > div {
     width: 100%;
   }
+
+.graph_container {
+    display: flex;
+    width: 93%;
+    border-radius: 5px;
+    padding: 20px;
+    margin: 0 auto;
+    justify-content: center;
+}
   
 .rel_container {
     display: flex;
