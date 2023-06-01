@@ -1,16 +1,16 @@
 // set the dimensions and margins of the graph
-const margin = {top: 300, right: 0, bottom: 0, left:500},
-    width = 1500 - margin.left - margin.right,
-    height = 1000 - margin.top - margin.bottom;
+const margin_packed = {top: 300, right: 0, bottom: 0, left:500},
+    width = 1500 - margin_packed.left - margin_packed.right,
+    height = 1000 - margin_packed.top - margin_packed.bottom;
 
 // append the svg object to the body of the page
 const svg = d3.select("#packing")
   .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("width", width + margin_packed.left + margin_packed.right)
+    .attr("height", height + margin_packed.top + margin_packed.bottom)
   .append("g")
     .attr("transform",
-          `translate(${margin.left}, ${margin.top})`);
+          `translate(${margin_packed.left}, ${margin_packed.top})`);
 
 d3.json("data/major_goals.json").then(function(data) {
   //const color = d3.scaleOrdinal(d3.quantize(d3.interpolateHcl, data.children.length + 1));

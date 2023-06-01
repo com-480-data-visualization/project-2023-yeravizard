@@ -1,15 +1,15 @@
 // set the dimensions and margins of the graph
-const margin = { top: 10, right: 150, bottom: 90, left: 60 },
-    width = 800 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom;
+const margin_groupstruct = { top: 10, right: 150, bottom: 90, left: 60 },
+    width = 800 - margin_groupstruct.left - margin_groupstruct.right,
+    height = 600 - margin_groupstruct.top - margin_groupstruct.bottom;
 
 // append the svg object to the body of the page
 const svg_structures = d3.select("#group_structures")
     .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("width", width + margin_groupstruct.left + margin_groupstruct.right)
+    .attr("height", height + margin_groupstruct.top + margin_groupstruct.bottom)
     .append("g")
-    .attr("transform", `translate(${margin.left},${margin.top})`);
+    .attr("transform", `translate(${margin_groupstruct.left},${margin_groupstruct.top})`);
 
 // Parse the Data
 d3.csv("data/ideology_structure.csv").then(function (data) {
