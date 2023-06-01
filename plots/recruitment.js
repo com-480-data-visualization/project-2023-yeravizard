@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-const margin_recruitment = { top: 10, right: 150, bottom: 90, left: 60 },
+const margin_recruitment = { top: 10, right: 10, bottom: 10, left: 10 },
     width_recr = 800 - margin_recruitment.left - margin_recruitment.right,
     height_recr = 600 - margin_recruitment.top - margin_recruitment.bottom;
 
