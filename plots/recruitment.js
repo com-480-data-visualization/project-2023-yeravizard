@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-const margin_recruitment = { top: 60, right: 110, bottom: 100, left: 60 },
+const margin_recruitment = { top: 60, right: 130, bottom: 100, left: 60 },
     width_recr = 800 - margin_recruitment.left - margin_recruitment.right,
     height_recr = 600 - margin_recruitment.top - margin_recruitment.bottom;
 
@@ -89,8 +89,8 @@ d3.csv("data/ideology_recruitment.csv").then(function (data) {
 
      legend = svg_recruitment.append("g")
         .attr("class", "legend")
-        // put legend right from the graph
         .attr("transform", "translate(" + (width_recr) + "," + 0 + ")")
+        //
         // color black
         .selectAll("g")
         .data(color.domain().slice().reverse())
