@@ -60,6 +60,17 @@ body {
     margin-bottom: 50px;
 }
 
+.packing_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-left: 80px;
+    width: 1500px;
+    height: 800px;
+}
+
+
 .text_container {
     text-align: justify;
     /* center container on webpage */

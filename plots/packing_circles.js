@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
-const margin_packed = {top:300, right: 10, bottom: 10, left:800},
-    width = 1600 - margin_packed.left - margin_packed.right,
-    height_packed = 1600 - margin_packed.top - margin_packed.bottom;
+const margin_packed = {top:500, right: 10, bottom: 10, left:750},
+    width = 1800 - margin_packed.left - margin_packed.right,
+    height_packed = 1000 - margin_packed.top - margin_packed.bottom;
 
 // append the svg object to the body of the page
 const svg_packed = d3.select("#packing")
@@ -124,10 +124,10 @@ d3.json("data/major_goals.json").then(function(data) {
 
 
       function zoomTo(v) {
-        const k = width / v[2];
-
+        const k = width / (v[2] + 50); // Adjust the zoom factor as needed
+      
         view = v;
-
+      
         label.attr("transform", d => `translate(${(d.x - v[0]) * k},${(d.y - v[1]) * k})`);
         node
           .attr("transform", d => `translate(${(d.x - v[0]) * k},${(d.y - v[1]) * k})`)
