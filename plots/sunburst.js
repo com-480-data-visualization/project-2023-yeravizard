@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
 const margin_sunburst = {top: 10, right: 10, bottom: 10, left: 10},
     width_total = 1200 - margin_sunburst.left - margin_sunburst.right,
-    height_sunburst = 800 - margin_sunburst.top - margin_sunburst.bottom;
+    height_sunburst = 1100 - margin_sunburst.top - margin_sunburst.bottom;
 
 // append the svg object to the body of the page
 const svg = d3.select("#sunburst")
