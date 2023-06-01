@@ -34,6 +34,9 @@ d3.csv("data/attacks_per_ideology/sub_ethnonat_ideologies.csv").then(
         /////////////
         // AXIS /////
         /////////////
+
+        // Define the tick format function
+        const formatYear = d3.format(".0f");
         
         // Add X axis
         const x = d3.scaleLinear()
@@ -41,7 +44,7 @@ d3.csv("data/attacks_per_ideology/sub_ethnonat_ideologies.csv").then(
         .range([ 0, width ]);
         svg.append("g")
         .attr("transform", `translate(0, ${height})`)
-        .call(d3.axisBottom(x).tickValues([1970, 1980, 1990, 2000, 2010, 2020]).tickSizeOuter(0));
+            .call(d3.axisBottom(x).tickValues([1970, 1980, 1990, 2000, 2010, 2020]).tickFormat(formatYear).tickSizeOuter(0));
             
         // Add X axis label:
         svg.append("text")
