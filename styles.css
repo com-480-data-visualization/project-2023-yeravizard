@@ -215,4 +215,5 @@ p {
         display: flex;
         align-items: center;
         transform: rotateY(180deg);
+        font-size: medium;
     }
