@@ -1,6 +1,6 @@
 // set the dimensions and margins of the graph
-const margin_packed = {top:10, right: 10, bottom: 10, left:10},
-    width = 2000 - margin_packed.left - margin_packed.right,
+const margin_packed = {top:10, right: 10, bottom: 10, left:500},
+    width = 1000 - margin_packed.left - margin_packed.right,
     height_packed = 800 - margin_packed.top - margin_packed.bottom;
 
 // append the svg object to the body of the page
