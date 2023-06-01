@@ -30,7 +30,7 @@ body {
 
   }
   
-  .graph-container {
+.graph-container {
     display: flex;
     width: 93%;
     background-color: #ffffff;
@@ -42,7 +42,7 @@ body {
 
   }
   
-  .graph-container > div {
+.graph-container > div {
     width: 100%;
   }
   
@@ -50,6 +50,13 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+.sunburst_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
     margin-bottom: 50px;
 }
 
