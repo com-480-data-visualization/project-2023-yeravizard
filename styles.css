@@ -19,7 +19,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 5px;
-    background-color: #f2f2f2;
+    background-color: #ffffff00;
     padding: 10px;
     margin: 0 auto;
     left : 0;
@@ -29,22 +29,6 @@ body {
     /* center the container on the webpage */
 
   }
-/*   
-.graph-container {
-    display: flex;
-    width: 93%;
-    background-color: #ffffff;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin: 0 auto;
-    justify-content: center;
-
-  }
-  
-.graph-container > div {
-    width: 100%;
-  } */
 
 .graph_container {
     display: flex;
@@ -72,9 +56,7 @@ body {
 .packing_container {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    margin-left: 20px;
+    margin: 0 auto;
 }
 
 .bar_container {
