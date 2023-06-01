@@ -1,6 +1,6 @@
 
 // set the dimensions and margins of the graph
-const margin_packed = {top:350, right: 20, bottom: 10, left:950},
+const margin_packed = {top:350, right: 20, bottom: 10, left:1000},
     width = 2000 - margin_packed.left - margin_packed.right,
     height_packed = 700 - margin_packed.top - margin_packed.bottom;
 
@@ -114,7 +114,7 @@ d3.json("data/major_goals.json").then(function(data) {
       .attr("y", -1000) // adjust the y-coordinate to position the rectangle
       .attr("width", 100000) // set the width of the rectangle
       .attr("height", 2000) // set the height of the rectangle
-      .style("fill", "none")
+      .style("fill", "white")
       .style("cursor", "pointer")
       .on("click", () => {
         zoomTo([root.x, root.y, root.r * 2]);
