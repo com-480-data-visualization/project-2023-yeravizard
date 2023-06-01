@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-const margin_packed = {top: 300, right: 0, bottom: 0, left:500},
+const margin_packed = {top: 10, right: 10, bottom: 10, left:10},
     width = 1500 - margin_packed.left - margin_packed.right,
     height_packed = 1000 - margin_packed.top - margin_packed.bottom;
 
