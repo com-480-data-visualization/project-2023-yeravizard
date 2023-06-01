@@ -48,7 +48,7 @@ d3.csv("data/ideology_recruitment.csv").then(function (data) {
     // color palette = one color per subgroup
     const color = d3.scaleOrdinal()
         .domain(subgroups)
-        .range(["#ffffb2", "#fecc5c", "#fd8d3c", "#f03b20", "#bd0026"]);
+        .range(["#0571b0", "#7b3294", "#F2C14E", "#BF2237", "#1a9641"]);
 
     // Show the bars
     svg_recruitment.append("g")
