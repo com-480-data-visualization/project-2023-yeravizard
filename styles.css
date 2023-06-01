@@ -30,7 +30,7 @@ body {
 
   }
   
-  .graph-container {
+  .graph_container {
     display: flex;
     width: 93%;
     background-color: #ffffff;
@@ -42,7 +42,7 @@ body {
 
   }
   
-  .graph-container > div {
+  .graph_container > div {
     width: 100%;
   }
   
