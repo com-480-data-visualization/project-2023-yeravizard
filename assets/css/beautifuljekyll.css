@@ -20,9 +20,11 @@ body {
   background-image: url({{ site.page-img | relative_url }});
   background-attachment: fixed;
   {% endif %}
+  width: 100%;
   overflow-wrap: break-word;
   margin-left: 4rem;
   margin-right: 4rem;
+  color: #000000;
 }
 
 p {
