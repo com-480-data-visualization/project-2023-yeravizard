@@ -1,11 +1,13 @@
+
 // set the dimensions and margins of the graph
-const margin_packed = {top:300, right: 10, bottom: 10, left:500},
-    width = 1000 - margin_packed.left - margin_packed.right,
-    height_packed = 600 - margin_packed.top - margin_packed.bottom;
+const margin_packed = {top:350, right: 20, bottom: 10, left:950},
+    width = 2000 - margin_packed.left - margin_packed.right,
+    height_packed = 700 - margin_packed.top - margin_packed.bottom;
 
 // append the svg object to the body of the page
 const svg_packed = d3.select("#packing")
   .append("svg")
+    .attr("class", "centered-svg")
     .attr("width", width + margin_packed.left + margin_packed.right)
     .attr("height", height_packed + margin_packed.top + margin_packed.bottom)
   .append("g")
@@ -112,7 +114,7 @@ d3.json("data/major_goals.json").then(function(data) {
       .attr("y", -1000) // adjust the y-coordinate to position the rectangle
       .attr("width", 100000) // set the width of the rectangle
       .attr("height", 2000) // set the height of the rectangle
-      .style("fill", "lightgrey")
+      .style("fill", "none")
       .style("cursor", "pointer")
       .on("click", () => {
         zoomTo([root.x, root.y, root.r * 2]);

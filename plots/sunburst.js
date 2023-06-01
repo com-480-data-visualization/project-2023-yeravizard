@@ -12,6 +12,9 @@ const svg = d3.select("#sunburst")
     .attr("transform",
           `translate(${margin_sunburst.left}, ${margin_sunburst.top})`);
 
+// set display to block and margin to auto
+d3.select("#sunburst").style("display", "block").style("margin", "auto");
+
 
 d3.json("data/sunburst_tree.json").then(function(data) {
 

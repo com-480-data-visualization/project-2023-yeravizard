@@ -55,8 +55,14 @@ body {
 
 .packing_container {
     display: flex;
+    text-align: center;
     justify-content: center;
+    align-items: center;
+    /* margin: 0 auto;
+    width: 100%; */
+
 }
+
 
 .bar_container {
     display: flex;
