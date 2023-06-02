@@ -210,3 +210,32 @@ p {
         transform: rotateY(180deg);
         font-size: medium;
     }
+
+   .flip_card_container {
+        display: flex;
+        justify-content: center;
+        /* Center the cards horizontally */
+        gap: 20px;
+        /* Adjust the gap between the cards as needed */
+   }
+
+   .flip-card-wrapper {
+       flex-basis: 20%;
+       /* Set the width of each flip card wrapper */
+   }
+
+    .columns_container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        /* Adjust the width of the columns */
+        gap: 10px;
+        /* Adjust the desired gap between the columns */
+    }
+
+    .column_wrapper_left {
+        justify-content: flex-end;
+    }
+
+    .column_wrapper_right {
+        justify-content: flex-start;
+    }
