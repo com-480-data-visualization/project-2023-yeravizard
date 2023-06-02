@@ -30,13 +30,17 @@ body {
     width: max-content; */
     /* center the container on the webpage */
     justify-content: center;    /* DEBUGGING */
-    max-width: 100%; /* Change width to max-width to fit within the viewport */ /* DEBUGGING */
+    max-width: 80%; /* Change width to max-width to fit within the viewport */ /* DEBUGGING */
   }
 
 
+  .padding-box {
+    padding: 20px; /* Adjust the padding value to set the desired amount of space */
+  }
+
   .fade {
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 1s ease-in-out;
   }
 
 .graph_container {
@@ -248,3 +252,43 @@ p {
     .column_wrapper_right {
         flex-basis: 10%;
     }
+    
+    .title-container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background-color: #fff;
+        color: #000;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: Helvetica, Arial, sans-serif;
+        overflow: hidden;
+      }
+      
+      #title,
+      #subtitle {
+        opacity: 0;
+        white-space: nowrap;
+      }
+      
+      .typing-bar {
+        display: inline-block;
+        width: 8px;
+        height: 50px;
+        background-color: #000;
+        animation: typingBar 1s infinite;
+      }
+      
+      @keyframes typingBar {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }

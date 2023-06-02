@@ -1,8 +1,8 @@
 
 // set the dimensions and margins of the graph
 const margin = {top: 50, right: 50, bottom: 50, left: 50},
-    width = 480 - margin.left - margin.right,
-    height = 480 - margin.top - margin.bottom;
+    width = 400 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 const svg = d3.select("#area_chart")
@@ -50,7 +50,8 @@ d3.csv("data/attacks_per_ideology/dominant_ideologies.csv").then(
         .attr("text-anchor", "end")
         .attr("x", width)
         .attr("y", height+ 40 )
-        .text("Year");
+        .text("Year")
+        .style("font-family", "Helvetica");
 
      // Add Y axis
     const y = d3.scaleLinear()
@@ -64,10 +65,11 @@ d3.csv("data/attacks_per_ideology/dominant_ideologies.csv").then(
         .attr("text-anchor", "end")
         .attr("x", -100)
         .attr("y", -50)
-        .text("number of attacks")
+        .text("Number of attacks")
         .attr("text-anchor", "start")
         .attr("transform", "rotate(-90)")
-        .attr("dy", "1em");
+        .attr("dy", "1em")
+        .style("font-family", "Helvetica");
 
     // add a title
     svg.append("text")
@@ -77,7 +79,8 @@ d3.csv("data/attacks_per_ideology/dominant_ideologies.csv").then(
         .style("font-size", "18px")
         .text("Attacks by Ideologies")
         .style("font-weight", "bold")
-        .style("fill", "#00000");
+        .style("fill", "#00000")
+        .style("font-family", "Helvetica");
 
     ////////////////////////
     // BRUSHING AND CHART //
@@ -195,5 +198,9 @@ d3.csv("data/attacks_per_ideology/dominant_ideologies.csv").then(
         .style("alignment-baseline", "middle")
         .on("mouseover", highlight)
         .on("mouseleave", noHighlight)
+        .style("font-family", "Helvetica")
+        .style("font-size", "12px")
+        .style("font-weight", "bold");
+
 
     })

@@ -26,43 +26,42 @@ subtitle: Uncovering Patterns in Terrorist Group Beliefs and Attacks
 		  $j(window).scroll(function() {
 			var windowBottom = $j(this).scrollTop() + $j(this).innerHeight();
 			$j(".fade").each(function() {
-			  var objectBottom = $j(this).offset().top + $j(this).outerHeight();
-			  if (objectBottom < windowBottom && $j(this).css("opacity") == 0) {
-				$j(this).fadeTo(500, 1);
+			  var objectTop = $j(this).offset().top;
+			  if (objectTop - 100 < windowBottom && $j(this).css("opacity") == 0) {
+				$j(this).css("opacity", 1); // Set opacity to 1 without fading in
 			  }
 			});
 		  });
 		});
 	  </script>
-	
 
-	<!-- Scrolling button -->
-	<script>
-		$(document).ready(function () {
-			$("a.scroll-button").on('click', function (event) {
-				if (this.hash !== "") {
-					event.preventDefault();
-					var hash = this.hash;
-					$('html, body').animate({
-						scrollTop: $(hash).offset().top - 100
-					}, 800, function () {
-						window.location.hash = hash;
-					});
-				}
-			});
-		});
-	</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function(event) {
+      const titleElement = document.getElementById('title');
+      const subtitleElement = document.getElementById('subtitle');
+      const delayBetweenTexts = 1000;
+
+      titleElement.style.animation = 'fade-in 1s forwards';
+
+      setTimeout(function() {
+        subtitleElement.style.animation = 'fade-in 1s forwards';
+      }, delayBetweenTexts);
+    });
+  </script>
+
 </head>
 
 <body>
 
+
 	<!-- PART 1: OVERVIEW -->
 	<div class="text_container fade" id="overview">
-		<h3> Introduction </h3>
-			<p> Our work will revolve around the extensively studied and impressively rich 
+		<h3>Unveiling the Global Terrorism Landscape</h3>
+			<p> Embark on an illuminating expedition as we navigate the intricate web of terrorism
+				drawing upon the impressively rich
 				<a style="color:cadetblue; font-weight: bold;" href="https://www.start.umd.edu/gtd">Global Terrorism Database</a>. 
-				The GTD includes data on over 200,000 international terrorist attacks since 1970. 
-				We direct our analysis at the differences between terrorist groups with different ideologies. 
+				It includes a large collection of over 200,000 international terrorist attacks since 1970. 
+				Our focus lies in deciphering the disparities between terrorist groups rooted in diverse ideologies.
 				We start by providing a geographical overview of terrorist attacks. 
 				Afterwards, we consider how the ideological background of terrorists has evolved over time. 
 				Then, we dive into how terrorist groups from different ideologies differ.</p> 
@@ -173,8 +172,10 @@ subtitle: Uncovering Patterns in Terrorist Group Beliefs and Attacks
 
 	<!-- DOMINANT IDEOLOGIES OVER TIME -->
 
+	<div class="padding-box"></div>
+
 	<div class="text_container fade">
-		<h3> Extreme Left attacks over time. </h3>
+		<h3> Ideologies attack. </h3>
 	</div>
 
 	<div class="grid-container fade">

@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
 const margin = {top: 50, right: 50, bottom: 50, left: 50},
-    width = 480 - margin.left - margin.right,
-    height = 480 - margin.top - margin.bottom;
+    width = 400 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 const svg = d3.select("#religious_area_chart")
@@ -40,14 +40,16 @@ d3.csv("data/attacks_per_ideology/sub_religious_ideologies.csv").then(
     .range([ 0, width ]);
     svg.append("g")
     .attr("transform", `translate(0, ${height})`)
-    .call(d3.axisBottom(x).tickValues([1970, 1980, 1990, 2000, 2010, 2020]).tickFormat(formatYear).tickSizeOuter(0));
+    .call(d3.axisBottom(x).tickValues([1970, 1980, 1990, 2000, 2010, 2020]).tickFormat(formatYear).tickSizeOuter(0))
+    .style("font-family", "Helvetica");
         
     // Add X axis label:
     svg.append("text")
         .attr("text-anchor", "end")
         .attr("x", width)
         .attr("y", height+ 40 )
-        .text("Year");
+        .text("Year")
+        .style("font-family", "Helvetica");
 
         // Add Y axis
     const y = d3.scaleLinear()
@@ -62,10 +64,11 @@ d3.csv("data/attacks_per_ideology/sub_religious_ideologies.csv").then(
         .attr("text-anchor", "end")
         .attr("x", -100)
         .attr("y", -50)
-        .text("number of attacks")
+        .text("Number of attacks")
         .attr("text-anchor", "start")
         .attr("transform", "rotate(-90)")
-        .attr("dy", "1em");
+        .attr("dy", "1em")
+        .style("font-family", "Helvetica");
 
         // add a title
     svg.append("text")
@@ -75,7 +78,8 @@ d3.csv("data/attacks_per_ideology/sub_religious_ideologies.csv").then(
         .style("font-size", "18px")
         .text("Attacks by Religious Ideologies")
         .style("font-weight", "bold")
-        .style("fill", "#990000");
+        .style("fill", "#990000")
+        .style("font-family", "Helvetica");
 
 
     ////////////////////////
@@ -194,6 +198,9 @@ d3.csv("data/attacks_per_ideology/sub_religious_ideologies.csv").then(
         .style("alignment-baseline", "middle")
         .on("mouseover", highlight)
         .on("mouseleave", noHighlight)
+        .style("font-family", "Helvetica")
+        .style("font-size", "12px")
+        .style("font-weight", "bold");
 
     })
 
