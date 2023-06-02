@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-const margin_packed = {top:380, right: 20, bottom: 10, left:780},
+const margin_packed = {top:380, right: 20, bottom: 10, left:820},
     width = 2000 - margin_packed.left - margin_packed.right,
     height_packed = 800 - margin_packed.top - margin_packed.bottom;
 
@@ -99,7 +99,7 @@ d3.json("data/major_goals.json").then(function(data) {
             .attr("dy", "1.2em"); // Adjust the line spacing
         }
       })
-      .style("font-size", d => `${Math.max(8, d.r / 4)}px`);
+      .style("font-size", d => `${Math.max(8, d.r / 2)}px`);
     
   
   
