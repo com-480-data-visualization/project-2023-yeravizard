@@ -225,17 +225,17 @@ p {
    }
 
     .columns_container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        /* Adjust the width of the columns */
-        gap: 10px;
-        /* Adjust the desired gap between the columns */
+        display: flex;
+        justify-content: center;
+        /* Center the cards horizontally */
+        /* Adjust the gap between the cards as needed */
+        gap: 40px;
     }
 
     .column_wrapper_left {
-        justify-content: flex-end;
+        flex-basis: 25%;
     }
 
     .column_wrapper_right {
-        justify-content: flex-start;
+        flex-basis: 10%;
     }
