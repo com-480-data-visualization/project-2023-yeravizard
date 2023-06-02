@@ -30,6 +30,11 @@ body {
 
   }
 
+  .fade {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out; /* Add a smooth transition effect */
+}
+
 .graph_container {
     display: flex;
     width: 93%;
@@ -74,7 +79,7 @@ body {
 .text_container {
     text-align: justify;
     /* center container on webpage */
-    width: 40%;
+    width: 45%;
     font-family: 'Helvetica Neue light';
     margin: 0 auto;
     margin-top: 50px;
@@ -125,10 +130,6 @@ h4 {
 p {
     font-family: Helvetica;
     font-size: 24px;
-}
-.fade {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
 }
 .down-arrow {
     display: block;
