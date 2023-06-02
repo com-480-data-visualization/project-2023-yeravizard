@@ -55,10 +55,6 @@
                         "name": "Economic",
                         "children": [
                             {
-                                "name": "Protest economic discrimination",
-                                "value": 0.0
-                            },
-                            {
                                 "name": "Protest government/corporate economic policies",
                                 "value": 1195.0
                             },
@@ -169,10 +165,6 @@
                                 "value": 19.0
                             },
                             {
-                                "name": "Killing infidels/Non-believers",
-                                "value": 0.0
-                            },
-                            {
                                 "name": "Other religious goal",
                                 "value": 82.0
                             }
@@ -271,10 +263,6 @@
                                 "value": 3.0
                             },
                             {
-                                "name": "Influence election",
-                                "value": 0.0
-                            },
-                            {
                                 "name": "Other political goal",
                                 "value": 32.0
                             }
@@ -317,18 +305,6 @@
                     {
                         "name": "Religious",
                         "children": [
-                            {
-                                "name": "Protest religious discrimination",
-                                "value": 0.0
-                            },
-                            {
-                                "name": "Protest religious institutions",
-                                "value": 0.0
-                            },
-                            {
-                                "name": "Killing infidels/Non-believers",
-                                "value": 0.0
-                            },
                             {
                                 "name": "Other religious goal",
                                 "value": 28.0
@@ -406,14 +382,6 @@
                     {
                         "name": "Religious",
                         "children": [
-                            {
-                                "name": "Protest religious discrimination",
-                                "value": 0.0
-                            },
-                            {
-                                "name": "Protest religious institutions",
-                                "value": 0.0
-                            },
                             {
                                 "name": "Killing infidels/Non-believers",
                                 "value": 6.0

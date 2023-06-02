@@ -99,7 +99,7 @@ d3.json("data/major_goals.json").then(function(data) {
             .attr("dy", "1.2em"); // Adjust the line spacing
         }
       })
-      .style("font-size", d => `${Math.max(8, d.r / 2)}px`);
+      .style("font-size", d => `${fontsize(d.depth)}px`);
     
   
   
