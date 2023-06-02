@@ -17,6 +17,7 @@ Our github repository as the following structure:
 ├───scripts             (python code for processing the data)
 ├───index.html          (Code for the website)
 ├───styles.css          (css styles for the website)
+├───screencast.mp4      (screencast presenting the website)
 └───_config.yml         (configuration of BeautifulJekyll website)
 ```
 
@@ -27,7 +28,7 @@ Our work will revolve around the extensively studied and impressively rich [GTD]
 We aim to direct our analysis at the group behavior of terrorist organizations. To do so, we pair the GTD  with another complementary dataset by START, called the [Profiles of Perpetrators of Terrorism in the United States](https://dataverse.harvard.edu/dataset.xhtml?persistentId=hdl%3A1902.1/17702) (PPT-US). This database describes 145 terrorist organizations having engaged in terrorist activity in the United States between 1970 and 2016. From their own description, each organization's "terrorist attacks, its history and base of operations, its ideology and goals, its engagement in political and criminal activities (other than terrorism), its alliances, its network and structure, and its financial resources." A confidence indicator (*high*/*medium*/*low*) is included for each information to reflect the reliability of each information. 
 
 ### Screencast :movie_camera:
-
+The screencast presents our website and highlights the most interesting findings. 
 
 ### Authors :pencil2:
 
