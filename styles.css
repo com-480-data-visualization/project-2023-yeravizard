@@ -1,7 +1,10 @@
 body {
     background-color: rgb(255, 255, 255);
     color: black;
-}
+    margin: 0; /* Add this line to remove default body margin */
+    overflow-x: hidden; /* Add this line to disable horizontal scrolling */
+  }
+
 /* Here you can add several style "classes" */
 .map_container {
     display: flex;
@@ -22,15 +25,15 @@ body {
     background-color: #ffffff;
     padding: 10px;
     margin: 0 auto;
-    left : 0;
+    /*left : 0;
     right : 0;
-    justify-content: center;
-    width: max-content;
+    width: max-content; */
     /* center the container on the webpage */
-
+    justify-content: center;    /* DEBUGGING */
+    max-width: 100%; /* Change width to max-width to fit within the viewport */ /* DEBUGGING */
   }
 
-  .fade {
+.fade {
     opacity: 0;
     transition: opacity 0.5s ease-in-out; /* Add a smooth transition effect */
 }
@@ -84,11 +87,15 @@ body {
     margin: 0 auto;
     margin-top: 50px;
     margin-bottom: 50px;
+    max-width: 100%; /* Change width to max-width to fit within the viewport */ /* DEBUGGING */
 }
+
+
 .img_container {
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
+    max-width: 100%; /* Change width to max-width to fit within the viewport */
 }
 
 a {
