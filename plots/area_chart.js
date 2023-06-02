@@ -203,6 +203,4 @@ d3.csv("data/attacks_per_ideology/dominant_ideologies.csv").then(
         .style("font-family", "Helvetica")
         .style("font-size", "12px")
         .style("font-weight", "bold");
-
-
     })
