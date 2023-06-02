@@ -24,15 +24,19 @@ d3.csv("data/ideology_recruitment.csv").then(function (data) {
     const x = d3.scaleBand()
         .domain(groups)
         .range([0, width_recr])
-        .padding([0.2])
+        .padding([0.4])
     svg_recruitment.append("g")
         .attr("transform", `translate(0, ${height_recr})`)
         .call(d3.axisBottom(x).tickSize(0));
 
     // rotate x axis labels
     svg_recruitment.selectAll("text")
-        .attr("transform", "translate(-10,0)rotate(-45)")
-        .style("text-anchor", "end");
+        // Remove all text elements after / (if any). If there are none, this does nothing.
+        .text(function (d) { return d.split("/")[0]; })
+        .attr("transform", "translate(0,0)")
+        .style("text-anchor", "middle")
+        .style("font-family", "Helvetica") // Updated to Helvetica font
+        .style("font-size", "13px");
 
     // Add Y axis
     const y = d3.scaleLog()
@@ -43,7 +47,7 @@ d3.csv("data/ideology_recruitment.csv").then(function (data) {
     const xSubgroup = d3.scaleBand()
         .domain(subgroups)
         .range([0, x.bandwidth()])
-        .padding([0.05])
+        .padding([0.1])
 
     // color palette = one color per subgroup
     const color = d3.scaleOrdinal()
@@ -71,7 +75,7 @@ d3.csv("data/ideology_recruitment.csv").then(function (data) {
         .call(d3.axisLeft(y)
             .tickValues([0.001, 0.01, 0.1, 1])
             // show values as decimal numbers (not scientific notation), but do not show too many digits. Hence 0.0001 is good, but not 1.000 (this should be 1)
-            .tickFormat(d3.format(".4")));
+            .tickFormat(d3.format(".0%")));
 
     svg_recruitment.append("text")
         .attr("class", "y label")
@@ -85,7 +89,8 @@ d3.csv("data/ideology_recruitment.csv").then(function (data) {
         .attr("dy", "-3em")
         // shift label to the left
         .attr("transform", "rotate(-90)")
-        .text("Proportion of groups with the indicated structure");
+        .text("Proportion of groups with the indicated structure")
+        .style("font-family", "Helvetica");
 
      legend = svg_recruitment.append("g")
         .attr("class", "legend")
@@ -95,7 +100,7 @@ d3.csv("data/ideology_recruitment.csv").then(function (data) {
         .selectAll("g")
         .data(color.domain().slice().reverse())
         .enter().append("g")
-        .attr("transform", function (d, i) { return "translate(0," + i * 20 + ")"; });
+        .attr("transform", function (d, i) { return "translate(0," +(180 + i * 20) + ")"; });
 
     legend.append("rect")
         .attr("x", 0)
@@ -107,10 +112,12 @@ d3.csv("data/ideology_recruitment.csv").then(function (data) {
     legend.append("text")
         .attr("x", 25)
         .attr("y", 9)
-        // color black
-        .attr("fill", "black")
         .attr("dy", ".35em")
         .style("text-anchor", "start")
-        .text(function (d) { return d; });
+        .text(function (d) { return d; })
+        .text(d => d.charAt(0).toUpperCase() + d.slice(1))
+        .style("font-family", "Helvetica")
+        .style("font-size", "12px");
+        
 });
 

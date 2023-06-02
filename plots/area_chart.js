@@ -48,10 +48,11 @@ d3.csv("data/attacks_per_ideology/dominant_ideologies.csv").then(
     // Add X axis label:
     svg.append("text")
         .attr("text-anchor", "end")
-        .attr("x", width)
+        .attr("x", 180)
         .attr("y", height+ 40 )
         .text("Year")
-        .style("font-family", "Helvetica");
+        .style("font-family", "Helvetica")
+        .style("font-size", "12px");
 
      // Add Y axis
     const y = d3.scaleLinear()
@@ -63,21 +64,22 @@ d3.csv("data/attacks_per_ideology/dominant_ideologies.csv").then(
     // Add Y axis label
     svg.append("text")
         .attr("text-anchor", "end")
-        .attr("x", -100)
+        .attr("x", -200)
         .attr("y", -50)
         .text("Number of attacks")
         .attr("text-anchor", "start")
         .attr("transform", "rotate(-90)")
         .attr("dy", "1em")
-        .style("font-family", "Helvetica");
+        .style("font-family", "Helvetica")
+        .style("font-size", "12px");
 
     // add a title
     svg.append("text")
-        .attr("x", 25)
+        .attr("x", 60)
         .attr("y", -20)
         .attr("text-anchor", "left")
         .style("font-size", "18px")
-        .text("Attacks by Ideologies")
+        .text("Main ideologies")
         .style("font-weight", "bold")
         .style("fill", "#00000")
         .style("font-family", "Helvetica");

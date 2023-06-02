@@ -25,14 +25,21 @@ d3.csv("data/ideology_structure.csv").then(function (data) {
     .scaleBand()
     .domain(groups)
     .range([0, width_groupstruct])
-    .padding([0.2]);
+    .padding([0.4]);
+
   svg_structures
     .append("g")
     .attr("transform", `translate(0, ${height_groupstruct})`)
     .call(d3.axisBottom(x).tickSize(0))
     .selectAll("text")
-    .attr("transform", "translate(-10,0)rotate(-45)")
-    .style("text-anchor", "end");
+    // Remove all text elements after / (if any). If there are none, this does nothing.
+    .text(function (d) {
+      return d.split("/")[0];
+    })
+    .attr("transform", "translate(0,0)") // Updated to horizontal
+    .style("text-anchor", "middle") // Updated to horizontal
+    .style("font-family", "Helvetica") // Updated to Helvetica font
+    .style("font-size", "13px");
 
   // Add Y axis
   const y = d3.scaleLog().domain([0.001, 1]).range([height_groupstruct, 0]);
@@ -42,7 +49,7 @@ d3.csv("data/ideology_structure.csv").then(function (data) {
     .scaleBand()
     .domain(subgroups)
     .range([0, x.bandwidth()])
-    .padding([0.05]);
+    .padding([0.1]);
 
   // Color palette = one color per subgroup
   const color = d3
@@ -69,6 +76,7 @@ d3.csv("data/ideology_structure.csv").then(function (data) {
     .attr("width", xSubgroup.bandwidth())
     .attr("height", d => height_groupstruct - y(d.value) + 0.000001)
     .attr("fill", d => color(d.key))
+    
 
   // Add Y axis ticks
   svg_structures
@@ -77,8 +85,8 @@ d3.csv("data/ideology_structure.csv").then(function (data) {
       d3
         .axisLeft(y)
         .tickValues([0.001, 0.01, 0.1, 1])
-        .tickFormat(d3.format(".4"))
-    );
+        .tickFormat(d3.format(".0%")) // Updated to percentages
+    )
 
   // Add Y axis label
   svg_structures
@@ -90,31 +98,36 @@ d3.csv("data/ideology_structure.csv").then(function (data) {
     .attr("y", 6)
     .attr("dy", "-3em")
     .attr("transform", "rotate(-90)")
-    .text("Proportion of groups with the indicated structure");
+    .text("Proportion of groups with the indicated structure")
+    .style("font-family", "Helvetica");
 
   // Add legend
   const legend = svg_structures
-    .append("g")
-    .attr("class", "legend")
-    .attr("transform", `translate(${width_groupstruct}, ${0})`)
-    .selectAll("g")
-    .data(color.domain().slice().reverse())
-    .join("g")
-    .attr("transform", (d, i) => `translate(0, ${i * 20})`);
+  .append("g")
+  .attr("class", "legend")
+  .attr("transform", `translate(${width_groupstruct}, ${0})`)
+  .selectAll("g")
+  .data(color.domain().slice().reverse())
+  .join("g")
+  .attr("transform", (d, i) => `translate(0, ${180+i * 20})`);
 
-  legend
-    .append("rect")
-    .attr("x", 0)
-    .attr("width", 18)
-    .attr("height", 18)
-    .attr("fill", color);
+legend
+  .append("rect")
+  .attr("x", 0)
+  .attr("width", 18)
+  .attr("height", 18)
+  .attr("fill", color);
 
-  legend
-    .append("text")
-    .attr("x", 25)
-    .attr("y", 9)
-    .attr("fill", "black")
-    .attr("dy", ".35em")
-    .style("text-anchor", "start")
-    .text(d => d);
-    });
+legend
+  .append("text")
+  // Capitalize first letter of each word
+  .text(d => d.charAt(0).toUpperCase() + d.slice(1))
+  .attr("x", 25)
+  .attr("y", 9)
+  .attr("fill", "black")
+  .attr("dy", ".35em")
+  .style("text-anchor", "start")
+  .text(d => d)
+  .style("font-family", "Helvetica")
+  .style("font-size", "12px");
+});
