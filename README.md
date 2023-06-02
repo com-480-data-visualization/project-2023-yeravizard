@@ -2,6 +2,7 @@
 Final project for the course Data Visualization at EPFL. [Go to website](https://com-480-data-visualization.github.io/project-2023-yeravizard/)
 
 ### Introduction :bulb:
+In this data visualization project, we will unravel the different characteristics that define and differentiate terrorist groups. Through data visualization techniques we aim to investigate how terrorist groups from different ideologies differ. This project will discuss geographical patterns, ideological affiliations, evolution over time, weapons, targets, and operational strategies of terrorist groups. By directing our focus toward the differences between ideologies, we aim to explore how distinct belief systems shape the formation, objectives, and modus operandi of various terrorist groups.
 
 ### Folder structure :file_folder:
 Our github repository as the following structure:
