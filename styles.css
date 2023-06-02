@@ -33,10 +33,10 @@ body {
     max-width: 100%; /* Change width to max-width to fit within the viewport */ /* DEBUGGING */
   }
 
+
 .fade {
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out; /* Add a smooth transition effect */
-}
+    opacity: 1;
+  }
 
 .graph_container {
     display: flex;
